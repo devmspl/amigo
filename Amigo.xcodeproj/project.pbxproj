@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		040351872718101B007E5833 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040351862718101B007E5833 /* AppDelegate.swift */; };
 		040351892718101B007E5833 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040351882718101B007E5833 /* SceneDelegate.swift */; };
-		0403518B2718101B007E5833 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0403518A2718101B007E5833 /* ViewController.swift */; };
 		0403518E2718101B007E5833 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0403518C2718101B007E5833 /* Main.storyboard */; };
 		040351902718101C007E5833 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0403518F2718101C007E5833 /* Assets.xcassets */; };
 		040351932718101C007E5833 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 040351912718101C007E5833 /* LaunchScreen.storyboard */; };
 		0403519E2718101D007E5833 /* AmigoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0403519D2718101D007E5833 /* AmigoTests.swift */; };
 		040351A92718101D007E5833 /* AmigoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040351A82718101D007E5833 /* AmigoUITests.swift */; };
+		FA6D6EB42718450D009D6141 /* SignupVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6D6EB32718450D009D6141 /* SignupVc.swift */; };
+		FA6D6EB627184DA3009D6141 /* ForgotPassVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6D6EB527184DA3009D6141 /* ForgotPassVC.swift */; };
+		FA6F8F102718524300AD9946 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6F8F0F2718524300AD9946 /* LoginVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +40,6 @@
 		040351832718101B007E5833 /* Amigo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amigo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		040351862718101B007E5833 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		040351882718101B007E5833 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0403518A2718101B007E5833 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0403518D2718101B007E5833 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0403518F2718101C007E5833 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		040351922718101C007E5833 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +50,9 @@
 		040351A42718101D007E5833 /* AmigoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AmigoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		040351A82718101D007E5833 /* AmigoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmigoUITests.swift; sourceTree = "<group>"; };
 		040351AA2718101D007E5833 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA6D6EB32718450D009D6141 /* SignupVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVc.swift; sourceTree = "<group>"; };
+		FA6D6EB527184DA3009D6141 /* ForgotPassVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassVC.swift; sourceTree = "<group>"; };
+		FA6F8F0F2718524300AD9946 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +105,10 @@
 			children = (
 				040351862718101B007E5833 /* AppDelegate.swift */,
 				040351882718101B007E5833 /* SceneDelegate.swift */,
-				0403518A2718101B007E5833 /* ViewController.swift */,
 				0403518C2718101B007E5833 /* Main.storyboard */,
+				FA6F8F0F2718524300AD9946 /* LoginVC.swift */,
+				FA6D6EB527184DA3009D6141 /* ForgotPassVC.swift */,
+				FA6D6EB32718450D009D6141 /* SignupVc.swift */,
 				0403518F2718101C007E5833 /* Assets.xcassets */,
 				040351912718101C007E5833 /* LaunchScreen.storyboard */,
 				040351942718101C007E5833 /* Info.plist */,
@@ -258,9 +264,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0403518B2718101B007E5833 /* ViewController.swift in Sources */,
+				FA6D6EB42718450D009D6141 /* SignupVc.swift in Sources */,
 				040351872718101B007E5833 /* AppDelegate.swift in Sources */,
+				FA6D6EB627184DA3009D6141 /* ForgotPassVC.swift in Sources */,
 				040351892718101B007E5833 /* SceneDelegate.swift in Sources */,
+				FA6F8F102718524300AD9946 /* LoginVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,7 +454,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = mspl.Amigo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -465,7 +473,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = mspl.Amigo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
