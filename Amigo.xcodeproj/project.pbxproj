@@ -14,6 +14,10 @@
 		040351932718101C007E5833 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 040351912718101C007E5833 /* LaunchScreen.storyboard */; };
 		0403519E2718101D007E5833 /* AmigoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0403519D2718101D007E5833 /* AmigoTests.swift */; };
 		040351A92718101D007E5833 /* AmigoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040351A82718101D007E5833 /* AmigoUITests.swift */; };
+		040E12AF2721915B007E1A69 /* OrientationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E12AE2721915B007E1A69 /* OrientationVC.swift */; };
+		040E12B4272191CE007E1A69 /* GenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E12B3272191CE007E1A69 /* GenderVC.swift */; };
+		040E12B927219223007E1A69 /* PersonalInformation1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E12B827219223007E1A69 /* PersonalInformation1VC.swift */; };
+		040E12BE2721925C007E1A69 /* PersonalInformation2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E12BD2721925B007E1A69 /* PersonalInformation2VC.swift */; };
 		FA6D6EB42718450D009D6141 /* SignupVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6D6EB32718450D009D6141 /* SignupVc.swift */; };
 		FA6D6EB627184DA3009D6141 /* ForgotPassVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6D6EB527184DA3009D6141 /* ForgotPassVC.swift */; };
 		FA6F8F102718524300AD9946 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6F8F0F2718524300AD9946 /* LoginVC.swift */; };
@@ -50,6 +54,10 @@
 		040351A42718101D007E5833 /* AmigoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AmigoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		040351A82718101D007E5833 /* AmigoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmigoUITests.swift; sourceTree = "<group>"; };
 		040351AA2718101D007E5833 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		040E12AE2721915B007E1A69 /* OrientationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationVC.swift; sourceTree = "<group>"; };
+		040E12B3272191CE007E1A69 /* GenderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderVC.swift; sourceTree = "<group>"; };
+		040E12B827219223007E1A69 /* PersonalInformation1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformation1VC.swift; sourceTree = "<group>"; };
+		040E12BD2721925B007E1A69 /* PersonalInformation2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformation2VC.swift; sourceTree = "<group>"; };
 		FA6D6EB32718450D009D6141 /* SignupVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVc.swift; sourceTree = "<group>"; };
 		FA6D6EB527184DA3009D6141 /* ForgotPassVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassVC.swift; sourceTree = "<group>"; };
 		FA6F8F0F2718524300AD9946 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -106,6 +114,10 @@
 				040351862718101B007E5833 /* AppDelegate.swift */,
 				040351882718101B007E5833 /* SceneDelegate.swift */,
 				0403518C2718101B007E5833 /* Main.storyboard */,
+				040E12BD2721925B007E1A69 /* PersonalInformation2VC.swift */,
+				040E12B827219223007E1A69 /* PersonalInformation1VC.swift */,
+				040E12B3272191CE007E1A69 /* GenderVC.swift */,
+				040E12AE2721915B007E1A69 /* OrientationVC.swift */,
 				FA6F8F0F2718524300AD9946 /* LoginVC.swift */,
 				FA6D6EB527184DA3009D6141 /* ForgotPassVC.swift */,
 				FA6D6EB32718450D009D6141 /* SignupVc.swift */,
@@ -267,8 +279,12 @@
 				FA6D6EB42718450D009D6141 /* SignupVc.swift in Sources */,
 				040351872718101B007E5833 /* AppDelegate.swift in Sources */,
 				FA6D6EB627184DA3009D6141 /* ForgotPassVC.swift in Sources */,
+				040E12B927219223007E1A69 /* PersonalInformation1VC.swift in Sources */,
+				040E12BE2721925C007E1A69 /* PersonalInformation2VC.swift in Sources */,
+				040E12AF2721915B007E1A69 /* OrientationVC.swift in Sources */,
 				040351892718101B007E5833 /* SceneDelegate.swift in Sources */,
 				FA6F8F102718524300AD9946 /* LoginVC.swift in Sources */,
+				040E12B4272191CE007E1A69 /* GenderVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

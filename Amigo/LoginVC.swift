@@ -22,6 +22,11 @@ class LoginVC: UIViewController {
     }
     
 
+    @IBAction func loginTapped(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "OrientationVC") as! OrientationVC
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     @IBAction func back_btn(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
