@@ -8,5 +8,5 @@
 import UIKit
 
 class InformationCell: UICollectionViewCell {
-    
+    @IBOutlet weak var picSelected: UIImageView!
 }
