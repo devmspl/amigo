@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import StepSlider
 
 class OrientationVC: UIViewController {
 
+    @IBOutlet weak var sliderr: StepSlider!
     @IBOutlet weak var tableOreintation: UITableView!{
         didSet{
             tableOreintation.tableFooterView = UIView(frame: .zero)

@@ -68,6 +68,9 @@ class SomeProfileVC: UIViewController,UICollectionViewDelegate,UICollectionViewD
     
     @IBAction func optionBtn(_ sender: Any) {
     }
+    @IBAction func backTapped(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     
 }
 class UpperCollectionCell: UICollectionViewCell{
