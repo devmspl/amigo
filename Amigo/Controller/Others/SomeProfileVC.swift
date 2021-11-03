@@ -64,9 +64,11 @@ class SomeProfileVC: UIViewController,UICollectionViewDelegate,UICollectionViewD
             return CGSize(width: picCollection.frame.width/3.5, height: picCollection.frame.height/1.2)
         }
         
-    }
+    } 
     
     @IBAction func optionBtn(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ProUserVC") as! ProUserVC
+        self.present(vc, animated: true, completion: nil)
     }
     @IBAction func backTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)

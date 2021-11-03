@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,6 +26,7 @@
 		047D3FF927282A83000005BD /* OTPVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047D3FF827282A83000005BD /* OTPVC.swift */; };
 		047D3FFE27282B4C000005BD /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047D3FFD27282B4C000005BD /* ResetPasswordVC.swift */; };
 		04DF858F272C291400E4EE0D /* SomeProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF858E272C291300E4EE0D /* SomeProfileVC.swift */; };
+		04EAEB3D27311380004D4FFE /* ProUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EAEB3C27311380004D4FFE /* ProUserVC.swift */; };
 		375A222F2684AFC0F7C8EB76 /* Pods_Amigo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C2F6CAB23A9404DF502EA /* Pods_Amigo.framework */; };
 		9830F1B127ED65D2931B91B5 /* Pods_Amigo_AmigoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D41AE60E57C7BF3768BAE6 /* Pods_Amigo_AmigoUITests.framework */; };
 		98F699642B287948E570B0CF /* Pods_AmigoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A2453BA14D3F73993AAA2E0 /* Pods_AmigoTests.framework */; };
@@ -77,6 +78,7 @@
 		047D3FF827282A83000005BD /* OTPVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVC.swift; sourceTree = "<group>"; };
 		047D3FFD27282B4C000005BD /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
 		04DF858E272C291300E4EE0D /* SomeProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeProfileVC.swift; sourceTree = "<group>"; };
+		04EAEB3C27311380004D4FFE /* ProUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProUserVC.swift; sourceTree = "<group>"; };
 		1DD55326FB770106F914AAB1 /* Pods-AmigoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmigoTests.debug.xcconfig"; path = "Target Support Files/Pods-AmigoTests/Pods-AmigoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2794A3248E74F834BE1F66B5 /* Pods-AmigoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmigoTests.release.xcconfig"; path = "Target Support Files/Pods-AmigoTests/Pods-AmigoTests.release.xcconfig"; sourceTree = "<group>"; };
 		2FAC9C0A814BDF83AEE368EB /* Pods-Amigo-AmigoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amigo-AmigoUITests.debug.xcconfig"; path = "Target Support Files/Pods-Amigo-AmigoUITests/Pods-Amigo-AmigoUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				046B5F072729283A00A00728 /* FirstTabVC.swift */,
 				046B5F0C2729284900A00728 /* SecondTabVC.swift */,
 				04DF858E272C291300E4EE0D /* SomeProfileVC.swift */,
+				04EAEB3C27311380004D4FFE /* ProUserVC.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -263,7 +266,6 @@
 				1DD55326FB770106F914AAB1 /* Pods-AmigoTests.debug.xcconfig */,
 				2794A3248E74F834BE1F66B5 /* Pods-AmigoTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -510,6 +512,7 @@
 				040351872718101B007E5833 /* AppDelegate.swift in Sources */,
 				FA6D6EB627184DA3009D6141 /* ForgotPassVC.swift in Sources */,
 				046B5F122729285900A00728 /* ProfileVC.swift in Sources */,
+				04EAEB3D27311380004D4FFE /* ProUserVC.swift in Sources */,
 				047D3FFE27282B4C000005BD /* ResetPasswordVC.swift in Sources */,
 				040E12B927219223007E1A69 /* PersonalInformation1VC.swift in Sources */,
 				040E12BE2721925C007E1A69 /* PersonalInformation2VC.swift in Sources */,

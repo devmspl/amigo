@@ -2576,6 +2576,54 @@ location in order to use Amigo</string>
             </objects>
             <point key="canvasLocation" x="5386" y="716"/>
         </scene>
+        <!--Pro UserVC-->
+        <scene sceneID="UKO-sD-635">
+            <objects>
+                <viewController storyboardIdentifier="ProUserVC" id="McL-Cr-agS" customClass="ProUserVC" customModule="Amigo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eo0-MQ-BGd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mir-JT-P24">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ovV-FT-GZB">
+                                <rect key="frame" x="30" y="94" width="354" height="718"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="proo" translatesAutoresizingMaskIntoConstraints="NO" id="KOy-37-Ge4">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="718"/>
+                                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.27670162671232879" alpha="0.12358197773972603" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="KOy-37-Ge4" firstAttribute="leading" secondItem="ovV-FT-GZB" secondAttribute="leading" id="HEz-VF-IRt"/>
+                                    <constraint firstAttribute="trailing" secondItem="KOy-37-Ge4" secondAttribute="trailing" id="Sen-HU-aV5"/>
+                                    <constraint firstAttribute="bottom" secondItem="KOy-37-Ge4" secondAttribute="bottom" id="ZGN-LS-T5c"/>
+                                    <constraint firstItem="KOy-37-Ge4" firstAttribute="top" secondItem="ovV-FT-GZB" secondAttribute="top" id="hbE-hi-4ef"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bvH-Mq-aDR"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ovV-FT-GZB" firstAttribute="leading" secondItem="bvH-Mq-aDR" secondAttribute="leading" constant="30" id="BXN-5H-3Zs"/>
+                            <constraint firstItem="mir-JT-P24" firstAttribute="top" secondItem="eo0-MQ-BGd" secondAttribute="top" id="He9-OI-5tu"/>
+                            <constraint firstItem="mir-JT-P24" firstAttribute="leading" secondItem="bvH-Mq-aDR" secondAttribute="leading" id="Mnx-FB-Weh"/>
+                            <constraint firstItem="bvH-Mq-aDR" firstAttribute="trailing" secondItem="mir-JT-P24" secondAttribute="trailing" id="PC5-6q-XW4"/>
+                            <constraint firstItem="bvH-Mq-aDR" firstAttribute="trailing" secondItem="ovV-FT-GZB" secondAttribute="trailing" constant="30" id="bOs-se-vdT"/>
+                            <constraint firstAttribute="bottom" secondItem="mir-JT-P24" secondAttribute="bottom" id="iOA-nU-gek"/>
+                            <constraint firstItem="ovV-FT-GZB" firstAttribute="top" secondItem="bvH-Mq-aDR" secondAttribute="top" constant="50" id="m6H-jD-niy"/>
+                            <constraint firstItem="bvH-Mq-aDR" firstAttribute="bottom" secondItem="ovV-FT-GZB" secondAttribute="bottom" constant="50" id="xXM-mx-a4b"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2TF-HK-cN3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6302.898550724638" y="733.92857142857144"/>
+        </scene>
         <!--Tab BarVC-->
         <scene sceneID="lOE-N5-hY6">
             <objects>
@@ -3312,6 +3360,7 @@ location in order to use Amigo</string>
         <image name="profile" width="140" height="140"/>
         <image name="profileActive" width="26.5" height="26"/>
         <image name="profileInactive" width="26.5" height="26"/>
+        <image name="proo" width="414" height="736"/>
         <image name="search" width="14" height="14"/>
         <image name="show" width="17" height="11"/>
         <image name="sport" width="16" height="16"/>
