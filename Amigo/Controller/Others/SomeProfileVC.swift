@@ -22,7 +22,7 @@ class SomeProfileVC: UIViewController,UICollectionViewDelegate,UICollectionViewD
     @IBOutlet weak var lowerCollection: UICollectionView!
     
     let label = ["Interest1","Interest2","Interest3","Interest4","Interest5","Interest6","Interest7","Interest8"]
-    let image = [UIImage(named: "picLike"),UIImage(named: "picLike"),UIImage(named: "picLike"),UIImage(named: "picLike")]
+    let image = [UIImage(named: "pic2"),UIImage(named: "pic2"),UIImage(named: "pic2"),UIImage(named: "pic2")]
     let image2 = [UIImage(named: "pic4"),UIImage(named: "pic4"),UIImage(named: "pic4"),UIImage(named: "pic4")]
     override func viewDidLoad() {
         super.viewDidLoad()
