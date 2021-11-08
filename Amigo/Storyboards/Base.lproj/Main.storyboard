@@ -25,7 +25,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="415" height="653.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvI-HA-dLc">
-                                                <rect key="frame" x="30" y="60" width="355" height="39"/>
+                                                <rect key="frame" x="268.5" y="60" width="116.5" height="39"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -161,6 +161,17 @@
                                                     <action selector="login_tapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HPm-iW-BmW"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g06-yC-kWH">
+                                                <rect key="frame" x="30" y="49.5" width="60" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="fBu-ST-NpL"/>
+                                                    <constraint firstAttribute="height" constant="60" id="ps1-xH-HaK"/>
+                                                </constraints>
+                                                <state key="normal" image="back"/>
+                                                <connections>
+                                                    <action selector="backTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JNu-5A-mWb"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -179,12 +190,13 @@
                                             <constraint firstItem="xth-PH-2Ni" firstAttribute="top" secondItem="hLg-6o-XLT" secondAttribute="bottom" constant="10" id="Ooh-wO-Jlz"/>
                                             <constraint firstItem="DNy-Fc-7dv" firstAttribute="trailing" secondItem="qec-Jk-IS7" secondAttribute="trailing" id="QO4-0y-39K"/>
                                             <constraint firstItem="DNy-Fc-7dv" firstAttribute="top" secondItem="qec-Jk-IS7" secondAttribute="bottom" constant="50" id="WNQ-7b-xni"/>
+                                            <constraint firstItem="g06-yC-kWH" firstAttribute="leading" secondItem="L5t-8X-Zq7" secondAttribute="leading" constant="30" id="Z5S-tW-lic"/>
                                             <constraint firstItem="hrI-so-pf2" firstAttribute="top" secondItem="1DV-7C-Beg" secondAttribute="bottom" constant="10" id="ZO5-Yv-tec"/>
                                             <constraint firstItem="1DV-7C-Beg" firstAttribute="leading" secondItem="hLg-6o-XLT" secondAttribute="leading" id="a3F-Wx-4h8"/>
                                             <constraint firstItem="dvI-HA-dLc" firstAttribute="top" secondItem="L5t-8X-Zq7" secondAttribute="top" constant="60" id="bT2-jv-BLg"/>
-                                            <constraint firstItem="dvI-HA-dLc" firstAttribute="leading" secondItem="L5t-8X-Zq7" secondAttribute="leading" constant="30" id="c71-M4-eaF"/>
                                             <constraint firstItem="IgT-Pf-Dhh" firstAttribute="leading" secondItem="tgE-5a-QTt" secondAttribute="trailing" constant="6" id="hSU-KN-qwl"/>
                                             <constraint firstItem="tgE-5a-QTt" firstAttribute="top" secondItem="DNy-Fc-7dv" secondAttribute="bottom" constant="15" id="iEb-D9-YT7"/>
+                                            <constraint firstItem="g06-yC-kWH" firstAttribute="centerY" secondItem="dvI-HA-dLc" secondAttribute="centerY" id="ioY-iQ-3cj"/>
                                             <constraint firstItem="sBO-30-f3S" firstAttribute="top" secondItem="hrI-so-pf2" secondAttribute="bottom" constant="20" id="kCu-3f-gq7"/>
                                             <constraint firstItem="hLg-6o-XLT" firstAttribute="leading" secondItem="L5t-8X-Zq7" secondAttribute="leading" constant="30" id="lXs-Q9-8Hg"/>
                                             <constraint firstItem="qec-Jk-IS7" firstAttribute="leading" secondItem="sBO-30-f3S" secondAttribute="leading" id="z7e-S2-8bb"/>
@@ -228,7 +240,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="928.98550724637687" y="69.642857142857139"/>
+            <point key="canvasLocation" x="1397" y="76"/>
         </scene>
         <!--OrientationVC-->
         <scene sceneID="mpD-P1-lFS">
@@ -2138,14 +2150,14 @@ location in order to use Amigo</string>
                                                             <constraint firstAttribute="height" constant="6" id="CY6-NR-fGR"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NUE-9M-pUf">
-                                                        <rect key="frame" x="180.5" y="250" width="53" height="24"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Danish" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NUE-9M-pUf">
+                                                        <rect key="frame" x="176" y="250" width="62" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9LG-2G-Utk">
-                                                        <rect key="frame" x="174.5" y="284" width="65.5" height="21"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chandigarh" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9LG-2G-Utk">
+                                                        <rect key="frame" x="163" y="284" width="88.5" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -2238,7 +2250,7 @@ location in order to use Amigo</string>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvy-xf-TOf">
                                                         <rect key="frame" x="20" y="653" width="374" height="81.5"/>
-                                                        <string key="text">Hey guys, This is Malena. I’m here to find someone for hookup. I’m not interested in something serious. I would love to hear your adventurous story.</string>
+                                                        <string key="text">Hey guys, This is Danish. I’m here to find someone for hookup. I’m not interested in something serious. I would love to hear your adventurous story.</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -2657,17 +2669,6 @@ location in order to use Amigo</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vnb-Nn-xyb">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="650"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fnq-X6-Ocb">
-                                                <rect key="frame" x="20" y="40" width="60" height="60"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="60" id="ZhK-Dh-HPr"/>
-                                                    <constraint firstAttribute="height" constant="60" id="oKL-iP-PHb"/>
-                                                </constraints>
-                                                <state key="normal" image="back"/>
-                                                <connections>
-                                                    <action selector="back_btn:" destination="g2c-oZ-Icc" eventType="touchUpInside" id="15v-zU-ejy"/>
-                                                </connections>
-                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log In" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yMq-6c-wd1">
                                                 <rect key="frame" x="309" y="146" width="85" height="36"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
@@ -2851,12 +2852,10 @@ location in order to use Amigo</string>
                                             <constraint firstItem="im7-44-aya" firstAttribute="centerY" secondItem="A5e-m6-q52" secondAttribute="centerY" id="g81-LI-pfk"/>
                                             <constraint firstAttribute="trailing" secondItem="a2q-ob-qQw" secondAttribute="trailing" constant="20" id="gvq-ok-lar"/>
                                             <constraint firstItem="A5e-m6-q52" firstAttribute="width" secondItem="vnb-Nn-xyb" secondAttribute="width" multiplier="0.427536" id="jHG-kH-obh"/>
-                                            <constraint firstItem="Fnq-X6-Ocb" firstAttribute="top" secondItem="vnb-Nn-xyb" secondAttribute="top" constant="40" id="kPC-7Y-L4F"/>
                                             <constraint firstItem="ugQ-nj-Z6B" firstAttribute="leading" secondItem="aDb-7A-aSk" secondAttribute="trailing" constant="6" id="kWS-z1-RAD"/>
                                             <constraint firstItem="ACV-tn-Qrv" firstAttribute="leading" secondItem="sMK-xR-POa" secondAttribute="leading" id="l5A-el-uSZ"/>
                                             <constraint firstItem="A5e-m6-q52" firstAttribute="top" secondItem="yMq-6c-wd1" secondAttribute="bottom" constant="10" id="l8T-f8-75X"/>
                                             <constraint firstItem="ugQ-nj-Z6B" firstAttribute="centerY" secondItem="aDb-7A-aSk" secondAttribute="centerY" id="lVE-fN-nj5"/>
-                                            <constraint firstItem="Fnq-X6-Ocb" firstAttribute="leading" secondItem="vnb-Nn-xyb" secondAttribute="leading" constant="20" id="nDs-Rt-PvN"/>
                                             <constraint firstItem="Kyg-yL-06M" firstAttribute="top" secondItem="im7-44-aya" secondAttribute="bottom" constant="30" id="qUe-OQ-AEA"/>
                                             <constraint firstItem="a2q-ob-qQw" firstAttribute="leading" secondItem="Kyg-yL-06M" secondAttribute="leading" id="z57-6x-Yrn"/>
                                         </constraints>
@@ -2883,6 +2882,7 @@ location in order to use Amigo</string>
                             <constraint firstItem="PUk-cd-lve" firstAttribute="leading" secondItem="kly-Fn-MSe" secondAttribute="leading" id="dpU-ee-AyH"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="B50-n9-jH0"/>
                     <connections>
                         <outlet property="loginBtn" destination="ACV-tn-Qrv" id="B3c-jw-SxR"/>
                         <outlet property="password" destination="sMK-xR-POa" id="fzR-Kf-w9K"/>
@@ -2895,7 +2895,7 @@ location in order to use Amigo</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qTw-6I-Q1P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1648" y="66"/>
+            <point key="canvasLocation" x="664" y="72"/>
         </scene>
         <!--Forgot PassVC-->
         <scene sceneID="jtL-Rd-9hF">
@@ -3312,7 +3312,7 @@ location in order to use Amigo</string>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="v8b-dJ-mXF"/>
+                        <segue destination="g2c-oZ-Icc" kind="relationship" relationship="rootViewController" id="L2b-gC-Sme"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RLf-fo-Ln2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

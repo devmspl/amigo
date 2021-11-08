@@ -60,9 +60,10 @@ class SignupVc: UIViewController {
 //MARK:- BTN ACTIONS
     
     @IBAction func login_tapped(_ sender: Any) {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
-        
-        self.navigationController?.pushViewController(vc, animated: true)
+        navigationController?.popViewController(animated: true)
+    }
+    @IBAction func backTapped(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
     @IBAction func signUptapped(_ sender: Any) {
         print("hello")

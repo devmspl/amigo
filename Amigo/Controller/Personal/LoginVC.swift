@@ -65,7 +65,9 @@ class LoginVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     @IBAction func signUpTapped(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "SignupVc") as! SignupVc
+        
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 

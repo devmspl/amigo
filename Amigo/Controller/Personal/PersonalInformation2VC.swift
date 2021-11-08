@@ -64,7 +64,7 @@ extension PersonalInformation2VC: UICollectionViewDelegate,UICollectionViewDataS
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: imageCollection.frame.width/3, height: imageCollection.frame.height/2.1)
+        return CGSize(width: imageCollection.frame.width/4, height: imageCollection.frame.height/2.1)
     }
     
 }

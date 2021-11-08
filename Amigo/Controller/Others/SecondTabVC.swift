@@ -30,7 +30,7 @@ class SecondTabVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
         self.navigationController?.pushViewController(vc, animated: true)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionSwipe.frame.width, height: collectionSwipe.frame.height/1.2)
+        return CGSize(width: collectionSwipe.frame.width, height: collectionSwipe.frame.height)
     }
     
     @IBAction func dislikeBtn(_ sender: Any) {
