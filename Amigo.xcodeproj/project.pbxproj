@@ -33,6 +33,7 @@
 		375A222F2684AFC0F7C8EB76 /* Pods_Amigo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C2F6CAB23A9404DF502EA /* Pods_Amigo.framework */; };
 		9830F1B127ED65D2931B91B5 /* Pods_Amigo_AmigoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D41AE60E57C7BF3768BAE6 /* Pods_Amigo_AmigoUITests.framework */; };
 		98F699642B287948E570B0CF /* Pods_AmigoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A2453BA14D3F73993AAA2E0 /* Pods_AmigoTests.framework */; };
+		FA395C07273A4D84007DDB6C /* ReachabilityNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA395C06273A4D84007DDB6C /* ReachabilityNetwork.swift */; };
 		FA6D6EB42718450D009D6141 /* SignupVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6D6EB32718450D009D6141 /* SignupVc.swift */; };
 		FA6D6EB627184DA3009D6141 /* ForgotPassVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6D6EB527184DA3009D6141 /* ForgotPassVC.swift */; };
 		FA6F8F102718524300AD9946 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6F8F0F2718524300AD9946 /* LoginVC.swift */; };
@@ -94,6 +95,7 @@
 		9A2453BA14D3F73993AAA2E0 /* Pods_AmigoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AmigoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF1C2F6CAB23A9404DF502EA /* Pods_Amigo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Amigo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9889FDA500D547199F4A39C /* Pods-Amigo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amigo.debug.xcconfig"; path = "Target Support Files/Pods-Amigo/Pods-Amigo.debug.xcconfig"; sourceTree = "<group>"; };
+		FA395C06273A4D84007DDB6C /* ReachabilityNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityNetwork.swift; sourceTree = "<group>"; };
 		FA6D6EB32718450D009D6141 /* SignupVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupVc.swift; sourceTree = "<group>"; };
 		FA6D6EB527184DA3009D6141 /* ForgotPassVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassVC.swift; sourceTree = "<group>"; };
 		FA6F8F0F2718524300AD9946 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				047D3FEE27280A3F000005BD /* Delegate */,
 				0403518F2718101C007E5833 /* Assets.xcassets */,
 				040351942718101C007E5833 /* Info.plist */,
+				FA395C06273A4D84007DDB6C /* ReachabilityNetwork.swift */,
 			);
 			path = Amigo;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				FA6D6EB627184DA3009D6141 /* ForgotPassVC.swift in Sources */,
 				046B5F122729285900A00728 /* ProfileVC.swift in Sources */,
 				04EAEB3D27311380004D4FFE /* ProUserVC.swift in Sources */,
+				FA395C07273A4D84007DDB6C /* ReachabilityNetwork.swift in Sources */,
 				047D3FFE27282B4C000005BD /* ResetPasswordVC.swift in Sources */,
 				040E12B927219223007E1A69 /* PersonalInformation1VC.swift in Sources */,
 				040E12BE2721925C007E1A69 /* PersonalInformation2VC.swift in Sources */,
@@ -724,7 +728,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8XR9GPSS6Y;
 				INFOPLIST_FILE = Amigo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -745,7 +749,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8XR9GPSS6Y;
 				INFOPLIST_FILE = Amigo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
