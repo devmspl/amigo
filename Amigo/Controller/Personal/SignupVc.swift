@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class SignupVc: UIViewController {
 
@@ -66,7 +67,22 @@ class SignupVc: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     @IBAction func signUptapped(_ sender: Any) {
-        print("hello")
+        let model = CreateUserModel(phoneNo: phoneNo.text!, password: password.text!)
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        ApiManager.shared.signUp(model: model) { (signUp) in
+            if signUp{
+                MBProgressHUD.hide(for: self.view, animated: true)
+                let alert = UIAlertController.init(title: "", message: "SignUp successful please login", preferredStyle: .alert)
+                let ok = UIAlertAction.init(title: "OK", style: .default) { (ok) in
+                    self.navigationController?.popViewController(animated: true)
+                }
+                alert.addAction(ok)
+                self.present(alert, animated: true, completion: nil)
+            }else{
+                MBProgressHUD.hide(for: self.view, animated: true)
+                self.alert(message: "completion false")
+            }
+        }
     }
     @IBAction func eye1(_ sender: Any) {
         if   password.isSecureTextEntry == true{
