@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SecondTabVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+class SecondTabVC: UIViewController {
     
     
 
@@ -16,21 +16,6 @@ class SecondTabVC: UIViewController,UICollectionViewDelegate,UICollectionViewDat
         super.viewDidLoad()
 
        
-    }
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionSwipe.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionSwipe
-        return cell
-    }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "SomeProfileVC") as! SomeProfileVC
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionSwipe.frame.width, height: collectionSwipe.frame.height)
     }
     
     @IBAction func dislikeBtn(_ sender: Any) {
@@ -61,4 +46,26 @@ class CollectionSwipe: UICollectionViewCell{
         collView.layer.cornerRadius = 20
         swipeImage.layer.cornerRadius = 20
     }
+}
+
+
+
+extension SecondTabVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionSwipe.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionSwipe
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "SomeProfileVC") as! SomeProfileVC
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionSwipe.frame.width, height: collectionSwipe.frame.height)
+    }
+    
 }

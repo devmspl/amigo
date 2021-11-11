@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VPv-vo-0k7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VPv-vo-0k7">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -40,8 +39,8 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xth-PH-2Ni">
                                                 <rect key="frame" x="30" y="227" width="355" height="60"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G9x-bF-aOR">
-                                                        <rect key="frame" x="0.0" y="0.0" width="355" height="60"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G9x-bF-aOR">
+                                                        <rect key="frame" x="10" y="0.0" width="345" height="60"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -50,7 +49,7 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="G9x-bF-aOR" firstAttribute="leading" secondItem="xth-PH-2Ni" secondAttribute="leading" id="IRc-fB-1dJ"/>
+                                                    <constraint firstItem="G9x-bF-aOR" firstAttribute="leading" secondItem="xth-PH-2Ni" secondAttribute="leading" constant="10" id="IRc-fB-1dJ"/>
                                                     <constraint firstAttribute="trailing" secondItem="G9x-bF-aOR" secondAttribute="trailing" id="NWn-IN-Xdu"/>
                                                     <constraint firstAttribute="height" constant="60" id="guX-hL-f5c"/>
                                                     <constraint firstAttribute="bottom" secondItem="G9x-bF-aOR" secondAttribute="bottom" id="ldd-AW-RaO"/>
@@ -66,8 +65,8 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hrI-so-pf2">
                                                 <rect key="frame" x="30" y="335" width="355" height="60"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VVU-bJ-IcS">
-                                                        <rect key="frame" x="0.0" y="0.0" width="355" height="60"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VVU-bJ-IcS">
+                                                        <rect key="frame" x="10" y="0.0" width="335" height="60"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -89,11 +88,11 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="2Wo-pl-vfa"/>
                                                     <constraint firstItem="VVU-bJ-IcS" firstAttribute="top" secondItem="hrI-so-pf2" secondAttribute="top" id="7AH-OI-GLp"/>
-                                                    <constraint firstItem="VVU-bJ-IcS" firstAttribute="leading" secondItem="hrI-so-pf2" secondAttribute="leading" id="GgS-gS-evD"/>
+                                                    <constraint firstItem="VVU-bJ-IcS" firstAttribute="leading" secondItem="hrI-so-pf2" secondAttribute="leading" constant="10" id="GgS-gS-evD"/>
                                                     <constraint firstItem="frI-Ff-3RI" firstAttribute="centerY" secondItem="hrI-so-pf2" secondAttribute="centerY" id="IxE-Ac-KgI"/>
                                                     <constraint firstAttribute="bottom" secondItem="VVU-bJ-IcS" secondAttribute="bottom" id="OCd-pd-s4k"/>
                                                     <constraint firstAttribute="trailing" secondItem="frI-Ff-3RI" secondAttribute="trailing" constant="6" id="QPR-6n-IZ2"/>
-                                                    <constraint firstAttribute="trailing" secondItem="VVU-bJ-IcS" secondAttribute="trailing" id="YCC-AM-pl8"/>
+                                                    <constraint firstAttribute="trailing" secondItem="VVU-bJ-IcS" secondAttribute="trailing" constant="10" id="YCC-AM-pl8"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sBO-30-f3S">
@@ -105,8 +104,8 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qec-Jk-IS7">
                                                 <rect key="frame" x="30" y="443" width="355" height="60"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UeN-NX-hMi">
-                                                        <rect key="frame" x="0.0" y="0.0" width="355" height="60"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter password again" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UeN-NX-hMi">
+                                                        <rect key="frame" x="10" y="0.0" width="345" height="60"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -128,7 +127,7 @@
                                                 <constraints>
                                                     <constraint firstItem="UeN-NX-hMi" firstAttribute="top" secondItem="qec-Jk-IS7" secondAttribute="top" id="57m-fp-y4g"/>
                                                     <constraint firstAttribute="trailing" secondItem="7nu-vg-1sw" secondAttribute="trailing" constant="6" id="6d4-h1-w7U"/>
-                                                    <constraint firstItem="UeN-NX-hMi" firstAttribute="leading" secondItem="qec-Jk-IS7" secondAttribute="leading" id="Kut-fF-YcS"/>
+                                                    <constraint firstItem="UeN-NX-hMi" firstAttribute="leading" secondItem="qec-Jk-IS7" secondAttribute="leading" constant="10" id="Kut-fF-YcS"/>
                                                     <constraint firstAttribute="trailing" secondItem="UeN-NX-hMi" secondAttribute="trailing" id="Qca-va-d4E"/>
                                                     <constraint firstAttribute="height" constant="60" id="SUd-VO-zBz"/>
                                                     <constraint firstAttribute="bottom" secondItem="UeN-NX-hMi" secondAttribute="bottom" id="dnJ-3q-Her"/>
@@ -273,7 +272,7 @@ orientation is</string>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="314" id="JpD-Uc-C8r" customClass="OrientationTableCell" customModule="Amigo" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="44.5" width="374" height="314"/>
+                                                                <rect key="frame" x="0.0" y="28" width="374" height="314"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JpD-Uc-C8r" id="EvE-da-IHa">
                                                                     <rect key="frame" x="0.0" y="0.0" width="374" height="314"/>
@@ -805,7 +804,7 @@ orientation is</string>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PCB-tT-V53">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JAt-mk-a3Q" customClass="ADBannerView">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JAt-mk-a3Q">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1308"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Progress" translatesAutoresizingMaskIntoConstraints="NO" id="Ceb-ZJ-fZn">
@@ -1783,7 +1782,7 @@ location in order to use Amigo</string>
                                                                 </connections>
                                                             </collectionView>
                                                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="6DP-N8-Q5G">
-                                                                <rect key="frame" x="10" y="314" width="227" height="26"/>
+                                                                <rect key="frame" x="10" y="312.5" width="227" height="27.5"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <color key="tintColor" red="0.14117647059999999" green="0.1960784314" blue="0.46666666670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <color key="pageIndicatorTintColor" red="0.18823529410000001" green="0.33333333329999998" blue="0.14117647059999999" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2193,8 +2192,8 @@ location in order to use Amigo</string>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VLC-xc-AbD">
-                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="59"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <rect key="frame" x="10" y="0.0" width="364" height="59"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                         </subviews>
@@ -2207,7 +2206,7 @@ location in order to use Amigo</string>
                                                             <constraint firstItem="VLC-xc-AbD" firstAttribute="top" secondItem="TLj-IU-E8S" secondAttribute="top" id="gLK-Ez-Nfy"/>
                                                             <constraint firstAttribute="trailing" secondItem="VLC-xc-AbD" secondAttribute="trailing" id="gdD-Ff-37J"/>
                                                             <constraint firstItem="gcL-sr-y4N" firstAttribute="top" secondItem="VLC-xc-AbD" secondAttribute="bottom" id="sGp-TD-itt"/>
-                                                            <constraint firstItem="VLC-xc-AbD" firstAttribute="leading" secondItem="TLj-IU-E8S" secondAttribute="leading" id="zjl-kF-4zX"/>
+                                                            <constraint firstItem="VLC-xc-AbD" firstAttribute="leading" secondItem="TLj-IU-E8S" secondAttribute="leading" constant="10" id="zjl-kF-4zX"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fHl-dE-5NB">
@@ -2224,8 +2223,8 @@ location in order to use Amigo</string>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bRN-4l-ype">
-                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="59"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <rect key="frame" x="10" y="0.0" width="364" height="59"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                         </subviews>
@@ -2237,11 +2236,11 @@ location in order to use Amigo</string>
                                                             <constraint firstItem="Mb1-J3-VRr" firstAttribute="leading" secondItem="fHl-dE-5NB" secondAttribute="leading" id="RVx-jc-M8I"/>
                                                             <constraint firstItem="Mb1-J3-VRr" firstAttribute="top" secondItem="bRN-4l-ype" secondAttribute="bottom" id="UIO-Iu-fGL"/>
                                                             <constraint firstItem="bRN-4l-ype" firstAttribute="top" secondItem="fHl-dE-5NB" secondAttribute="top" id="flE-Xo-loH"/>
-                                                            <constraint firstItem="bRN-4l-ype" firstAttribute="leading" secondItem="fHl-dE-5NB" secondAttribute="leading" id="iVs-AB-QVY"/>
+                                                            <constraint firstItem="bRN-4l-ype" firstAttribute="leading" secondItem="fHl-dE-5NB" secondAttribute="leading" constant="10" id="iVs-AB-QVY"/>
                                                             <constraint firstAttribute="trailing" secondItem="Mb1-J3-VRr" secondAttribute="trailing" id="xZf-o8-Ues"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eamil" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9hx-iy-7YM">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9hx-iy-7YM">
                                                         <rect key="frame" x="20" y="506" width="41" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -2254,7 +2253,7 @@ location in order to use Amigo</string>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvy-xf-TOf">
-                                                        <rect key="frame" x="20" y="653" width="374" height="81.5"/>
+                                                        <rect key="frame" x="30" y="653" width="364" height="81.5"/>
                                                         <string key="text">Hey guys, This is Danish. I’m here to find someone for hookup. I’m not interested in something serious. I would love to hear your adventurous story.</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2460,7 +2459,7 @@ location in order to use Amigo</string>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="160" id="w64-4A-PNy" customClass="MessageTable" customModule="Amigo" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="44.5" width="414" height="160"/>
+                                                        <rect key="frame" x="0.0" y="28" width="414" height="160"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="w64-4A-PNy" id="eCk-T5-SXF">
                                                             <rect key="frame" x="0.0" y="0.0" width="414" height="160"/>
@@ -2689,8 +2688,8 @@ location in order to use Amigo</string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a2q-ob-qQw">
                                                 <rect key="frame" x="20" y="310" width="374" height="60"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uvp-bp-YL7">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uvp-bp-YL7">
+                                                        <rect key="frame" x="10" y="0.0" width="364" height="60"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -2703,7 +2702,7 @@ location in order to use Amigo</string>
                                                     <constraint firstItem="uvp-bp-YL7" firstAttribute="top" secondItem="a2q-ob-qQw" secondAttribute="top" id="I3R-pS-jV4"/>
                                                     <constraint firstAttribute="bottom" secondItem="uvp-bp-YL7" secondAttribute="bottom" id="R0p-nk-yy1"/>
                                                     <constraint firstAttribute="height" constant="60" id="dqv-bi-GYH"/>
-                                                    <constraint firstItem="uvp-bp-YL7" firstAttribute="leading" secondItem="a2q-ob-qQw" secondAttribute="leading" id="qCA-rQ-8HW"/>
+                                                    <constraint firstItem="uvp-bp-YL7" firstAttribute="leading" secondItem="a2q-ob-qQw" secondAttribute="leading" constant="10" id="qCA-rQ-8HW"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pqp-JM-Lgd">
@@ -2715,8 +2714,8 @@ location in order to use Amigo</string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="piI-Li-HM4">
                                                 <rect key="frame" x="20" y="418" width="374" height="60"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sMK-xR-POa">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sMK-xR-POa">
+                                                        <rect key="frame" x="10" y="0.0" width="364" height="60"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -2738,12 +2737,12 @@ location in order to use Amigo</string>
                                                     <constraint firstAttribute="trailing" secondItem="sMK-xR-POa" secondAttribute="trailing" id="L1s-lx-Kwb"/>
                                                     <constraint firstAttribute="bottom" secondItem="sMK-xR-POa" secondAttribute="bottom" id="PdQ-6H-fsF"/>
                                                     <constraint firstAttribute="trailing" secondItem="RZr-te-BcI" secondAttribute="trailing" constant="6" id="QCa-VZ-rnc"/>
-                                                    <constraint firstItem="sMK-xR-POa" firstAttribute="leading" secondItem="piI-Li-HM4" secondAttribute="leading" id="ROF-RO-ybb"/>
+                                                    <constraint firstItem="sMK-xR-POa" firstAttribute="leading" secondItem="piI-Li-HM4" secondAttribute="leading" constant="10" id="ROF-RO-ybb"/>
                                                     <constraint firstItem="RZr-te-BcI" firstAttribute="centerY" secondItem="piI-Li-HM4" secondAttribute="centerY" id="T6h-qb-EtA"/>
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACV-tn-Qrv">
-                                                <rect key="frame" x="20" y="528" width="374" height="50"/>
+                                                <rect key="frame" x="30" y="528" width="364" height="50"/>
                                                 <color key="backgroundColor" name="btnColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="RmM-60-nOb"/>
@@ -3201,7 +3200,7 @@ location in order to use Amigo</string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9xT-u9-MsY">
                                                 <rect key="frame" x="25" y="250" width="369" height="50"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Wm-N3-Mh5">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Wm-N3-Mh5">
                                                         <rect key="frame" x="10" y="0.0" width="359" height="50"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
