@@ -34,10 +34,11 @@ class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollec
         layout.scrollDirection = .vertical
         layout.itemSize = CGSize(width: imageCollection.frame.width/3.2, height: imageCollection.frame.height/2.2)
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        imageCollection = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        imageCollection.register(InformationCell.self, forCellWithReuseIdentifier: "cell")
-        imageCollection.delegate = self
-        imageCollection.dataSource = self
+        imageCollection.collectionViewLayout = layout
+       // imageCollection = UICollectionView(frame: .zero, collectionViewLayout: layout)
+//        imageCollection.register(InformationCell.self, forCellWithReuseIdentifier: "cell")
+//        imageCollection.delegate = self
+//        imageCollection.dataSource = self
         imageCollection.backgroundColor = .blue
         
         let gesture = UILongPressGestureRecognizer(target: self, action:  #selector(gestureRecognizer))
