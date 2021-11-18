@@ -1,0 +1,41 @@
+PODS:
+  - Alamofire (5.4.3)
+  - AlamofireImage (4.2.0):
+    - Alamofire (~> 5.4)
+  - DropDown (2.3.13)
+  - Koloda (5.0.1):
+    - pop (~> 1.0)
+  - MBProgressHUD (1.2.0)
+  - pop (1.0.12)
+  - StepSlider (1.8.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - AlamofireImage
+  - DropDown
+  - Koloda
+  - MBProgressHUD
+  - StepSlider
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - AlamofireImage
+    - DropDown
+    - Koloda
+    - MBProgressHUD
+    - pop
+    - StepSlider
+
+SPEC CHECKSUMS:
+  Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
+  AlamofireImage: 34a2d90b0e5fe6a5605f85ae4b7b01e784c60192
+  DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
+  Koloda: d07b9199a383abc5898b62aa945a599f5e7c0c4b
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
+  pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
+  StepSlider: 890db727e779fa99cb32afffc5887c1109e151f4
+
+PODFILE CHECKSUM: 261318d80aa69cf2d58d3a07f116e6431ec9b322
+
+COCOAPODS: 1.10.1
