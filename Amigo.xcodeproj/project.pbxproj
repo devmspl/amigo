@@ -14,6 +14,8 @@
 		040351932718101C007E5833 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 040351912718101C007E5833 /* LaunchScreen.storyboard */; };
 		0403519E2718101D007E5833 /* AmigoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0403519D2718101D007E5833 /* AmigoTests.swift */; };
 		040351A92718101D007E5833 /* AmigoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040351A82718101D007E5833 /* AmigoUITests.swift */; };
+		04056B26273E70D60034F733 /* slider.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04056B25273E70D60034F733 /* slider.xib */; };
+		04056B37273E76F90034F733 /* OverlayChild.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04056B36273E76F90034F733 /* OverlayChild.swift */; };
 		040E12AF2721915B007E1A69 /* OrientationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E12AE2721915B007E1A69 /* OrientationVC.swift */; };
 		040E12B4272191CE007E1A69 /* GenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E12B3272191CE007E1A69 /* GenderVC.swift */; };
 		040E12B927219223007E1A69 /* PersonalInformation1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E12B827219223007E1A69 /* PersonalInformation1VC.swift */; };
@@ -29,6 +31,7 @@
 		04AAD039273A3D6B00A900B1 /* Apis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AAD038273A3D6B00A900B1 /* Apis.swift */; };
 		04AAD061273A465600A900B1 /* ApisManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AAD060273A465600A900B1 /* ApisManage.swift */; };
 		04DF858F272C291400E4EE0D /* SomeProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF858E272C291300E4EE0D /* SomeProfileVC.swift */; };
+		04E97C522743959900AC268C /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E97C512743959900AC268C /* ChatVC.swift */; };
 		04EAEB3D27311380004D4FFE /* ProUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EAEB3C27311380004D4FFE /* ProUserVC.swift */; };
 		375A222F2684AFC0F7C8EB76 /* Pods_Amigo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C2F6CAB23A9404DF502EA /* Pods_Amigo.framework */; };
 		9830F1B127ED65D2931B91B5 /* Pods_Amigo_AmigoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D41AE60E57C7BF3768BAE6 /* Pods_Amigo_AmigoUITests.framework */; };
@@ -70,6 +73,8 @@
 		040351A42718101D007E5833 /* AmigoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AmigoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		040351A82718101D007E5833 /* AmigoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmigoUITests.swift; sourceTree = "<group>"; };
 		040351AA2718101D007E5833 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04056B25273E70D60034F733 /* slider.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = slider.xib; sourceTree = "<group>"; };
+		04056B36273E76F90034F733 /* OverlayChild.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayChild.swift; sourceTree = "<group>"; };
 		040E12AE2721915B007E1A69 /* OrientationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationVC.swift; sourceTree = "<group>"; };
 		040E12B3272191CE007E1A69 /* GenderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderVC.swift; sourceTree = "<group>"; };
 		040E12B827219223007E1A69 /* PersonalInformation1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformation1VC.swift; sourceTree = "<group>"; };
@@ -85,6 +90,7 @@
 		04AAD038273A3D6B00A900B1 /* Apis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apis.swift; sourceTree = "<group>"; };
 		04AAD060273A465600A900B1 /* ApisManage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApisManage.swift; sourceTree = "<group>"; };
 		04DF858E272C291300E4EE0D /* SomeProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeProfileVC.swift; sourceTree = "<group>"; };
+		04E97C512743959900AC268C /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		04EAEB3C27311380004D4FFE /* ProUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProUserVC.swift; sourceTree = "<group>"; };
 		1DD55326FB770106F914AAB1 /* Pods-AmigoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmigoTests.debug.xcconfig"; path = "Target Support Files/Pods-AmigoTests/Pods-AmigoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2794A3248E74F834BE1F66B5 /* Pods-AmigoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmigoTests.release.xcconfig"; path = "Target Support Files/Pods-AmigoTests/Pods-AmigoTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -257,11 +263,14 @@
 		04F5DC1C272FD4DF005334B3 /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				04056B25273E70D60034F733 /* slider.xib */,
 				046B5EF52729216A00A00728 /* TabBarVC.swift */,
 				046B5F072729283A00A00728 /* FirstTabVC.swift */,
 				046B5F0C2729284900A00728 /* SecondTabVC.swift */,
 				04DF858E272C291300E4EE0D /* SomeProfileVC.swift */,
 				04EAEB3C27311380004D4FFE /* ProUserVC.swift */,
+				04056B36273E76F90034F733 /* OverlayChild.swift */,
+				04E97C512743959900AC268C /* ChatVC.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -399,6 +408,7 @@
 			files = (
 				040351932718101C007E5833 /* LaunchScreen.storyboard in Resources */,
 				040351902718101C007E5833 /* Assets.xcassets in Resources */,
+				04056B26273E70D60034F733 /* slider.xib in Resources */,
 				0403518E2718101B007E5833 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -527,8 +537,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04E97C522743959900AC268C /* ChatVC.swift in Sources */,
 				047D3FF927282A83000005BD /* OTPVC.swift in Sources */,
 				FA6D6EB42718450D009D6141 /* SignupVc.swift in Sources */,
+				04056B37273E76F90034F733 /* OverlayChild.swift in Sources */,
 				04AAD039273A3D6B00A900B1 /* Apis.swift in Sources */,
 				040351872718101B007E5833 /* AppDelegate.swift in Sources */,
 				FA6D6EB627184DA3009D6141 /* ForgotPassVC.swift in Sources */,

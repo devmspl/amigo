@@ -1,0 +1,26 @@
+//
+//  ChatVC.swift
+//  Amigo
+//
+//  Created by mac on 16/11/2021.
+//
+
+import UIKit
+
+class ChatVC: UIViewController {
+
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var textMessage: UITextField!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+       
+    }
+    
+    @IBAction func backTapped(_ sender: Any){
+        self.navigationController?.popViewController(animated: true)
+    }
+    @IBAction func sendTepped(_ sender: Any){
+        
+    }
+}

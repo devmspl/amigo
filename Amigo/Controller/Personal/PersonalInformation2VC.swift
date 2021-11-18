@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DropDown
 
 class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
 
@@ -25,21 +26,33 @@ class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollec
     @IBOutlet weak var previewBtn: UIButton!
     @IBOutlet weak var continueView: UIView!
     
-    var img = [UIImage.init(named: "photo"),UIImage.init(named: "photo"),UIImage.init(named: "photo"),UIImage.init(named: "picLike"),UIImage.init(named: "photo"),UIImage.init(named: "photo")]
+    let drop = DropDown()
+    var name = ""
+    var email = ""
+    var phone = ""
+    var dob = ""
+    
+    var img = [UIImage.init(named: "pic1"),UIImage.init(named: "pic2"),UIImage.init(named: "pic3"),UIImage.init(named: "picLike"),UIImage.init(named: "pic4"),UIImage.init(named: "pic2")]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         continueView.layer.cornerRadius = 20
         
+        print(name)
+        print(email)
+        print(phone)
+        print(dob)
+        
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: imageCollection.frame.width/3.2, height: imageCollection.frame.height/2.2)
+//        layout.itemSize = CGSize(width: imageCollection.frame.width/4, height: imageCollection.frame.height/2.)
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         imageCollection.collectionViewLayout = layout
        // imageCollection = UICollectionView(frame: .zero, collectionViewLayout: layout)
 //        imageCollection.register(InformationCell.self, forCellWithReuseIdentifier: "cell")
 //        imageCollection.delegate = self
 //        imageCollection.dataSource = self
-        imageCollection.backgroundColor = .blue
+        imageCollection.backgroundColor = .white
         
         let gesture = UILongPressGestureRecognizer(target: self, action:  #selector(gestureRecognizer))
         imageCollection.addGestureRecognizer(gesture)
@@ -65,10 +78,17 @@ class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollec
         }
     }
 
+//MARK:- BUTTON ACTION
     @IBAction func editTapped(_ sender: Any) {
         print("fdhdf")
     }
     @IBAction func selectCityBtn(_ sender: Any) {
+        drop.anchorView = selectCityText
+        drop.dataSource = ["Chandigarh","Mohali"]
+        drop.show()
+        drop.selectionAction = { [unowned self] (index: Int,Item: String) in
+            selectCityText.text = Item
+        }
         print("fdfgshdf")
     }
     
@@ -76,8 +96,23 @@ class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollec
         print("fddfgshdf")
     }
     @IBAction func continueTapped(_ sender: Any) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as! TabBarVC
-        self.navigationController?.pushViewController(vc, animated: true)
+        if education.text == "" || aboutMe.text == "" || selectCityText.text == "" || height.text == "" || weight.text == "" || favouriteSport.text == "" || eduDegree.text == "" || lookingFor.text == "" || myWork.text == "" {
+            alert(message: "Please enter all fields")
+        }else{
+            let modelLoc = loction(type: "hello", cordinates: [2.2,2.323])
+            let model = UpdateUser(name: name, email: email, phoneNo: phone, dob: dob, school: education.text!, aboutMe: aboutMe.text!, livingIn: selectCityText.text!, height: height.text!, weight: weight.text!, favSports: favouriteSport.text!, degreeOfEducation: eduDegree.text!, lookingFor: lookingFor.text!, myWork: myWork.text!, loc: modelLoc)
+            print(model)
+            ApiManager.shared.update(model: model) { (isSuccess) in
+                if isSuccess{
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as! TabBarVC
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    print("hello")
+                }else{
+                    print("Failure")
+                }
+            }
+        }
+     
     }
     @IBAction func backTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -98,7 +133,7 @@ extension PersonalInformation2VC{
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: imageCollection.frame.width/4, height: imageCollection.frame.height/2.1)
+        return CGSize(width: imageCollection.frame.width/3.6, height: imageCollection.frame.height/2.1)
     }
     func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
         return true

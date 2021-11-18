@@ -14,7 +14,8 @@ class PersonalInformation1VC: UIViewController {
     @IBOutlet weak var emailOut: UITextField!
     @IBOutlet weak var phoneOut: UITextField!
     @IBOutlet weak var dobOut: UITextField!
-    @IBOutlet weak var lookingFor: UITextField!
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,12 +29,27 @@ class PersonalInformation1VC: UIViewController {
     }
     
     @IBAction func continueTapped(_ sender: Any) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "PersonalInformation2VC") as! PersonalInformation2VC
-        self.navigationController?.pushViewController(vc, animated: true)
+        if nameOut.text == ""{
+            alert(message: "Please enter name")
+        }else if emailOut.text == ""{
+            alert(message: "Please enter email")
+        }
+        else if phoneOut.text == ""{
+            alert(message: "Please enter phone")
+        }else if dobOut.text == ""{
+            alert(message: "Please enter dob")
+        }else{
+            let vc = storyboard?.instantiateViewController(withIdentifier: "PersonalInformation2VC") as! PersonalInformation2VC
+            vc.name = nameOut.text!
+            vc.email = emailOut.text!
+            vc.phone = phoneOut.text!
+            vc.dob = dobOut.text!
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+       
     }
     
-    @IBAction func selectionBtn(_ sender: Any) {
-    }
+   
     @IBAction func backTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }

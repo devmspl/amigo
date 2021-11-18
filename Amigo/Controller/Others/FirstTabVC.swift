@@ -67,6 +67,10 @@ extension FirstTabVC: UITableViewDelegate,UITableViewDataSource,UICollectionView
         cell.nameLabel.text = collName[indexPath.item]
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(identifier: "ChatVC") as! ChatVC
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: newMatchColloction.frame.width/4.5, height: newMatchColloction.frame.height/0.5)
     }

@@ -6,19 +6,29 @@
 //
 
 import UIKit
+import Koloda
 
 class SecondTabVC: UIViewController {
     
     
 
-    @IBOutlet weak var collectionSwipe: UICollectionView!
+    @IBOutlet weak var swipeView: KolodaView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        swipeView.delegate = self
+        swipeView.dataSource = self
+        
+        swipeView.layer.cornerRadius = 20
+        swipeView.layer.shadowColor = UIColor.lightGray.cgColor
+        swipeView.layer.shadowOffset = CGSize(width: 3, height: 3)
+        swipeView.layer.shadowRadius = 5
+        swipeView.layer.shadowOpacity = 4
 
        
     }
     
     @IBAction func dislikeBtn(_ sender: Any) {
+        swipeView.swipe(.left)
         print("dislike")
     }
     @IBAction func refreshBtn(_ sender: Any) {
@@ -26,46 +36,79 @@ class SecondTabVC: UIViewController {
     }
     
     @IBAction func likeBtn(_ sender: Any) {
+        swipeView.swipe(.right)
         print("like")
     }
     @IBAction func lightningBtn(_ sender: Any) {
         print("Light")
     }
     @IBAction func superLikeBtn(_ sender: Any) {
+        swipeView.swipe(.up)
         print("Super")
     }
     
 }
-class CollectionSwipe: UICollectionViewCell{
+
+extension SecondTabVC: KolodaViewDelegate{
     
-    @IBOutlet weak var collView: UIView!
-    @IBOutlet weak var swipeImage: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var distance: UILabel!
-    override func awakeFromNib() {
-        collView.layer.cornerRadius = 20
-        swipeImage.layer.cornerRadius = 20
+    func koloda(_ koloda: KolodaView, didSwipeCardAt index: Int, in direction: SwipeResultDirection)
+    {
+
+        DispatchQueue.main.asyncAfter(deadline: .now()+10.0) {
+            
+            
+            if direction == .left {
+             
+             }
+             if direction == .right {
+                
+             }
+            if direction == .up{
+                
+            }
+            if direction == .down{
+                
+            }
+            
+        }
+      }
+    
+    func koloda(_ koloda: KolodaView, allowedDirectionsForIndex index: Int) -> [SwipeResultDirection] {
+        return [.left, .right, .up, .down]
+    }
+
+    func koloda(_ koloda: KolodaView, didSelectCardAt index: Int) {
+         let vc = self.storyboard!.instantiateViewController(
+                                 withIdentifier: "SomeProfileVC") as! SomeProfileVC
+//               vc.Propertyid = HomelistArray[index]["_id"] as! String
+               self.navigationController?.pushViewController(vc, animated: true)
+       
     }
 }
+extension SecondTabVC: KolodaViewDataSource{
+    func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
+         koloda.resetCurrentCardIndex()
+           koloda.reloadData()
+        
+       }
 
+    func kolodaNumberOfCards(_ koloda:KolodaView) -> Int {
+        
+        return 10
+    }
 
+    func kolodaSpeedThatCardShouldDrag(_ koloda: KolodaView) -> DragSpeed {
+        return .moderate
+    }
 
-extension SecondTabVC:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+    func koloda(_ koloda: KolodaView, viewForCardAt index: Int) -> UIView {
+        let overlay1 = (Bundle.main.loadNibNamed("slider", owner: self, options: nil)?[0] as! OverlayChild)
+//        koloda.reloadData()
+        return overlay1
+       
+    }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
-    }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionSwipe.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionSwipe
-        return cell
-    }
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "SomeProfileVC") as! SomeProfileVC
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionSwipe.frame.width, height: collectionSwipe.frame.height)
-    }
+
     
 }
