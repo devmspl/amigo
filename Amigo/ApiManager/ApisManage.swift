@@ -12,9 +12,7 @@ import MBProgressHUD
 class ApiManager{
     static let shared = ApiManager()
 
-    
-    let userId = UserDefaults.standard.value(forKey: "id") as! String
-    let token = UserDefaults.standard.value(forKey: "token") as! String
+
     
 //MARK:- signUp api
     func signUp(model: CreateUserModel, completionHandler: @escaping (Bool) -> ()){
@@ -64,6 +62,8 @@ class ApiManager{
                             let token = data.object(forKey: "token") as! String
                             UserDefaults.standard.setValue(userId, forKey: "id")
                             UserDefaults.standard.setValue(token, forKey: "token")
+                            print(userId)
+                            print(token)
                             completionHandler(true)
                         }else{
 //                            ARSLineProgress.hide()
@@ -87,6 +87,10 @@ class ApiManager{
     
     func update(model: UpdateUser, completionHandler: @escaping (Bool) -> ()){
         if ReachabilityNetwork.isConnectedToNetwork(){
+            
+            let userId = UserDefaults.standard.value(forKey: "id") as! String
+            let token = UserDefaults.standard.value(forKey: "token") as! String
+            
             let header: HTTPHeaders = ["x-access-token": token]
             print(UpdateUser.self)
             AF.request(API.update+userId, method: .put, parameters: model, encoder: JSONParameterEncoder.default,headers: header).response{

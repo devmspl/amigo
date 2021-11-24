@@ -96,22 +96,25 @@ class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollec
         print("fddfgshdf")
     }
     @IBAction func continueTapped(_ sender: Any) {
-        if education.text == "" || aboutMe.text == "" || selectCityText.text == "" || height.text == "" || weight.text == "" || favouriteSport.text == "" || eduDegree.text == "" || lookingFor.text == "" || myWork.text == "" {
-            alert(message: "Please enter all fields")
-        }else{
-            let modelLoc = loction(type: "hello", cordinates: [2.2,2.323])
-            let model = UpdateUser(name: name, email: email, phoneNo: phone, dob: dob, school: education.text!, aboutMe: aboutMe.text!, livingIn: selectCityText.text!, height: height.text!, weight: weight.text!, favSports: favouriteSport.text!, degreeOfEducation: eduDegree.text!, lookingFor: lookingFor.text!, myWork: myWork.text!, loc: modelLoc)
-            print(model)
-            ApiManager.shared.update(model: model) { (isSuccess) in
-                if isSuccess{
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as! TabBarVC
-                    self.navigationController?.pushViewController(vc, animated: true)
-                    print("hello")
-                }else{
-                    print("Failure")
-                }
-            }
-        }
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as! TabBarVC
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+//if education.text == "" || aboutMe.text == "" || selectCityText.text == "" || height.text == "" || weight.text == "" || favouriteSport.text == "" || eduDegree.text == "" || lookingFor.text == "" || myWork.text == "" {
+//            alert(message: "Please enter all fields")
+//        }else{
+//            let modelLoc = loction(type: "hello", cordinates: [2.2,2.323])
+//            let model = UpdateUser(name: name, email: email, phoneNo: phone, dob: dob, school: education.text!, aboutMe: aboutMe.text!, livingIn: selectCityText.text!, height: height.text!, weight: weight.text!, favSports: favouriteSport.text!, degreeOfEducation: eduDegree.text!, lookingFor: lookingFor.text!, myWork: myWork.text!, loc: modelLoc)
+//            print(model)
+//            ApiManager.shared.update(model: model) { (isSuccess) in
+//                if isSuccess{
+//                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as! TabBarVC
+//                    self.navigationController?.pushViewController(vc, animated: true)
+//                    print("hello")
+//                }else{
+//                    print("Failure")
+//                }
+//            }
+//        }
      
     }
     @IBAction func backTapped(_ sender: Any) {

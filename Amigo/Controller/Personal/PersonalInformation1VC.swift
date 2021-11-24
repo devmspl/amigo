@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PersonalInformation1VC: UIViewController {
+class PersonalInformation1VC: UIViewController,UITextFieldDelegate {
 
     @IBOutlet weak var btnView: UIView!
     @IBOutlet weak var nameOut: UITextField!
@@ -18,7 +18,9 @@ class PersonalInformation1VC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        dobOut.delegate = self
+        
         btnView.layer.cornerRadius = 20
         nameOut.layer.backgroundColor = UIColor.white.cgColor
         emailOut.layer.backgroundColor = UIColor.white.cgColor
@@ -26,6 +28,9 @@ class PersonalInformation1VC: UIViewController {
         dobOut.layer.backgroundColor = UIColor.white.cgColor
         
         
+    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        datePicker(textField: dobOut)
     }
     
     @IBAction func continueTapped(_ sender: Any) {
@@ -53,4 +58,45 @@ class PersonalInformation1VC: UIViewController {
     @IBAction func backTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
+}
+
+
+extension PersonalInformation1VC{
+    func datePicker(textField : UITextField){
+        let datepicker = UIDatePicker()
+        datepicker.datePickerMode = .date
+        datepicker.preferredDatePickerStyle = .wheels
+        textField.inputView = datepicker
+        let dateMinimum = "11/30/2003"
+        let dateformatter  = DateFormatter()
+        dateformatter.dateStyle = .short
+        datepicker.maximumDate = dateformatter.date(from: dateMinimum)
+//        datepicker.maximumDate = 11/12/2003
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 44))
+        
+        let cancelBtn = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cnclBtnclick))
+        
+        let doneBtn = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneBtnclick))
+        
+        let flexiblebtn = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        
+        toolbar.setItems([cancelBtn,flexiblebtn,doneBtn], animated: false)
+        textField.inputAccessoryView = toolbar
+          
+}
+   @objc func cnclBtnclick(){
+        dobOut.resignFirstResponder()
+       
+    }
+    
+   @objc func doneBtnclick(){
+    if let datePicker = dobOut.inputView as? UIDatePicker{
+        let dateformatter  = DateFormatter()
+        dateformatter.dateStyle = .short
+        dobOut.text = dateformatter.string(from: datePicker.date)
+        dobOut.resignFirstResponder()
+//        dobOut.text = datePicker.date
+    }
+        
+}
 }

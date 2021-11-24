@@ -29,6 +29,18 @@ class SomeProfileVC: UIViewController,UICollectionViewDelegate,UICollectionViewD
 
     }
     
+    
+    @IBAction func likeTapped(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "CongratulationVC") as! CongratulationVC
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    @IBAction func starTapped(_ sender: Any) {
+    }
+    @IBAction func dislikeTapped(_ sender: Any) {
+        alert(message: "Dislike Successful")
+    }
+    
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == upperCollection{
             return image.count
@@ -75,6 +87,8 @@ class SomeProfileVC: UIViewController,UICollectionViewDelegate,UICollectionViewD
     }
     
 }
+
+
 class UpperCollectionCell: UICollectionViewCell{
     @IBOutlet weak var imageupper: UIImageView!
     override func awakeFromNib() {
