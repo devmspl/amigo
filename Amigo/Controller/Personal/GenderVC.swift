@@ -19,8 +19,6 @@ class GenderVC: UIViewController {
         for i in 0...btnView.count-1{
             btnView[i].layer.cornerRadius = 15
             btnView[0].layer.borderWidth = 1
-            btnView[0].layer.borderColor = UIColor(named: "manColor")?.cgColor
-            btnView[1].layer.backgroundColor = UIColor(named: "girlColor")?.cgColor
             btnView[0].layer.backgroundColor = UIColor.clear.cgColor
         }
     }
@@ -40,11 +38,13 @@ class GenderVC: UIViewController {
 //MARK:- BUTTON ACTIONS
     @IBAction func maleTapped(_ sender: Any) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "PersonalInformation1VC") as! PersonalInformation1VC
+        UserDefaults.standard.setValue("Male", forKey: "Gender")
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func womenTapped(_ sender: Any) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "PersonalInformation1VC") as! PersonalInformation1VC
+        UserDefaults.standard.setValue("Female", forKey: "Gender")
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

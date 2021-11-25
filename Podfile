@@ -13,6 +13,7 @@ target 'Amigo' do
   pod 'MBProgressHUD'
   pod 'Koloda'
   pod 'DropDown'
+  pod 'ImagePicker'
   
 
   target 'AmigoTests' do

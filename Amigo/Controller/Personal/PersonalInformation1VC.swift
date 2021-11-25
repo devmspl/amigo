@@ -21,6 +21,13 @@ class PersonalInformation1VC: UIViewController,UITextFieldDelegate {
         
         dobOut.delegate = self
         
+        if UserDefaults.standard.value(forKey: "Gender") as! String == "Male"{
+            self.view.backgroundColor = UIColor(named: "MenColor")
+        }else{
+            self.view.backgroundColor = UIColor(named: "girlColor")
+            self.btnView.backgroundColor = UIColor(named: "girlButton")
+        }
+        
         btnView.layer.cornerRadius = 20
         nameOut.layer.backgroundColor = UIColor.white.cgColor
         emailOut.layer.backgroundColor = UIColor.white.cgColor

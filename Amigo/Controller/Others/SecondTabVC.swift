@@ -12,19 +12,22 @@ class SecondTabVC: UIViewController {
     
     
 
+    @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var swipeView: KolodaView!
+    @IBOutlet weak var picOut: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         swipeView.delegate = self
         swipeView.dataSource = self
-        
         swipeView.layer.cornerRadius = 20
-        swipeView.layer.shadowColor = UIColor.lightGray.cgColor
-        swipeView.layer.shadowOffset = CGSize(width: 3, height: 3)
-        swipeView.layer.shadowRadius = 5
-        swipeView.layer.shadowOpacity = 4
-
-       
+        if UserDefaults.standard.value(forKey: "Gender") as! String == "Male"{
+            self.view.backgroundColor = UIColor(named: "MenColor")
+            self.backgroundImage.image = UIImage(named: "Background")
+        }else{
+            self.view.backgroundColor = UIColor(named: "girlColor")
+            self.backgroundImage.image = UIImage(named: "backGirl")
+//            self.continueView.backgroundColor = UIColor(named: "girlButton")
+        }
     }
     
     @IBAction func dislikeBtn(_ sender: Any) {
@@ -55,7 +58,6 @@ extension SecondTabVC: KolodaViewDelegate{
     {
 
         DispatchQueue.main.asyncAfter(deadline: .now()+10.0) {
-            
             
             if direction == .left {
              

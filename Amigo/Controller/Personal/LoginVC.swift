@@ -26,10 +26,10 @@ class LoginVC: UIViewController {
             textViews[i].layer.borderColor = UIColor.white.cgColor
         }
         loginBtn.layer.cornerRadius = 20
-        if UserDefaults.standard.value(forKey: "id") != nil{
-            let vc = storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as! TabBarVC
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+//        if UserDefaults.standard.value(forKey: "id") != nil{
+//            let vc = storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as! TabBarVC
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        }
     }
     
     func background(){
