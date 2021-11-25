@@ -2,8 +2,8 @@ PODS:
   - Alamofire (5.4.3)
   - AlamofireImage (4.2.0):
     - Alamofire (~> 5.4)
+  - BSImagePicker (3.3.1)
   - DropDown (2.3.13)
-  - ImagePicker (3.2.0)
   - Koloda (5.0.1):
     - pop (~> 1.0)
   - MBProgressHUD (1.2.0)
@@ -13,8 +13,8 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - AlamofireImage
+  - BSImagePicker (~> 3.1)
   - DropDown
-  - ImagePicker
   - Koloda
   - MBProgressHUD
   - StepSlider
@@ -23,8 +23,8 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - AlamofireImage
+    - BSImagePicker
     - DropDown
-    - ImagePicker
     - Koloda
     - MBProgressHUD
     - pop
@@ -33,13 +33,13 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
   AlamofireImage: 34a2d90b0e5fe6a5605f85ae4b7b01e784c60192
+  BSImagePicker: 0fe04b574d4d6b81093785d2af6c26227efc8428
   DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
-  ImagePicker: 1d950bbb2422548ed58791b4ec7f42fe42920511
   Koloda: d07b9199a383abc5898b62aa945a599f5e7c0c4b
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   StepSlider: 890db727e779fa99cb32afffc5887c1109e151f4
 
-PODFILE CHECKSUM: 7ea01c7887aacece1373a70b6a36098a4056ff22
+PODFILE CHECKSUM: d54b9e4ccd5253c22064b1f830580962c35bdd7b
 
 COCOAPODS: 1.10.1

@@ -7,9 +7,11 @@
 
 import UIKit
 import DropDown
-import ImagePicker
+//import ImagePicker
+import Photos
+import BSImagePicker
 
-class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, ImagePickerDelegate {
+class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIImagePickerControllerDelegate {
 
     @IBOutlet var imageCollection: UICollectionView!
     @IBOutlet var textViews: [UIView]!
@@ -30,9 +32,10 @@ class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollec
     var email = ""
     var phone = ""
     var dob = ""
-   
-    let imagePickerController = ImagePickerController()
-    let config = Configuration()
+    
+    
+//    let imagePickerController = ImagePickerController()
+//    let config = Configuration()
   
    
     
@@ -42,11 +45,11 @@ class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollec
     override func viewDidLoad() {
         super.viewDidLoad()
         continueView.layer.cornerRadius = 20
-        imagePickerController.imageLimit = 6
-        imagePickerController.delegate = self
-        config.allowMultiplePhotoSelection = true
-        let imagePicker = ImagePickerController(configuration: config)
-        imagePicker.delegate = self
+//        imagePickerController.imageLimit = 6
+//        imagePickerController.delegate = self
+//        config.allowMultiplePhotoSelection = true
+//        let imagePicker = ImagePickerController(configuration: config)
+//        imagePicker.delegate = self
         print(name);print(email);print(phone);print(dob)
         
         let layout = UICollectionViewFlowLayout()
@@ -66,22 +69,37 @@ class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollec
         }
     }
 
-//MARK:- IMAGEPICKER METHOD
-    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-        print("hellowrapper")
-    }
-    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-        print("hellodone")
-        print(images)
-        img.removeAll()
-        img = images
-        imageCollection.reloadData()
-        dismiss(animated: true, completion: nil)
+    func hello(){
+        let imagePicker = ImagePickerController()
+        
+        self.presentImagePicker(imagePicker, select: { (asset) in
+            // User selected an asset. Do something with it. Perhaps begin processing/upload?
+        }, deselect: { (asset) in
+            // User deselected an asset. Cancel whatever you did when asset was selected.
+        }, cancel: { (assets) in
+            // User canceled selection.
+        }, finish: { (assets) in
+            // User finished selection assets.
+        })
     }
     
-    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
-        print("hellocancel")
-    }
+
+//MARK:- IMAGEPICKER METHOD
+//    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+//        print("hellowrapper")
+//    }
+//    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+//        print("hellodone")
+//        print(images)
+//        img.removeAll()
+//        img = images
+//        imageCollection.reloadData()
+//        dismiss(animated: true, completion: nil)
+//    }
+//
+//    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
+//        print("hellocancel")
+//    }
 //MARK:- GESTURE METHOD
     @objc func gestureRecognizer( _ gesture: UILongPressGestureRecognizer){
         guard let collectionView = imageCollection else{
@@ -155,7 +173,7 @@ extension PersonalInformation2VC{
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        present(imagePickerController, animated: true, completion: nil)
+       hello()
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: imageCollection.frame.width/3.6, height: imageCollection.frame.height/2.1)
