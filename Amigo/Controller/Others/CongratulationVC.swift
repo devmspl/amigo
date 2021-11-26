@@ -29,6 +29,13 @@ class CongratulationVC: UIViewController {
         secondimgView.layer.borderColor = UIColor(named: "manColor")?.cgColor
         
    
+        
+        if UserDefaults.standard.value(forKey: "Gender") as! String == "Male"{
+            self.view.backgroundColor = UIColor(named: "MenColor")
+        }else{
+            self.view.backgroundColor = UIColor(named: "girlColor")
+//          self.continueView.backgroundColor = UIColor(named: "girlButton")
+        }
     }
     
     @IBAction func MsgTapped(_ sender: UIButton){

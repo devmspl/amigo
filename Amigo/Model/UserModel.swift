@@ -39,3 +39,15 @@ struct loction:Encodable {
     let type:String?
     let cordinates:[Double]
 }
+
+struct UsersData : Decodable{
+    var data = [UsersModel.self]
+    
+    init(from decoder: Decoder) throws {
+        self.data = [UsersModel.self]
+    }
+}
+
+struct UsersModel: Decodable{
+    let id: String?
+}

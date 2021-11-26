@@ -24,9 +24,16 @@ class SomeProfileVC: UIViewController,UICollectionViewDelegate,UICollectionViewD
     let label = ["Interest1","Interest2","Interest3","Interest4","Interest5","Interest6","Interest7","Interest8"]
     let image = [UIImage(named: "pic4"),UIImage(named: "pic4"),UIImage(named: "pic4"),UIImage(named: "pic4")]
     let image2 = [UIImage(named: "pic4"),UIImage(named: "pic4"),UIImage(named: "pic4"),UIImage(named: "pic4")]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        if UserDefaults.standard.value(forKey: "Gender") as! String == "Male"{
+            self.view.backgroundColor = UIColor(named: "MenColor")
+        }else{
+            self.view.backgroundColor = UIColor(named: "girlColor")
+//          self.continueView.backgroundColor = UIColor(named: "girlButton")
+        }
     }
     
     

@@ -121,4 +121,42 @@ class ApiManager{
             completionHandler(false)
         }
     }
+    
+// MARK:- USERLIST
+    func userList(completionHandler: @escaping (Bool) -> ()){
+        if ReachabilityNetwork.isConnectedToNetwork(){
+            AF.request(API.userList, method: .get).response{
+                response in
+                switch(response.result){
+                case .success(let data):
+                    do{
+                        let json = try JSONSerialization.jsonObject(with: data!, options: [])
+                        print(json)
+                        if response.response?.statusCode == 200 {
+//                            ARSLineProgress.hide()
+//                            let respond = json as! NSDictionary
+//                            let data = respond.object(forKey: "data") as! NSDictionary
+//                            print(data)
+                            let decoder = JSONDecoder()
+                            let result = try! decoder.decode(UsersModel.self, from: data!)
+                            print(result)
+                            completionHandler(true)
+                        }else{
+//                            ARSLineProgress.hide()
+                        }
+                    }catch{
+                        print(error.localizedDescription)
+                        completionHandler(false)
+//                        ARSLineProgress.hide()
+                    }
+                case .failure(let error): do{
+                    print("Error",error)
+                    completionHandler(false)
+                }
+                }
+            }
+        }else{
+            completionHandler(false)
+        }
+    }
 }

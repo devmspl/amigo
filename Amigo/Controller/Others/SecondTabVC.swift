@@ -15,11 +15,18 @@ class SecondTabVC: UIViewController {
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var swipeView: KolodaView!
     @IBOutlet weak var picOut: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         swipeView.delegate = self
         swipeView.dataSource = self
         swipeView.layer.cornerRadius = 20
+        
+        ApiManager.shared.userList { (success) in
+            if success{
+                print("success")
+            }
+        }
         if UserDefaults.standard.value(forKey: "Gender") as! String == "Male"{
             self.view.backgroundColor = UIColor(named: "MenColor")
             self.backgroundImage.image = UIImage(named: "Background")
@@ -27,6 +34,14 @@ class SecondTabVC: UIViewController {
             self.view.backgroundColor = UIColor(named: "girlColor")
             self.backgroundImage.image = UIImage(named: "backGirl")
 //            self.continueView.backgroundColor = UIColor(named: "girlButton")
+        }
+        
+        
+        if UserDefaults.standard.value(forKey: "Gender") as! String == "Male"{
+            self.view.backgroundColor = UIColor(named: "MenColor")
+        }else{
+            self.view.backgroundColor = UIColor(named: "girlColor")
+//          self.continueView.backgroundColor = UIColor(named: "girlButton")
         }
     }
     

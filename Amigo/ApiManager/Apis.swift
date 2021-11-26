@@ -13,4 +13,5 @@ public struct API{
     public static let signUp              = baseUrl+"users/create"
     public static let login               = baseUrl+"users/login"
     public static let update              = baseUrl+"users/update/"
+    public static let userList            = baseUrl+"users/list"
 }

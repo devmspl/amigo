@@ -17,9 +17,16 @@ class FirstTabVC: UIViewController {
     let imgTable = [UIImage(named: "1"),UIImage(named: "2"),UIImage(named: "3"),UIImage(named: "4"),UIImage(named: "5"),UIImage(named: "6"),UIImage(named: "7"),UIImage(named: "8")]
     let tableName = ["Anika","Sherya","Lilly","Mona","Sonia","Monika","Katrina","Kiran"]
     let message = ["Hello","hii","How are you","Where you  live?","lets meet on coffee","Yes offcource","No we can't","Let's do this"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        
+        if UserDefaults.standard.value(forKey: "Gender") as! String == "Male"{
+            self.view.backgroundColor = UIColor(named: "MenColor")
+        }else{
+            self.view.backgroundColor = UIColor(named: "girlColor")
+//          self.continueView.backgroundColor = UIColor(named: "girlButton")
+        }
     }
 }
 

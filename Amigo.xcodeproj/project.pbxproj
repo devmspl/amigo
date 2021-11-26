@@ -36,6 +36,7 @@
 		04AAD039273A3D6B00A900B1 /* Apis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AAD038273A3D6B00A900B1 /* Apis.swift */; };
 		04AAD061273A465600A900B1 /* ApisManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AAD060273A465600A900B1 /* ApisManage.swift */; };
 		04B9FB12274F6533006BBA45 /* LocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B9FB11274F6533006BBA45 /* LocationVC.swift */; };
+		04B9FB75274FC0D2006BBA45 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B9FB74274FC0D2006BBA45 /* SettingVC.swift */; };
 		04DF858F272C291400E4EE0D /* SomeProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF858E272C291300E4EE0D /* SomeProfileVC.swift */; };
 		04E97C522743959900AC268C /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E97C512743959900AC268C /* ChatVC.swift */; };
 		04EAEB3D27311380004D4FFE /* ProUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EAEB3C27311380004D4FFE /* ProUserVC.swift */; };
@@ -101,6 +102,7 @@
 		04AAD038273A3D6B00A900B1 /* Apis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apis.swift; sourceTree = "<group>"; };
 		04AAD060273A465600A900B1 /* ApisManage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApisManage.swift; sourceTree = "<group>"; };
 		04B9FB11274F6533006BBA45 /* LocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationVC.swift; sourceTree = "<group>"; };
+		04B9FB74274FC0D2006BBA45 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		04DF858E272C291300E4EE0D /* SomeProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeProfileVC.swift; sourceTree = "<group>"; };
 		04E97C512743959900AC268C /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		04EAEB3C27311380004D4FFE /* ProUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProUserVC.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				047D3FFD27282B4C000005BD /* ResetPasswordVC.swift */,
 				048AD0102747B00B00A68277 /* FavouriteVC.swift */,
 				04B9FB11274F6533006BBA45 /* LocationVC.swift */,
+				04B9FB74274FC0D2006BBA45 /* SettingVC.swift */,
 			);
 			path = Personal;
 			sourceTree = "<group>";
@@ -583,6 +586,7 @@
 				048ACFF72747837800A68277 /* RequestVC.swift in Sources */,
 				048ACFFC274783C700A68277 /* RequestTableCell.swift in Sources */,
 				048AD01C2747B14200A68277 /* FavouriteTableCell.swift in Sources */,
+				04B9FB75274FC0D2006BBA45 /* SettingVC.swift in Sources */,
 				04DF858F272C291400E4EE0D /* SomeProfileVC.swift in Sources */,
 				046B5F032729253100A00728 /* InformationCell.swift in Sources */,
 			);

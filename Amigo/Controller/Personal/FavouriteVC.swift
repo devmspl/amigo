@@ -18,9 +18,16 @@ class FavouriteVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
     let imgArr = [UIImage(named: "pic1"),UIImage(named: "pic2"),UIImage(named: "pic3"),UIImage(named: "pic4"),UIImage(named: "pic5")]
     let nameArr = ["Anika","Sherya","Lilly","Mona","Sonia"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        if UserDefaults.standard.value(forKey: "Gender") as! String == "Male"{
+            self.view.backgroundColor = UIColor(named: "MenColor")
+        }else{
+            self.view.backgroundColor = UIColor(named: "girlColor")
+//            self.continueView.backgroundColor = UIColor(named: "girlButton")
+        }
        
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
