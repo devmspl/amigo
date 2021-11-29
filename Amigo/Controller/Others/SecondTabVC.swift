@@ -7,6 +7,7 @@
 
 import UIKit
 import Koloda
+import Alamofire
 
 class SecondTabVC: UIViewController {
     
@@ -16,34 +17,68 @@ class SecondTabVC: UIViewController {
     @IBOutlet weak var swipeView: KolodaView!
     @IBOutlet weak var picOut: UIImageView!
     
+    var userData = [AnyObject]()
+    var toLikeUser = [String]()
+    var id = UserDefaults.standard.value(forKey: "id") as! String
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         swipeView.delegate = self
         swipeView.dataSource = self
         swipeView.layer.cornerRadius = 20
         
-        ApiManager.shared.userList { (success) in
-            if success{
-                print("success")
-            }
-        }
+        
         if UserDefaults.standard.value(forKey: "Gender") as! String == "Male"{
             self.view.backgroundColor = UIColor(named: "MenColor")
             self.backgroundImage.image = UIImage(named: "Background")
         }else{
             self.view.backgroundColor = UIColor(named: "girlColor")
             self.backgroundImage.image = UIImage(named: "backGirl")
-//            self.continueView.backgroundColor = UIColor(named: "girlButton")
         }
-        
-        
-        if UserDefaults.standard.value(forKey: "Gender") as! String == "Male"{
+       if UserDefaults.standard.value(forKey: "Gender") as! String == "Male"{
             self.view.backgroundColor = UIColor(named: "MenColor")
         }else{
             self.view.backgroundColor = UIColor(named: "girlColor")
-//          self.continueView.backgroundColor = UIColor(named: "girlButton")
         }
     }
+    override func viewWillAppear(_ animated: Bool) {
+        getUserList()
+        
+    }
+//MARK:- APIs
+    
+    func getUserList(){
+        if ReachabilityNetwork.isConnectedToNetwork(){
+            AF.request(API.userList,method: .get).responseJSON{ [self]
+                response in
+                switch(response.result){
+                case .success(let json): do{
+                    let status = response.response?.statusCode
+                    let respond = json as! NSDictionary
+                    if status == 200{
+                        print(respond)
+                        userData = respond.object(forKey: "data") as! [AnyObject]
+                        for i in 0...userData.count-1{
+                            toLikeUser += [userData[i]["id"] as! String]
+                        }
+                        print("user to beliked", toLikeUser)
+                        
+                        self.view.isUserInteractionEnabled = true
+                    }else{
+                        alert(message: "\(status)")
+                        self.view.isUserInteractionEnabled = true
+                    }
+                }
+                case .failure(let error):
+                    print(error)
+                    self.view.isUserInteractionEnabled = true
+                }
+            }
+        }else{
+            alert(message: "Please check internet connection")
+        }
+    }
+//MARK:- BUTTONACTIONS
     
     @IBAction func dislikeBtn(_ sender: Any) {
         swipeView.swipe(.left)
@@ -57,11 +92,9 @@ class SecondTabVC: UIViewController {
         swipeView.swipe(.right)
         print("like")
     }
-    @IBAction func lightningBtn(_ sender: Any) {
-        print("Light")
-    }
     @IBAction func superLikeBtn(_ sender: Any) {
         swipeView.swipe(.up)
+        
         print("Super")
     }
     
@@ -72,16 +105,27 @@ extension SecondTabVC: KolodaViewDelegate{
     func koloda(_ koloda: KolodaView, didSwipeCardAt index: Int, in direction: SwipeResultDirection)
     {
 
-        DispatchQueue.main.asyncAfter(deadline: .now()+10.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now()+10.0) { [self] in
             
             if direction == .left {
              
              }
              if direction == .right {
-                
+               
              }
             if direction == .up{
-                
+                let likeuser = toLikeUser[index]
+                let model = AddToFavModel(userId: id, toLikeUserId: likeuser)
+                ApiManager.shared.favouriteApi(model: model) { (success) in
+                    if success{
+                        toLikeUser.remove(at: 0)
+                        koloda.reloadData()
+                        print("liked",id,likeuser)
+                    }else{
+                        print("liked",id,likeuser)
+                        print("id not right")
+                    }
+                }
             }
             if direction == .down{
                 
@@ -95,8 +139,10 @@ extension SecondTabVC: KolodaViewDelegate{
     }
 
     func koloda(_ koloda: KolodaView, didSelectCardAt index: Int) {
+
          let vc = self.storyboard!.instantiateViewController(
                                  withIdentifier: "SomeProfileVC") as! SomeProfileVC
+        
 //               vc.Propertyid = HomelistArray[index]["_id"] as! String
                self.navigationController?.pushViewController(vc, animated: true)
        
@@ -124,8 +170,4 @@ extension SecondTabVC: KolodaViewDataSource{
         return overlay1
        
     }
-    
-    
-
-    
 }

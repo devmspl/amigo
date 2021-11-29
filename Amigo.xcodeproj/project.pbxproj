@@ -19,6 +19,7 @@
 		040E12B4272191CE007E1A69 /* GenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E12B3272191CE007E1A69 /* GenderVC.swift */; };
 		040E12B927219223007E1A69 /* PersonalInformation1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E12B827219223007E1A69 /* PersonalInformation1VC.swift */; };
 		040E12BE2721925C007E1A69 /* PersonalInformation2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E12BD2721925B007E1A69 /* PersonalInformation2VC.swift */; };
+		04526BF72750F84300D1F59C /* FavouriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04526BF62750F84300D1F59C /* FavouriteModel.swift */; };
 		046B5EF62729216A00A00728 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B5EF52729216A00A00728 /* TabBarVC.swift */; };
 		046B5F032729253100A00728 /* InformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B5F022729253100A00728 /* InformationCell.swift */; };
 		046B5F082729283A00A00728 /* FirstTabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B5F072729283A00A00728 /* FirstTabVC.swift */; };
@@ -85,6 +86,7 @@
 		040E12B3272191CE007E1A69 /* GenderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderVC.swift; sourceTree = "<group>"; };
 		040E12B827219223007E1A69 /* PersonalInformation1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformation1VC.swift; sourceTree = "<group>"; };
 		040E12BD2721925B007E1A69 /* PersonalInformation2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformation2VC.swift; sourceTree = "<group>"; };
+		04526BF62750F84300D1F59C /* FavouriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteModel.swift; sourceTree = "<group>"; };
 		046B5EF52729216A00A00728 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		046B5F022729253100A00728 /* InformationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCell.swift; sourceTree = "<group>"; };
 		046B5F072729283A00A00728 /* FirstTabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTabVC.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				048E4E462738EF3D00F18A09 /* UserModel.swift */,
+				04526BF62750F84300D1F59C /* FavouriteModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -579,6 +582,7 @@
 				046B5F082729283A00A00728 /* FirstTabVC.swift in Sources */,
 				048AD009274793A600A68277 /* CongratulationVC.swift in Sources */,
 				04AAD061273A465600A900B1 /* ApisManage.swift in Sources */,
+				04526BF72750F84300D1F59C /* FavouriteModel.swift in Sources */,
 				FA6F8F102718524300AD9946 /* LoginVC.swift in Sources */,
 				046B5EF62729216A00A00728 /* TabBarVC.swift in Sources */,
 				048E4E472738EF3D00F18A09 /* UserModel.swift in Sources */,

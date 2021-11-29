@@ -18,6 +18,10 @@ struct LoginModel: Encodable {
     let password: String?
 }
 
+struct ForgotPassModel: Encodable {
+    let email: String?
+}
+
 struct UpdateUser: Encodable {
     let name: String?
     let email: String?

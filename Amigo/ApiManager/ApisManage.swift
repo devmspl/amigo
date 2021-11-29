@@ -83,6 +83,31 @@ class ApiManager{
             completionHandler(false)
         }
     }
+    
+//MARK:- FORGET PASSWORD API
+    func forgetApi(model: ForgotPassModel,completionHandler: @escaping (Bool) -> ()){
+        if ReachabilityNetwork.isConnectedToNetwork(){
+            AF.request(API.forgot, method: .post, parameters: model ,encoder: JSONParameterEncoder.default).response{
+                response in
+                switch(response.result){
+                
+                case .success(let data):do{
+                    print(data)
+                    let json = try JSONSerialization.jsonObject(with: data!, options: [])
+                    print(json)
+                    completionHandler(true)
+                }
+                    
+                case .failure(let error):do{
+                    print(error)
+                    completionHandler(false)
+                }
+                    
+                }
+                
+            }
+        }
+    }
 // MARK:- update user
     
     func update(model: UpdateUser, completionHandler: @escaping (Bool) -> ()){
@@ -122,10 +147,15 @@ class ApiManager{
         }
     }
     
-// MARK:- USERLIST
-    func userList(completionHandler: @escaping (Bool) -> ()){
+//MARK:- FAVOURITE
+    
+    func favouriteApi(model: AddToFavModel, completionHandler: @escaping (Bool) -> ()){
         if ReachabilityNetwork.isConnectedToNetwork(){
-            AF.request(API.userList, method: .get).response{
+            
+            
+//            let header: HTTPHeaders = ["x-access-token": token]
+          
+            AF.request(API.favourite, method: .post, parameters: model, encoder: JSONParameterEncoder.default).response{
                 response in
                 switch(response.result){
                 case .success(let data):
@@ -134,12 +164,6 @@ class ApiManager{
                         print(json)
                         if response.response?.statusCode == 200 {
 //                            ARSLineProgress.hide()
-//                            let respond = json as! NSDictionary
-//                            let data = respond.object(forKey: "data") as! NSDictionary
-//                            print(data)
-                            let decoder = JSONDecoder()
-                            let result = try! decoder.decode(UsersModel.self, from: data!)
-                            print(result)
                             completionHandler(true)
                         }else{
 //                            ARSLineProgress.hide()
@@ -159,4 +183,42 @@ class ApiManager{
             completionHandler(false)
         }
     }
+    
+// MARK:- USERLIST
+//    func userList(completionHandler: @escaping (Bool) -> ()){
+//        if ReachabilityNetwork.isConnectedToNetwork(){
+//            AF.request(API.userList, method: .get).response{
+//                response in
+//                switch(response.result){
+//                case .success(let data):
+//                    do{
+//                        let json = try JSONSerialization.jsonObject(with: data!, options: [])
+//                        print(json)
+//                        if response.response?.statusCode == 200 {
+////                            ARSLineProgress.hide()
+////                            let respond = json as! NSDictionary
+////                            let data = respond.object(forKey: "data") as! NSDictionary
+////                            print(data)
+//                            let decoder = JSONDecoder()
+//                            let result = try! decoder.decode(UsersModel.self, from: data!)
+//                            print(result)
+//                            completionHandler(true)
+//                        }else{
+////                            ARSLineProgress.hide()
+//                        }
+//                    }catch{
+//                        print(error.localizedDescription)
+//                        completionHandler(false)
+////                        ARSLineProgress.hide()
+//                    }
+//                case .failure(let error): do{
+//                    print("Error",error)
+//                    completionHandler(false)
+//                }
+//                }
+//            }
+//        }else{
+//            completionHandler(false)
+//        }
+//    }
 }

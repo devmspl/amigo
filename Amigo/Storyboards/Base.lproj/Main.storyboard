@@ -1433,7 +1433,6 @@ location in order to use Amigo</string>
                                                         </constraints>
                                                         <state key="normal" image="Update"/>
                                                         <connections>
-                                                            <action selector="dislikeBtn:" destination="GoV-v4-OqY" eventType="touchUpInside" id="hrL-in-iwY"/>
                                                             <action selector="refreshBtn:" destination="GoV-v4-OqY" eventType="touchUpInside" id="8u9-QG-MLD"/>
                                                         </connections>
                                                     </button>
@@ -1445,7 +1444,6 @@ location in order to use Amigo</string>
                                                         </constraints>
                                                         <state key="normal" image="Like"/>
                                                         <connections>
-                                                            <action selector="dislikeBtn:" destination="GoV-v4-OqY" eventType="touchUpInside" id="F2N-qe-Y3m"/>
                                                             <action selector="likeBtn:" destination="GoV-v4-OqY" eventType="touchUpInside" id="KbR-El-7yv"/>
                                                         </connections>
                                                     </button>
@@ -1457,7 +1455,6 @@ location in order to use Amigo</string>
                                                         </constraints>
                                                         <state key="normal" image="Star"/>
                                                         <connections>
-                                                            <action selector="dislikeBtn:" destination="GoV-v4-OqY" eventType="touchUpInside" id="Zja-Q8-tgA"/>
                                                             <action selector="superLikeBtn:" destination="GoV-v4-OqY" eventType="touchUpInside" id="DRe-fn-7FG"/>
                                                         </connections>
                                                     </button>

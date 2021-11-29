@@ -14,4 +14,7 @@ public struct API{
     public static let login               = baseUrl+"users/login"
     public static let update              = baseUrl+"users/update/"
     public static let userList            = baseUrl+"users/list"
+    public static let favourite           = baseUrl+"favourites/add"
+    public static let forgot              = baseUrl+"users/forgotPassword"
+
 }
