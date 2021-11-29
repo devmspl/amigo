@@ -26,10 +26,10 @@ class LoginVC: UIViewController {
             textViews[i].layer.borderColor = UIColor.white.cgColor
         }
         loginBtn.layer.cornerRadius = 20
-        if UserDefaults.standard.value(forKey: "id") != nil{
-            let vc = storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as! TabBarVC
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+//        if UserDefaults.standard.value(forKey: "id") != nil{
+//            let vc = storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as! TabBarVC
+//            self.navigationController?.pushViewController(vc, animated: true)
+//        }
     }
     
     func background(){
@@ -53,18 +53,20 @@ class LoginVC: UIViewController {
     
 
     @IBAction func loginTapped(_ sender: Any) {
-//        let vc = self.storyboard?.instantiateViewController(withIdentifier: "GenderVC") as! GenderVC
-//                        UserDefaults.standard.setValue(self.phoneNo.text!, forKey: "id")
-//                        self.navigationController?.pushViewController(vc, animated: true)
-        let loginModel = LoginModel(phoneNo: phoneNo.text!, password: password.text!)
-        ApiManager.shared.login(model: loginModel) { (isSuccess) in
-            if isSuccess{
-                let vc = self.storyboard?.instantiateViewController(withIdentifier: "GenderVC") as! GenderVC
-                self.navigationController?.pushViewController(vc, animated: true)
-            }else{
-                self.alert(message: "check credentials")
+        if isValidEmail(phoneNo.text!){
+            let loginModel = LoginModel(phoneNo: phoneNo.text!, password: password.text!)
+            ApiManager.shared.login(model: loginModel) { (isSuccess) in
+                if isSuccess{
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "GenderVC") as! GenderVC
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }else{
+                    self.alert(message: "check credentials")
+                }
             }
+        }else{
+            self.alert(message: "Please enter valid email")
         }
+        
         
     }
     @IBAction func googleTapped(_ sender: Any) {
@@ -81,7 +83,12 @@ class LoginVC: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
 
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
+    }
 }
 
 

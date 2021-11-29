@@ -67,22 +67,29 @@ class SignupVc: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     @IBAction func signUptapped(_ sender: Any) {
-        let model = CreateUserModel(phoneNo: phoneNo.text!, password: password.text!)
-        MBProgressHUD.showAdded(to: self.view, animated: true)
-        ApiManager.shared.signUp(model: model) { (signUp) in
-            if signUp{
-                MBProgressHUD.hide(for: self.view, animated: true)
-                let alert = UIAlertController.init(title: "", message: "SignUp successful please login", preferredStyle: .alert)
-                let ok = UIAlertAction.init(title: "OK", style: .default) { (ok) in
-                    self.navigationController?.popViewController(animated: true)
+        if phoneNo.text == "" || password.text == "" {
+            self.alert(message: "Please enter all fields")
+        }else if password.text != confirmPassword.text{
+            self.alert(message: "Password mismatch please check")
+        }else{
+            let model = CreateUserModel(phoneNo: phoneNo.text!, password: password.text!)
+            MBProgressHUD.showAdded(to: self.view, animated: true)
+            ApiManager.shared.signUp(model: model) { (signUp) in
+                if signUp{
+                    MBProgressHUD.hide(for: self.view, animated: true)
+                    let alert = UIAlertController.init(title: "", message: "SignUp successful please login", preferredStyle: .alert)
+                    let ok = UIAlertAction.init(title: "OK", style: .default) { (ok) in
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                    alert.addAction(ok)
+                    self.present(alert, animated: true, completion: nil)
+                }else{
+                    MBProgressHUD.hide(for: self.view, animated: true)
+                    self.alert(message: "completion false")
                 }
-                alert.addAction(ok)
-                self.present(alert, animated: true, completion: nil)
-            }else{
-                MBProgressHUD.hide(for: self.view, animated: true)
-                self.alert(message: "completion false")
             }
         }
+        
     }
     @IBAction func eye1(_ sender: Any) {
         if   password.isSecureTextEntry == true{

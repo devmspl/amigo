@@ -38,9 +38,29 @@ background()
         self.navigationController?.popViewController(animated: true)
     }
     @IBAction func forgotPassword(_ sender: Any) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "OTPVC") as! OTPVC
-        self.navigationController?.pushViewController(vc, animated: true)
+        if emailText.text == ""{
+            self.alert(message: "Please enter email")
+        }else if isValidEmail(emailText.text!){
+            let model = ForgotPassModel(email: emailText.text!)
+            ApiManager.shared.forgetApi(model: model) { success in
+                if success{
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "OTPVC") as! OTPVC
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }else{
+                    print("Hello there in an error please check")
+                }
+            }
+        }else{
+            alert(message: "please enter valid email")
+        }
+      
+        
     }
-    
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
+    }
 
 }

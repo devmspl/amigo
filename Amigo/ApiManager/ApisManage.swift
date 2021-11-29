@@ -8,13 +8,12 @@
 import Foundation
 import Alamofire
 import MBProgressHUD
+import UIKit
 
-class ApiManager{
+class ApiManager: UIViewController{
     static let shared = ApiManager()
-
-
     
-//MARK:- signUp api
+//MARK: - signUp api
     func signUp(model: CreateUserModel, completionHandler: @escaping (Bool) -> ()){
         if ReachabilityNetwork.isConnectedToNetwork(){
             AF.request(API.signUp, method: .post, parameters: model, encoder: JSONParameterEncoder.default).response{
@@ -26,7 +25,9 @@ class ApiManager{
                     if response.response?.statusCode == 200{
                         completionHandler(true)
                     }else{
+                        self.alert(message: "An error occured please try again")
                         print("Completion false")
+                        completionHandler(false)
                     }
                 }catch{
                     print(error.localizedDescription)
@@ -34,6 +35,7 @@ class ApiManager{
                 }
                 case .failure(let error): do{
                     print("Error",error)
+                    self.alert(message: "An error occured please try again")
                     completionHandler(false)
                 }
                 }
@@ -41,10 +43,11 @@ class ApiManager{
             }
         }else{
             completionHandler(false)
+            alert(message: "Please check internet connection")
         }
     }
     
-//MARK:- loginAPi
+//MARK: - loginAPi
     func login(model: LoginModel, completionHandler: @escaping (Bool) -> ()){
         if ReachabilityNetwork.isConnectedToNetwork(){
             AF.request(API.login, method: .post, parameters: model, encoder: JSONParameterEncoder.default).response{
@@ -66,11 +69,15 @@ class ApiManager{
                             print(token)
                             completionHandler(true)
                         }else{
+                            self.alert(message: "An error occured please try again")
+                            completionHandler(false)
 //                            ARSLineProgress.hide()
                         }
                     }catch{
                         print(error.localizedDescription)
                         completionHandler(false)
+                        self.alert(message: "An error occured please try again")
+
 //                        ARSLineProgress.hide()
                     }
                 case .failure(let error): do{
@@ -80,27 +87,41 @@ class ApiManager{
                 }
             }
         }else{
+            self.alert(message: "Please check internet connection")
+
             completionHandler(false)
         }
     }
     
-//MARK:- FORGET PASSWORD API
+//MARK: - FORGET PASSWORD API
     func forgetApi(model: ForgotPassModel,completionHandler: @escaping (Bool) -> ()){
         if ReachabilityNetwork.isConnectedToNetwork(){
             AF.request(API.forgot, method: .post, parameters: model ,encoder: JSONParameterEncoder.default).response{
                 response in
                 switch(response.result){
                 
-                case .success(let data):do{
+                case .success(let data):
+                    do{
                     print(data)
                     let json = try JSONSerialization.jsonObject(with: data!, options: [])
                     print(json)
-                    completionHandler(true)
+                        if response.response?.statusCode == 200{
+                            completionHandler(true)
+                        }else{
+                            completionHandler(false)
+                            self.alert(message: "An error occured please try again")
+                        }
+                   
+                }catch{
+                    print(error.localizedDescription)
+                    completionHandler(false)
+                    self.alert(message: "An error occured please try again")
                 }
                     
                 case .failure(let error):do{
                     print(error)
                     completionHandler(false)
+                    self.alert(message: "Please check internet connection")
                 }
                     
                 }
@@ -108,7 +129,7 @@ class ApiManager{
             }
         }
     }
-// MARK:- update user
+// MARK: - update user
     
     func update(model: UpdateUser, completionHandler: @escaping (Bool) -> ()){
         if ReachabilityNetwork.isConnectedToNetwork(){
@@ -129,25 +150,31 @@ class ApiManager{
 //                            ARSLineProgress.hide()
                             completionHandler(true)
                         }else{
+                            self.alert(message: "An error occured please try again")
+                            completionHandler(false)
 //                            ARSLineProgress.hide()
                         }
                     }catch{
                         print(error.localizedDescription)
                         completionHandler(false)
+                        self.alert(message: "An error occured please try again")
 //                        ARSLineProgress.hide()
                     }
                 case .failure(let error): do{
                     print("Error",error)
+                    self.alert(message: "An error occured please try again")
                     completionHandler(false)
                 }
                 }
             }
         }else{
+            self.alert(message: "Please check internet connection")
+
             completionHandler(false)
         }
     }
     
-//MARK:- FAVOURITE
+//MARK: - FAVOURITE
     
     func favouriteApi(model: AddToFavModel, completionHandler: @escaping (Bool) -> ()){
         if ReachabilityNetwork.isConnectedToNetwork(){
@@ -166,15 +193,19 @@ class ApiManager{
 //                            ARSLineProgress.hide()
                             completionHandler(true)
                         }else{
+                            self.alert(message: "An error occured please try again")
+                            completionHandler(false)
 //                            ARSLineProgress.hide()
                         }
                     }catch{
                         print(error.localizedDescription)
                         completionHandler(false)
+                        self.alert(message: "An error occured please try again")
 //                        ARSLineProgress.hide()
                     }
                 case .failure(let error): do{
                     print("Error",error)
+                    self.alert(message: "Please check internet conection")
                     completionHandler(false)
                 }
                 }
@@ -184,41 +215,6 @@ class ApiManager{
         }
     }
     
-// MARK:- USERLIST
-//    func userList(completionHandler: @escaping (Bool) -> ()){
-//        if ReachabilityNetwork.isConnectedToNetwork(){
-//            AF.request(API.userList, method: .get).response{
-//                response in
-//                switch(response.result){
-//                case .success(let data):
-//                    do{
-//                        let json = try JSONSerialization.jsonObject(with: data!, options: [])
-//                        print(json)
-//                        if response.response?.statusCode == 200 {
-////                            ARSLineProgress.hide()
-////                            let respond = json as! NSDictionary
-////                            let data = respond.object(forKey: "data") as! NSDictionary
-////                            print(data)
-//                            let decoder = JSONDecoder()
-//                            let result = try! decoder.decode(UsersModel.self, from: data!)
-//                            print(result)
-//                            completionHandler(true)
-//                        }else{
-////                            ARSLineProgress.hide()
-//                        }
-//                    }catch{
-//                        print(error.localizedDescription)
-//                        completionHandler(false)
-////                        ARSLineProgress.hide()
-//                    }
-//                case .failure(let error): do{
-//                    print("Error",error)
-//                    completionHandler(false)
-//                }
-//                }
-//            }
-//        }else{
-//            completionHandler(false)
-//        }
-//    }
+// MARK: -
+   
 }
