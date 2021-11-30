@@ -216,5 +216,42 @@ class ApiManager: UIViewController{
     }
     
 // MARK: -
-   
+    func requestApi(model: AddReqModel,completionHandler: @escaping (Bool) -> ()){
+        if ReachabilityNetwork.isConnectedToNetwork(){
+            AF.request(API.addrequest, method: .post, parameters: model ,encoder: JSONParameterEncoder.default).response{
+                response in
+                switch(response.result){
+                
+                case .success(let data):
+                    do{
+                    print(data)
+                    let json = try JSONSerialization.jsonObject(with: data!, options: [])
+                    print(json)
+                        if response.response?.statusCode == 200{
+                            completionHandler(true)
+                        }else{
+                            completionHandler(false)
+                            self.alert(message: "An error occured please try again")
+                        }
+                   
+                }catch{
+                    print(error.localizedDescription)
+                    completionHandler(false)
+                    self.alert(message: "An error occured please try again")
+                }
+                    
+                case .failure(let error):do{
+                    print(error)
+                    completionHandler(false)
+                    self.alert(message: "Please check internet connection")
+                }
+                    
+                }
+                
+            }
+        }else{
+            completionHandler(false)
+            self.alert(message: "Please check internet connection")
+        }
+    }
 }

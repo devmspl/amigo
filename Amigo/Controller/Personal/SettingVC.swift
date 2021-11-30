@@ -12,17 +12,17 @@ class SettingVC: UIViewController {
     
     @IBOutlet weak var nameOut: UILabel!
     @IBOutlet weak var emailOut: UILabel!
-    @IBOutlet weak var settingTable: UITableView!
+    @IBOutlet weak var settingTable: UITableView!{
+        didSet{
+            settingTable.tableFooterView = UIView(frame: .zero)
+        }
+    }
     @IBOutlet weak var profileImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-     
-        
     }
-    
-
-    
 }
 
 class SettingCell: UITableViewCell{

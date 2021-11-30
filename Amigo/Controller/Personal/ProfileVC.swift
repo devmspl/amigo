@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class ProfileVC: UIViewController {
 
@@ -28,8 +29,46 @@ class ProfileVC: UIViewController {
 //            self.continueView.backgroundColor = UIColor(named: "girlButton")
         }
     }
+    override func viewWillAppear(_ animated: Bool) {
+        getProfile()
+    }
     
+    @IBAction func settingTapped(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "SettingVC") as! SettingVC
+        self.present(vc, animated: true, completion: nil)
+    }
     @IBAction func imageChange(_ sender: Any) {
     }
     
+}
+
+extension ProfileVC{
+    func getProfile(){
+        if ReachabilityNetwork.isConnectedToNetwork(){
+            let id = UserDefaults.standard.value(forKey: "id") as! String
+            let token = UserDefaults.standard.value(forKey: "token") as! String
+            let headerss : HTTPHeaders = ["x-access-token":token]
+            AF.request(API.getUser+id,method: .get,headers: headerss).responseJSON{
+                response in
+                switch(response.result){
+                case .success(let json): do{
+                    print("Json",json)
+                    let status = response.response?.statusCode
+                    let respond = json as! NSDictionary
+                    if status == 200{
+                        print("success=====",respond)
+                    }else{
+                        self.alert(message: "error")
+                    }
+                }
+                case .failure(let error):do{
+                    print("error",error)
+                    self.view.isUserInteractionEnabled = true
+                }
+                }
+            }
+        }else{
+            self.alert(message: "Please check internet connection")
+        }
+    }
 }

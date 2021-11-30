@@ -27,6 +27,7 @@
 		046B5F122729285900A00728 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B5F112729285900A00728 /* ProfileVC.swift */; };
 		047D3FF927282A83000005BD /* OTPVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047D3FF827282A83000005BD /* OTPVC.swift */; };
 		047D3FFE27282B4C000005BD /* ResetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047D3FFD27282B4C000005BD /* ResetPasswordVC.swift */; };
+		04857FEB2755F6C60097C5BA /* AddRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04857FEA2755F6C60097C5BA /* AddRequestModel.swift */; };
 		048ACFF72747837800A68277 /* RequestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048ACFF62747837800A68277 /* RequestVC.swift */; };
 		048ACFFC274783C700A68277 /* RequestTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048ACFFB274783C700A68277 /* RequestTableCell.swift */; };
 		048AD00427478AC300A68277 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 048AD00327478AC100A68277 /* Assets.xcassets */; };
@@ -94,6 +95,7 @@
 		046B5F112729285900A00728 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		047D3FF827282A83000005BD /* OTPVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVC.swift; sourceTree = "<group>"; };
 		047D3FFD27282B4C000005BD /* ResetPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordVC.swift; sourceTree = "<group>"; };
+		04857FEA2755F6C60097C5BA /* AddRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRequestModel.swift; sourceTree = "<group>"; };
 		048ACFF62747837800A68277 /* RequestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestVC.swift; sourceTree = "<group>"; };
 		048ACFFB274783C700A68277 /* RequestTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestTableCell.swift; sourceTree = "<group>"; };
 		048AD00327478AC100A68277 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 			children = (
 				048E4E462738EF3D00F18A09 /* UserModel.swift */,
 				04526BF62750F84300D1F59C /* FavouriteModel.swift */,
+				04857FEA2755F6C60097C5BA /* AddRequestModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 				046B5F082729283A00A00728 /* FirstTabVC.swift in Sources */,
 				048AD009274793A600A68277 /* CongratulationVC.swift in Sources */,
 				04AAD061273A465600A900B1 /* ApisManage.swift in Sources */,
+				04857FEB2755F6C60097C5BA /* AddRequestModel.swift in Sources */,
 				04526BF72750F84300D1F59C /* FavouriteModel.swift in Sources */,
 				FA6F8F102718524300AD9946 /* LoginVC.swift in Sources */,
 				046B5EF62729216A00A00728 /* TabBarVC.swift in Sources */,

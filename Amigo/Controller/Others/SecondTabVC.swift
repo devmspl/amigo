@@ -49,7 +49,9 @@ class SecondTabVC: UIViewController {
     
     func getUserList(){
         if ReachabilityNetwork.isConnectedToNetwork(){
-            AF.request(API.userList,method: .get).responseJSON{ [self]
+            let token = UserDefaults.standard.value(forKey: "token") as! String
+            let header : HTTPHeaders = ["x-access-token": token]
+            AF.request(API.userList,method: .get,headers: header).responseJSON{ [self]
                 response in
                 switch(response.result){
                 case .success(let json): do{
@@ -58,9 +60,14 @@ class SecondTabVC: UIViewController {
                     if status == 200{
                         print(respond)
                         userData = respond.object(forKey: "data") as! [AnyObject]
-                        for i in 0...userData.count-1{
-                            toLikeUser += [userData[i]["id"] as! String]
+                        if userData.count != 0{
+                            for i in 0...userData.count-1{
+                                toLikeUser += [userData[i]["id"] as! String]
+                            }
+                        }else{
+                            alert(message: "User exists 0")
                         }
+                        
                         print("user to beliked", toLikeUser)
                         
                         self.view.isUserInteractionEnabled = true
@@ -111,7 +118,17 @@ extension SecondTabVC: KolodaViewDelegate{
              
              }
              if direction == .right {
-               
+               let likeuser = toLikeUser[index]
+                let modelreq = AddReqModel(reqTo: likeuser, reqBy: id)
+                ApiManager.shared.requestApi(model: modelreq) { (issuccess) in
+                    if issuccess{
+                        toLikeUser.remove(at: 0)
+                        koloda.reloadData()
+                        print("liked",id,likeuser)
+                    }else{
+                        print("please check id",id,likeuser)
+                    }
+                }
              }
             if direction == .up{
                 let likeuser = toLikeUser[index]
@@ -157,7 +174,7 @@ extension SecondTabVC: KolodaViewDataSource{
 
     func kolodaNumberOfCards(_ koloda:KolodaView) -> Int {
         
-        return 10
+        return userData.count
     }
 
     func kolodaSpeedThatCardShouldDrag(_ koloda: KolodaView) -> DragSpeed {
