@@ -17,6 +17,7 @@ class SettingVC: UIViewController {
             settingTable.tableFooterView = UIView(frame: .zero)
         }
     }
+    let setarray = ["Terms and conditions","Privacy policy","Support","Change password","Sign out"]
     @IBOutlet weak var profileImage: UIImageView!
     
     override func viewDidLoad() {
@@ -27,15 +28,17 @@ class SettingVC: UIViewController {
 
 class SettingCell: UITableViewCell{
     
+    @IBOutlet weak var setCategory: UILabel!
 }
 
 extension SettingVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return setarray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = settingTable.dequeueReusableCell(withIdentifier: "cell") as! SettingCell
+        cell.setCategory.text = setarray[indexPath.row]
         return cell
     }
     

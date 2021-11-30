@@ -2483,6 +2483,9 @@ location in order to use Amigo</string>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="setCategory" destination="c5a-Nh-iCk" id="Cmt-HW-UmG"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

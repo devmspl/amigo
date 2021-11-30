@@ -42,6 +42,7 @@ class ProfileVC: UIViewController {
     
 }
 
+//MARK: - EXTENSION
 extension ProfileVC{
     func getProfile(){
         if ReachabilityNetwork.isConnectedToNetwork(){
@@ -57,6 +58,7 @@ extension ProfileVC{
                     let respond = json as! NSDictionary
                     if status == 200{
                         print("success=====",respond)
+                        
                     }else{
                         self.alert(message: "error")
                     }
