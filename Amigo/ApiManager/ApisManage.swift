@@ -13,7 +13,7 @@ import UIKit
 class ApiManager: UIViewController{
     static let shared = ApiManager()
     
-//MARK: - signUp api
+    //MARK: - signUp api
     func signUp(model: CreateUserModel, completionHandler: @escaping (Bool) -> ()){
         if ReachabilityNetwork.isConnectedToNetwork(){
             AF.request(API.signUp, method: .post, parameters: model, encoder: JSONParameterEncoder.default).response{
@@ -47,7 +47,7 @@ class ApiManager: UIViewController{
         }
     }
     
-//MARK: - loginAPi
+    //MARK: - loginAPi
     func login(model: LoginModel, completionHandler: @escaping (Bool) -> ()){
         if ReachabilityNetwork.isConnectedToNetwork(){
             AF.request(API.login, method: .post, parameters: model, encoder: JSONParameterEncoder.default).response{
@@ -58,7 +58,7 @@ class ApiManager: UIViewController{
                         let json = try JSONSerialization.jsonObject(with: data!, options: [])
                         print(json)
                         if response.response?.statusCode == 200 {
-//                            ARSLineProgress.hide()
+                            //                            ARSLineProgress.hide()
                             let respond = json as! NSDictionary
                             let data = respond.object(forKey: "data") as! NSDictionary
                             let userId = data.object(forKey: "_id") as! String
@@ -71,14 +71,14 @@ class ApiManager: UIViewController{
                         }else{
                             self.alert(message: "An error occured please try again")
                             completionHandler(false)
-//                            ARSLineProgress.hide()
+                            //                            ARSLineProgress.hide()
                         }
                     }catch{
                         print(error.localizedDescription)
                         completionHandler(false)
                         self.alert(message: "An error occured please try again")
-
-//                        ARSLineProgress.hide()
+                        
+                        //                        ARSLineProgress.hide()
                     }
                 case .failure(let error): do{
                     print("Error",error)
@@ -88,12 +88,12 @@ class ApiManager: UIViewController{
             }
         }else{
             self.alert(message: "Please check internet connection")
-
+            
             completionHandler(false)
         }
     }
     
-//MARK: - FORGET PASSWORD API
+    //MARK: - FORGET PASSWORD API
     func forgetApi(model: ForgotPassModel,completionHandler: @escaping (Bool) -> ()){
         if ReachabilityNetwork.isConnectedToNetwork(){
             AF.request(API.forgot, method: .post, parameters: model ,encoder: JSONParameterEncoder.default).response{
@@ -102,34 +102,34 @@ class ApiManager: UIViewController{
                 
                 case .success(let data):
                     do{
-                    print(data)
-                    let json = try JSONSerialization.jsonObject(with: data!, options: [])
-                    print(json)
+                        print(data)
+                        let json = try JSONSerialization.jsonObject(with: data!, options: [])
+                        print(json)
                         if response.response?.statusCode == 200{
                             completionHandler(true)
                         }else{
                             completionHandler(false)
                             self.alert(message: "An error occured please try again")
                         }
-                   
-                }catch{
-                    print(error.localizedDescription)
-                    completionHandler(false)
-                    self.alert(message: "An error occured please try again")
-                }
+                        
+                    }catch{
+                        print(error.localizedDescription)
+                        completionHandler(false)
+                        self.alert(message: "An error occured please try again")
+                    }
                     
                 case .failure(let error):do{
                     print(error)
                     completionHandler(false)
                     self.alert(message: "Please check internet connection")
                 }
-                    
+                
                 }
                 
             }
         }
     }
-// MARK: - update user
+    // MARK: - update user
     
     func update(model: UpdateUser, completionHandler: @escaping (Bool) -> ()){
         if ReachabilityNetwork.isConnectedToNetwork(){
@@ -147,18 +147,18 @@ class ApiManager: UIViewController{
                         let json = try JSONSerialization.jsonObject(with: data!, options: [])
                         print(json)
                         if response.response?.statusCode == 200 {
-//                            ARSLineProgress.hide()
+                            //                            ARSLineProgress.hide()
                             completionHandler(true)
                         }else{
                             self.alert(message: "An error occured please try again")
                             completionHandler(false)
-//                            ARSLineProgress.hide()
+                            //                            ARSLineProgress.hide()
                         }
                     }catch{
                         print(error.localizedDescription)
                         completionHandler(false)
                         self.alert(message: "An error occured please try again")
-//                        ARSLineProgress.hide()
+                        //                        ARSLineProgress.hide()
                     }
                 case .failure(let error): do{
                     print("Error",error)
@@ -169,19 +169,19 @@ class ApiManager: UIViewController{
             }
         }else{
             self.alert(message: "Please check internet connection")
-
+            
             completionHandler(false)
         }
     }
     
-//MARK: - FAVOURITE
+    //MARK: - FAVOURITE
     
     func favouriteApi(model: AddToFavModel, completionHandler: @escaping (Bool) -> ()){
         if ReachabilityNetwork.isConnectedToNetwork(){
             
             
-//            let header: HTTPHeaders = ["x-access-token": token]
-          
+            //            let header: HTTPHeaders = ["x-access-token": token]
+            
             AF.request(API.favourite, method: .post, parameters: model, encoder: JSONParameterEncoder.default).response{
                 response in
                 switch(response.result){
@@ -190,18 +190,18 @@ class ApiManager: UIViewController{
                         let json = try JSONSerialization.jsonObject(with: data!, options: [])
                         print(json)
                         if response.response?.statusCode == 200 {
-//                            ARSLineProgress.hide()
+                            //                            ARSLineProgress.hide()
                             completionHandler(true)
                         }else{
                             self.alert(message: "An error occured please try again")
                             completionHandler(false)
-//                            ARSLineProgress.hide()
+                            //                            ARSLineProgress.hide()
                         }
                     }catch{
                         print(error.localizedDescription)
                         completionHandler(false)
                         self.alert(message: "An error occured please try again")
-//                        ARSLineProgress.hide()
+                        //                        ARSLineProgress.hide()
                     }
                 case .failure(let error): do{
                     print("Error",error)
@@ -215,7 +215,7 @@ class ApiManager: UIViewController{
         }
     }
     
-// MARK: -
+    // MARK: - add request api
     func requestApi(model: AddReqModel,completionHandler: @escaping (Bool) -> ()){
         if ReachabilityNetwork.isConnectedToNetwork(){
             AF.request(API.addrequest, method: .post, parameters: model ,encoder: JSONParameterEncoder.default).response{
@@ -224,34 +224,104 @@ class ApiManager: UIViewController{
                 
                 case .success(let data):
                     do{
-                    print(data)
-                    let json = try JSONSerialization.jsonObject(with: data!, options: [])
-                    print(json)
+                        print(data)
+                        let json = try JSONSerialization.jsonObject(with: data!, options: [])
+                        print(json)
                         if response.response?.statusCode == 200{
                             completionHandler(true)
                         }else{
                             completionHandler(false)
                             self.alert(message: "An error occured please try again")
                         }
-                   
-                }catch{
-                    print(error.localizedDescription)
-                    completionHandler(false)
-                    self.alert(message: "An error occured please try again")
-                }
+                        
+                    }catch{
+                        print(error.localizedDescription)
+                        completionHandler(false)
+                        self.alert(message: "An error occured please try again")
+                    }
                     
                 case .failure(let error):do{
                     print(error)
                     completionHandler(false)
                     self.alert(message: "Please check internet connection")
                 }
-                    
+                
                 }
                 
             }
         }else{
             completionHandler(false)
             self.alert(message: "Please check internet connection")
+        }
+    }
+    
+    //MARK: - APPROVE REQUEST
+    func approveReq(id:String,completionHandler: @escaping (Bool) -> ()){
+        if ReachabilityNetwork.isConnectedToNetwork(){
+            let token = UserDefaults.standard.value(forKey: "token") as! String
+            let headere : HTTPHeaders = ["x-access-token":token]
+            AF.request(API.acceptRequest+id,method: .put,headers: headere).response{
+                response in
+                switch(response.result){
+                case .success(let data):do{
+                    let json = try JSONSerialization.jsonObject(with: data!, options: [])
+                    if response.response?.statusCode == 200{
+                        print("success",json)
+                        completionHandler(true)
+                    }else{
+                        completionHandler(false)
+                        print("failed",json)
+                    }
+                }catch{
+                    completionHandler(false)
+                    print(error.localizedDescription)
+                    self.alert(message: "An error occured please try again")
+                }
+                case .failure(let error):do{
+                    completionHandler(false)
+                    print(error.localizedDescription)
+                    self.alert(message: "An error occured please try again")
+                }
+                }
+            }
+        }else{
+            completionHandler(false)
+            self.alert(message: "An error occured please try again")
+        }
+    }
+
+//MARK: - DELETEREQUEST
+    func rejectReq(id:String,completionHandler: @escaping (Bool) -> ()){
+        if ReachabilityNetwork.isConnectedToNetwork(){
+            let token = UserDefaults.standard.value(forKey: "token") as! String
+            let headere : HTTPHeaders = ["x-access-token":token]
+            AF.request(API.rejectRequest+id,method: .put,headers: headere).response{
+                response in
+                switch(response.result){
+                case .success(let data):do{
+                    let json = try JSONSerialization.jsonObject(with: data!, options: [])
+                    if response.response?.statusCode == 200{
+                        print("success",json)
+                        completionHandler(true)
+                    }else{
+                        completionHandler(false)
+                        print("failed",json)
+                    }
+                }catch{
+                    completionHandler(false)
+                    print(error.localizedDescription)
+                    self.alert(message: "An error occured please try again")
+                }
+                case .failure(let error):do{
+                    completionHandler(false)
+                    print(error.localizedDescription)
+                    self.alert(message: "An error occured please try again")
+                }
+                }
+            }
+        }else{
+            completionHandler(false)
+            self.alert(message: "An error occured please try again")
         }
     }
 }

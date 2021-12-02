@@ -3749,11 +3749,6 @@ location in order to use Amigo</string>
             <point key="canvasLocation" x="18.840579710144929" y="69.642857142857139"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="msR-gZ-eEg">
-            <size key="intrinsicContentSize" width="374" height="45"/>
-        </designable>
-    </designables>
     <resources>
         <image name="Background" width="414" height="388"/>
         <image name="Close" width="72" height="72"/>

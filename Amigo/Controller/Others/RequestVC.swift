@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import Alamofire
 
 class RequestVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
-
+    let requestId = ""
     @IBOutlet weak var likeTable: UITableView!{
         didSet{
             likeTable.tableFooterView = UIView(frame: .zero)
@@ -29,9 +30,27 @@ class RequestVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
     
     @IBAction func deleteRequest(_ sender: UIButton) {
-        likeTable.reloadData()
+        
+        ApiManager.shared.rejectReq(id: requestId) { (issuccess) in
+            if issuccess{
+                print("Hello Accepted")
+                self.likeTable.reloadData()
+                self.alert(message: "Hello Accepted")
+            }else{
+                print("completionFalse")
+            }
+        }
     }
     @IBAction func acceptRequest(_ sender: Any) {
+        ApiManager.shared.approveReq(id: requestId) { (issuccess) in
+            if issuccess{
+                print("Hello Accepted")
+                self.likeTable.reloadData()
+                self.alert(message: "Hello Accepted")
+            }else{
+                print("completionFalse")
+            }
+        }
     }
     
     
@@ -57,4 +76,37 @@ class RequestVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
 
 
+}
+
+extension RequestVC{
+    func requestList(){
+        if ReachabilityNetwork.isConnectedToNetwork(){
+            let id = UserDefaults.standard.value(forKey: "id") as! String
+            let token = UserDefaults.standard.value(forKey: "token") as! String
+            let headerss : HTTPHeaders = ["x-access-token":token]
+            AF.request(API.requestList+id,method: .get,headers: headerss).responseJSON{ [self]
+                response in
+                switch(response.result){
+                case .success(let json): do{
+                    print("Json",json)
+                    let status = response.response?.statusCode
+                    let respond = json as! NSDictionary
+                    if status == 200{
+                        let data = respond.object(forKey: "data") as! NSDictionary
+                        print("success=====",respond)
+                        
+                    }else{
+                        self.alert(message: "error")
+                    }
+                }
+                case .failure(let error):do{
+                    print("error",error)
+                    self.view.isUserInteractionEnabled = true
+                }
+                }
+            }
+        }else{
+            self.alert(message: "Please check internet connection")
+        }
+    }
 }

@@ -49,7 +49,7 @@ extension ProfileVC{
             let id = UserDefaults.standard.value(forKey: "id") as! String
             let token = UserDefaults.standard.value(forKey: "token") as! String
             let headerss : HTTPHeaders = ["x-access-token":token]
-            AF.request(API.getUser+id,method: .get,headers: headerss).responseJSON{
+            AF.request(API.getUser+id,method: .get,headers: headerss).responseJSON{ [self]
                 response in
                 switch(response.result){
                 case .success(let json): do{
@@ -57,6 +57,8 @@ extension ProfileVC{
                     let status = response.response?.statusCode
                     let respond = json as! NSDictionary
                     if status == 200{
+                        let data = respond.object(forKey: "data") as! NSDictionary
+                        email.text = data.object(forKey: "email") as! String
                         print("success=====",respond)
                         
                     }else{
