@@ -7,6 +7,7 @@
 
 import UIKit
 import Alamofire
+import MBProgressHUD
 
 class RequestVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
@@ -16,7 +17,7 @@ class RequestVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
             likeTable.tableFooterView = UIView(frame: .zero)
         }
     }
-    let nameArray = ["Anika","Sherya","Lilly","Mona","Sonia"]
+    var dataArray = [AnyObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,26 +29,35 @@ class RequestVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
 //          self.continueView.backgroundColor = UIColor(named: "girlButton")
         }
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        requestList()
+    }
     
     @IBAction func deleteRequest(_ sender: UIButton) {
-        
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         ApiManager.shared.rejectReq(id: requestId) { (issuccess) in
             if issuccess{
+                MBProgressHUD.hide(for: self.view, animated: true)
                 print("Hello Accepted")
                 self.likeTable.reloadData()
                 self.alert(message: "Hello Accepted")
             }else{
+                MBProgressHUD.hide(for: self.view, animated: true)
                 print("completionFalse")
             }
         }
     }
-    @IBAction func acceptRequest(_ sender: Any) {
+    @IBAction func acceptRequest(_ sender: UIButton) {
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         ApiManager.shared.approveReq(id: requestId) { (issuccess) in
             if issuccess{
+                MBProgressHUD.hide(for: self.view, animated: true)
                 print("Hello Accepted")
                 self.likeTable.reloadData()
                 self.alert(message: "Hello Accepted")
             }else{
+                MBProgressHUD.hide(for: self.view, animated: true)
                 print("completionFalse")
             }
         }
@@ -56,13 +66,14 @@ class RequestVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return nameArray.count
+        return dataArray.count
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = likeTable.dequeueReusableCell(withIdentifier: "cell") as! RequestTableCell
-        cell.cellName.text = nameArray[indexPath.row]
+       let reqBy = dataArray[indexPath.row]["reqBy"] as! NSDictionary
+        cell.cellName.text = reqBy.object(forKey: "name") as? String ?? ""
         
         return cell
     }
@@ -70,9 +81,11 @@ class RequestVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         return 70
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let vc = storyboard?.instantiateViewController(withIdentifier: "SomeProfileVC") as! SomeProfileVC
-//        
-//        self.navigationController?.pushViewController(vc, animated: true)
+        let vc = storyboard?.instantiateViewController(withIdentifier: "SomeProfileVC") as! SomeProfileVC
+        let reqBy = dataArray[indexPath.row]["reqBy"] as! NSDictionary
+        vc.id = reqBy.object(forKey: "_id") as! String
+        vc.key = "R"
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
 
@@ -81,6 +94,7 @@ class RequestVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
 extension RequestVC{
     func requestList(){
         if ReachabilityNetwork.isConnectedToNetwork(){
+            
             let id = UserDefaults.standard.value(forKey: "id") as! String
             let token = UserDefaults.standard.value(forKey: "token") as! String
             let headerss : HTTPHeaders = ["x-access-token":token]
@@ -89,23 +103,30 @@ extension RequestVC{
                 switch(response.result){
                 case .success(let json): do{
                     print("Json",json)
+                    MBProgressHUD.hide(for: self.view, animated: true)
                     let status = response.response?.statusCode
                     let respond = json as! NSDictionary
                     if status == 200{
-                        let data = respond.object(forKey: "data") as! NSDictionary
+                        MBProgressHUD.hide(for: self.view, animated: true)
+                        let data = respond.object(forKey: "data") as! [AnyObject]
+                        dataArray = data
+                        likeTable.reloadData()
                         print("success=====",respond)
                         
                     }else{
+                        MBProgressHUD.hide(for: self.view, animated: true)
                         self.alert(message: "error")
                     }
                 }
                 case .failure(let error):do{
+                    MBProgressHUD.hide(for: self.view, animated: true)
                     print("error",error)
                     self.view.isUserInteractionEnabled = true
                 }
                 }
             }
         }else{
+            MBProgressHUD.hide(for: self.view, animated: true)
             self.alert(message: "Please check internet connection")
         }
     }

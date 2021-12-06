@@ -50,6 +50,7 @@ class ApiManager: UIViewController{
     //MARK: - loginAPi
     func login(model: LoginModel, completionHandler: @escaping (Bool) -> ()){
         if ReachabilityNetwork.isConnectedToNetwork(){
+            print(model)
             AF.request(API.login, method: .post, parameters: model, encoder: JSONParameterEncoder.default).response{
                 response in
                 switch(response.result){
@@ -105,8 +106,12 @@ class ApiManager: UIViewController{
                         print(data)
                         let json = try JSONSerialization.jsonObject(with: data!, options: [])
                         print(json)
+                        let respond = json as! NSDictionary
                         if response.response?.statusCode == 200{
                             completionHandler(true)
+                            let data = respond.object(forKey: "data") as! NSDictionary
+                            let token = data.object(forKey: "token") as! String
+                            UserDefaults.standard.setValue(token, forKey: "token")
                         }else{
                             completionHandler(false)
                             self.alert(message: "An error occured please try again")
@@ -127,6 +132,84 @@ class ApiManager: UIViewController{
                 }
                 
             }
+        }
+    }
+    
+//MARK: - OTP API
+    
+    func otpApi(model: OTPModel, completionHandler: @escaping (Bool)-> ()){
+        if ReachabilityNetwork.isConnectedToNetwork(){
+            let token = UserDefaults.standard.value(forKey: "token") as! String
+            let head : HTTPHeaders = ["x-access-token": token]
+            AF.request(API.otp,method: .post,parameters: model,headers: head).response{
+                response in
+                switch(response.result){
+                case .success(let data):do{
+                    
+                    let json = try JSONSerialization.jsonObject(with: data!, options:  [])
+                    let respond = json as! NSDictionary
+                    let message = respond.object(forKey: "message") as! String
+                    if response.response?.statusCode == 200{
+                        completionHandler(true)
+                        self.alert(message: message)
+                        print("success",respond)
+                    }else{
+                        self.alert(message: message)
+                    }
+                }catch{
+                    completionHandler(false)
+                    self.alert(message: "Something went wrong please try again")
+                    print(error.localizedDescription)
+                }
+               
+                case .failure(let error):do{
+                    completionHandler(false)
+                    print(error.localizedDescription)
+                    self.alert(message: "Something went wrong please try again")
+                }
+                }
+            }
+        }else{
+            completionHandler(false)
+            self.alert(message: "Please check internet connection")
+        }
+    }
+    
+//MARK: - RESETPASSWORD
+    func resetPassword(model: ResetPassModel, completionHandler: @escaping (Bool)-> ()){
+        if ReachabilityNetwork.isConnectedToNetwork(){
+            let token = UserDefaults.standard.value(forKey: "token") as! String
+            let head : HTTPHeaders = ["x-access-token": token]
+            AF.request(API.resetpass,method: .post,parameters: model,headers: head).response{
+                response in
+                switch(response.result){
+                case .success(let data):do{
+                    let json = try JSONSerialization.jsonObject(with: data!, options:  [])
+                    let respond = json as! NSDictionary
+                    let message = respond.object(forKey: "message") as! String
+                    if response.response?.statusCode == 200{
+                        completionHandler(true)
+                        self.alert(message: message)
+                        print("success",respond)
+                    }else{
+                        self.alert(message: message)
+                    }
+                }catch{
+                    completionHandler(false)
+                    self.alert(message: "Something went wrong please try again")
+                    print(error.localizedDescription)
+                }
+               
+                case .failure(let error):do{
+                    completionHandler(false)
+                    print(error.localizedDescription)
+                    self.alert(message: "Something went wrong please try again")
+                }
+                }
+            }
+        }else{
+            completionHandler(false)
+            self.alert(message: "Please check internet connection")
         }
     }
     // MARK: - update user
@@ -178,10 +261,7 @@ class ApiManager: UIViewController{
     
     func favouriteApi(model: AddToFavModel, completionHandler: @escaping (Bool) -> ()){
         if ReachabilityNetwork.isConnectedToNetwork(){
-            
-            
             //            let header: HTTPHeaders = ["x-access-token": token]
-            
             AF.request(API.favourite, method: .post, parameters: model, encoder: JSONParameterEncoder.default).response{
                 response in
                 switch(response.result){
@@ -214,11 +294,50 @@ class ApiManager: UIViewController{
             completionHandler(false)
         }
     }
+
+//MARK: - REMOVE FAVOURITE
+    
+    func removeFav(model: RemoveFavModel,completionHandler: @escaping (Bool) -> ()){
+        if ReachabilityNetwork.isConnectedToNetwork(){
+            AF.request(API.favRemove,method: .post,parameters: model,encoder: JSONParameterEncoder.default).response{
+                response in
+                switch(response.result){
+                
+                case .success(let data):do{
+                    let json = try JSONSerialization.jsonObject(with: data!, options: [])
+                    let respond = json as! NSDictionary
+                    if response.response?.statusCode == 200{
+                        
+                        print("Success",respond)
+                        completionHandler(true)
+                    }
+                }catch{
+                   
+                    self.alert(message: "Something went wrong please try again")
+                    print("Errorrr",error.localizedDescription)
+                    completionHandler(false)
+                }
+                    
+                case .failure(let error):do{
+                    
+                    self.alert(message: "Something went wrong please try again")
+                    print("Errorrr",error.localizedDescription)
+                    completionHandler(false)
+                }
+                }
+            }
+        }else{
+            self.alert(message: "Please check your internet connection")
+        }
+    }
     
     // MARK: - add request api
     func requestApi(model: AddReqModel,completionHandler: @escaping (Bool) -> ()){
         if ReachabilityNetwork.isConnectedToNetwork(){
-            AF.request(API.addrequest, method: .post, parameters: model ,encoder: JSONParameterEncoder.default).response{
+            print(API.addrequest)
+            let token = UserDefaults.standard.value(forKey: "token") as! String
+            let head : HTTPHeaders = ["x-access-token":token]
+            AF.request(API.addrequest, method: .post, parameters: model ,encoder: JSONParameterEncoder.default,headers: head).response{
                 response in
                 switch(response.result){
                 

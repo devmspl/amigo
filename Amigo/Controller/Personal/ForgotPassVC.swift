@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class ForgotPassVC: UIViewController {
 
@@ -41,16 +42,20 @@ background()
         if emailText.text == ""{
             self.alert(message: "Please enter email")
         }else if isValidEmail(emailText.text!){
+            MBProgressHUD.showAdded(to: self.view, animated: true)
             let model = ForgotPassModel(email: emailText.text!)
             ApiManager.shared.forgetApi(model: model) { success in
                 if success{
+                    MBProgressHUD.hide(for: self.view, animated: true)
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "OTPVC") as! OTPVC
                     self.navigationController?.pushViewController(vc, animated: true)
                 }else{
+                    MBProgressHUD.hide(for: self.view, animated: true)
                     print("Hello there in an error please check")
                 }
             }
         }else{
+           
             alert(message: "please enter valid email")
         }
       

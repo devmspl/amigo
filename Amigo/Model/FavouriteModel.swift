@@ -11,3 +11,8 @@ struct AddToFavModel: Encodable{
     let userId: String?
     let toLikeUserId: String?
 }
+
+struct RemoveFavModel: Encodable {
+    let userId: String?
+    let toUnLikeUserId: String?
+}

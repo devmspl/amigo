@@ -35,8 +35,16 @@ background()
         self.navigationController?.popViewController(animated: true)
     }
     @IBAction func continueTapped( _ sender: UIButton){
-        let vc = storyboard?.instantiateViewController(withIdentifier: "ResetPasswordVC") as! ResetPasswordVC
-        self.navigationController?.pushViewController(vc, animated: true)
+        let model = OTPModel(otp: otpText.text)
+        ApiManager.shared.otpApi(model: model) { (issuccess) in
+            if issuccess{
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "ResetPasswordVC") as! ResetPasswordVC
+                self.navigationController?.pushViewController(vc, animated: true)
+            }else{
+                print("Completion false please check why")
+            }
+        }
+       
     }
 
     @IBAction func resendCode(_ sender: Any) {

@@ -10,6 +10,7 @@ import DropDown
 //import ImagePicker
 import Photos
 import BSImagePicker
+import MBProgressHUD
 
 class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIImagePickerControllerDelegate {
 
@@ -144,10 +145,12 @@ class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollec
 //            print(model)
 //            ApiManager.shared.update(model: model) { (isSuccess) in
 //                if isSuccess{
+        MBProgressHUD.hide(for: self.view, animated: true)
 //                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as! TabBarVC
 //                    self.navigationController?.pushViewController(vc, animated: true)
 //                    print("hello")
 //                }else{
+        MBProgressHUD.hide(for: self.view, animated: true)
 //                    print("Failure")
 //                }
 //            }

@@ -72,7 +72,8 @@ class SignupVc: UIViewController {
         }else if password.text != confirmPassword.text{
             self.alert(message: "Password mismatch please check")
         }else{
-            let model = CreateUserModel(phoneNo: phoneNo.text!, password: password.text!)
+            
+            let model = CreateUserModel(email: phoneNo.text!, password: password.text!)
             MBProgressHUD.showAdded(to: self.view, animated: true)
             ApiManager.shared.signUp(model: model) { (signUp) in
                 if signUp{

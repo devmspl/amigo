@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class LoginVC: UIViewController {
 
@@ -53,14 +54,19 @@ class LoginVC: UIViewController {
     
 
     @IBAction func loginTapped(_ sender: Any) {
+        
         if isValidEmail(phoneNo.text!){
-            let loginModel = LoginModel(phoneNo: phoneNo.text!, password: password.text!)
+            MBProgressHUD.showAdded(to: self.view, animated: true)
+            let loginModel = LoginModel(email: phoneNo.text!, password: password.text!)
             ApiManager.shared.login(model: loginModel) { (isSuccess) in
                 if isSuccess{
+                    MBProgressHUD.hide(for: self.view, animated: true)
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "GenderVC") as! GenderVC
                     self.navigationController?.pushViewController(vc, animated: true)
                 }else{
-                    self.alert(message: "check credentials")
+                    MBProgressHUD.hide(for: self.view, animated: true)
+                    print("check credetials")
+//                    self.alert(message: "check credentials")
                 }
             }
         }else{

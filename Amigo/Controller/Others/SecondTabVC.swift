@@ -8,14 +8,12 @@
 import UIKit
 import Koloda
 import Alamofire
+import MBProgressHUD
 
 class SecondTabVC: UIViewController {
-    
-    
-
+   
     @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var swipeView: KolodaView!
-    @IBOutlet weak var picOut: UIImageView!
     
     var userData = [AnyObject]()
     var toLikeUser = [String]()
@@ -35,20 +33,18 @@ class SecondTabVC: UIViewController {
             self.view.backgroundColor = UIColor(named: "girlColor")
             self.backgroundImage.image = UIImage(named: "backGirl")
         }
-       if UserDefaults.standard.value(forKey: "Gender") as! String == "Male"{
-            self.view.backgroundColor = UIColor(named: "MenColor")
-        }else{
-            self.view.backgroundColor = UIColor(named: "girlColor")
-        }
+      
     }
     override func viewWillAppear(_ animated: Bool) {
         getUserList()
+        
         
     }
 //MARK:- APIs
     
     func getUserList(){
         if ReachabilityNetwork.isConnectedToNetwork(){
+            MBProgressHUD.showAdded(to: self.view, animated: true)
             let token = UserDefaults.standard.value(forKey: "token") as! String
             let header : HTTPHeaders = ["x-access-token": token]
             AF.request(API.userList,method: .get,headers: header).responseJSON{ [self]
@@ -57,14 +53,21 @@ class SecondTabVC: UIViewController {
                 case .success(let json): do{
                     let status = response.response?.statusCode
                     let respond = json as! NSDictionary
+                    MBProgressHUD.hide(for: self.view, animated: true)
                     if status == 200{
                         print(respond)
+                        toLikeUser.removeAll()
+                        MBProgressHUD.hide(for: self.view, animated: true)
                         userData = respond.object(forKey: "data") as! [AnyObject]
                         if userData.count != 0{
                             for i in 0...userData.count-1{
                                 toLikeUser += [userData[i]["id"] as! String]
+                                MBProgressHUD.hide(for: self.view, animated: true)
                             }
+                            
+                            swipeView.reloadData()
                         }else{
+                            MBProgressHUD.hide(for: self.view, animated: true)
                             alert(message: "User exists 0")
                         }
                         
@@ -72,16 +75,19 @@ class SecondTabVC: UIViewController {
                         
                         self.view.isUserInteractionEnabled = true
                     }else{
+                        MBProgressHUD.hide(for: self.view, animated: true)
                         alert(message: "\(status)")
                         self.view.isUserInteractionEnabled = true
                     }
                 }
                 case .failure(let error):
                     print(error)
+                    MBProgressHUD.hide(for: self.view, animated: true)
                     self.view.isUserInteractionEnabled = true
                 }
             }
         }else{
+            MBProgressHUD.hide(for: self.view, animated: true)
             alert(message: "Please check internet connection")
         }
     }
@@ -89,6 +95,7 @@ class SecondTabVC: UIViewController {
     
     @IBAction func dislikeBtn(_ sender: Any) {
         swipeView.swipe(.left)
+        
         print("dislike")
     }
     @IBAction func refreshBtn(_ sender: Any) {
@@ -118,27 +125,34 @@ extension SecondTabVC: KolodaViewDelegate{
              
              }
              if direction == .right {
+                MBProgressHUD.showAdded(to: self.view, animated: true)
                let likeuser = toLikeUser[index]
                 let modelreq = AddReqModel(reqTo: likeuser, reqBy: id)
                 ApiManager.shared.requestApi(model: modelreq) { (issuccess) in
                     if issuccess{
-                        toLikeUser.remove(at: 0)
-                        koloda.reloadData()
+                        MBProgressHUD.hide(for: self.view, animated: true)
+//                        toLikeUser.remove(at: 0)
                         print("liked",id,likeuser)
                     }else{
+                        MBProgressHUD.hide(for: self.view, animated: true)
                         print("please check id",id,likeuser)
                     }
                 }
              }
             if direction == .up{
+                MBProgressHUD.showAdded(to: self.view, animated: true)
                 let likeuser = toLikeUser[index]
+                print(toLikeUser)
+                print(toLikeUser[index])
+                print(index)
                 let model = AddToFavModel(userId: id, toLikeUserId: likeuser)
                 ApiManager.shared.favouriteApi(model: model) { (success) in
                     if success{
-                        toLikeUser.remove(at: 0)
-                        koloda.reloadData()
+                        MBProgressHUD.hide(for: self.view, animated: true)
+//                        toLikeUser.remove(at: 0)
                         print("liked",id,likeuser)
                     }else{
+                        MBProgressHUD.hide(for: self.view, animated: true)
                         print("liked",id,likeuser)
                         print("id not right")
                     }
@@ -168,7 +182,7 @@ extension SecondTabVC: KolodaViewDelegate{
 extension SecondTabVC: KolodaViewDataSource{
     func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
          koloda.resetCurrentCardIndex()
-           koloda.reloadData()
+        swipeView.reloadData()
         
        }
 
@@ -183,7 +197,9 @@ extension SecondTabVC: KolodaViewDataSource{
 
     func koloda(_ koloda: KolodaView, viewForCardAt index: Int) -> UIView {
         let overlay1 = (Bundle.main.loadNibNamed("slider", owner: self, options: nil)?[0] as! OverlayChild)
-//        koloda.reloadData()
+        overlay1.nameOutlet.text = userData[index]["name"] as? String ?? ""
+        overlay1.picOutlet.image = UIImage(named: "Background")
+   
         return overlay1
        
     }

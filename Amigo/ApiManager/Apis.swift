@@ -18,6 +18,8 @@ public struct API{
     public static let userList            = baseUrl+"users/matchList"
     public static let forgot              = baseUrl+"users/forgotPassword"
     public static let getUser             = baseUrl+"users/currentUser/"
+    public static let otp                 = baseUrl+"users/otpVerify"
+    public static let resetpass           = baseUrl+"users/changePassword"
     
 //MARK: - FAVOURITE API
     public static let favourite           = baseUrl+"favourites/add"
@@ -25,7 +27,7 @@ public struct API{
     public static let favList             = baseUrl+"favourites/ByUserId/"
     
 //MARK: - REQUESTAPI
-    public static let addrequest          = baseUrl+"requests/createRequest"
+    public static let addrequest          = baseUrl+"requests/create"
     public static let acceptRequest       = baseUrl+"requests/approve/"
     public static let rejectRequest       = baseUrl+"requests/reject/"
     public static let requestList         = baseUrl+"requests/listByUserId/"

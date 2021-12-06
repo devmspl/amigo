@@ -58,5 +58,18 @@ class ResetPasswordVC: UIViewController {
         }
     }
     @IBAction func resetTapped(_ sender: Any) {
+        if newPassword.text != confirmPassword.text{
+            self.alert(message: "Password Mismatch")
+        }else{
+            let model = ResetPassModel(newPassword: newPassword.text)
+            ApiManager.shared.resetPassword(model: model) { (issuccess) in
+                if issuccess{
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }else{
+                    print("completion false")
+                }
+            }
+        }
     }
 }

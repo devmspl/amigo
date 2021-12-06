@@ -9,17 +9,28 @@ import Foundation
 
 
 struct CreateUserModel: Encodable{
-    let phoneNo: String?
+    let email: String?
     let password: String?
 }
 
 struct LoginModel: Encodable {
-    let phoneNo: String?
+    let email: String?
     let password: String?
 }
 
 struct ForgotPassModel: Encodable {
     let email: String?
+}
+struct OTPModel: Encodable {
+    let otp: String?
+}
+
+struct ResetPassModel: Encodable {
+    let newPassword: String?
+}
+struct ChangePassModel: Encodable {
+    let oldPassword : String?
+    let newPassword: String?
 }
 
 struct UpdateUser: Encodable {

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Alamofire
+import MBProgressHUD
 
 class SomeProfileVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
@@ -21,13 +23,17 @@ class SomeProfileVC: UIViewController,UICollectionViewDelegate,UICollectionViewD
     @IBOutlet weak var upperCollection: UICollectionView!
     @IBOutlet weak var lowerCollection: UICollectionView!
     
+    var key = ""
+    var id = ""
+    
+    
     let label = ["Interest1","Interest2","Interest3","Interest4","Interest5","Interest6","Interest7","Interest8"]
     let image = [UIImage(named: "pic4"),UIImage(named: "pic4"),UIImage(named: "pic4"),UIImage(named: "pic4")]
     let image2 = [UIImage(named: "pic4"),UIImage(named: "pic4"),UIImage(named: "pic4"),UIImage(named: "pic4")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+     
         if UserDefaults.standard.value(forKey: "Gender") as! String == "Male"{
             self.view.backgroundColor = UIColor(named: "MenColor")
         }else{
@@ -35,7 +41,9 @@ class SomeProfileVC: UIViewController,UICollectionViewDelegate,UICollectionViewD
 //          self.continueView.backgroundColor = UIColor(named: "girlButton")
         }
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        getSomeProfile()
+    }
     
     @IBAction func likeTapped(_ sender: Any) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "CongratulationVC") as! CongratulationVC
@@ -117,4 +125,48 @@ class PicCollectionCell: UICollectionViewCell{
     @IBOutlet weak var viewPic: UIView!
     @IBOutlet weak var imageOut
         : UIImageView!
+}
+
+//MARK: - extension profile api
+extension SomeProfileVC{
+    func getSomeProfile(){
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        if ReachabilityNetwork.isConnectedToNetwork(){
+            let token = UserDefaults.standard.value(forKey: "token") as! String
+            let headerss : HTTPHeaders = ["x-access-token":token]
+            AF.request(API.getUser+id,method: .get,headers: headerss).responseJSON{ [self]
+                response in
+                switch(response.result){
+                case .success(let json): do{
+                    print("Json",json)
+                    MBProgressHUD.hide(for: self.view, animated: true)
+                    let status = response.response?.statusCode
+                    let respond = json as! NSDictionary
+                    if status == 200{
+                        MBProgressHUD.hide(for: self.view, animated: true)
+                        let data = respond.object(forKey: "data") as! NSDictionary
+//                        email.text = data.object(forKey: "email") as! String
+                        name.text = data.object(forKey: "name") as? String ?? "---"
+                        about.text = data.object(forKey: "aboutMe") as? String ?? "---"
+//                        nameLabel.text = name.text
+//                        livingIn.text = data.object(forKey: "livingIn") as! String
+                        print("success=====",respond)
+                        
+                    }else{
+                        MBProgressHUD.hide(for: self.view, animated: true)
+                        self.alert(message: "error")
+                    }
+                }
+                case .failure(let error):do{
+                    MBProgressHUD.hide(for: self.view, animated: true)
+                    print("error",error)
+                    self.view.isUserInteractionEnabled = true
+                }
+                }
+            }
+        }else{
+            MBProgressHUD.hide(for: self.view, animated: true)
+            self.alert(message: "Please check internet connection")
+        }
+    }
 }
