@@ -126,21 +126,6 @@ extension SecondTabVC: KolodaViewDelegate{
              }
              if direction == .right {
                 MBProgressHUD.showAdded(to: self.view, animated: true)
-               let likeuser = toLikeUser[index]
-                let modelreq = AddReqModel(reqTo: likeuser, reqBy: id)
-                ApiManager.shared.requestApi(model: modelreq) { (issuccess) in
-                    if issuccess{
-                        MBProgressHUD.hide(for: self.view, animated: true)
-//                        toLikeUser.remove(at: 0)
-                        print("liked",id,likeuser)
-                    }else{
-                        MBProgressHUD.hide(for: self.view, animated: true)
-                        print("please check id",id,likeuser)
-                    }
-                }
-             }
-            if direction == .up{
-                MBProgressHUD.showAdded(to: self.view, animated: true)
                 let likeuser = toLikeUser[index]
                 print(toLikeUser)
                 print(toLikeUser[index])
@@ -149,7 +134,6 @@ extension SecondTabVC: KolodaViewDelegate{
                 ApiManager.shared.favouriteApi(model: model) { (success) in
                     if success{
                         MBProgressHUD.hide(for: self.view, animated: true)
-//                        toLikeUser.remove(at: 0)
                         print("liked",id,likeuser)
                     }else{
                         MBProgressHUD.hide(for: self.view, animated: true)
@@ -157,16 +141,27 @@ extension SecondTabVC: KolodaViewDelegate{
                         print("id not right")
                     }
                 }
+//
+             }
+            if direction == .up{
+                MBProgressHUD.showAdded(to: self.view, animated: true)
+                               let likeuser = toLikeUser[index]
+                                let modelreq = AddReqModel(reqTo: likeuser, reqBy: id)
+                                ApiManager.shared.requestApi(model: modelreq) { (issuccess) in
+                                    if issuccess{
+                                        MBProgressHUD.hide(for: self.view, animated: true)
+                                        print("liked",id,likeuser)
+                                    }else{
+                                        MBProgressHUD.hide(for: self.view, animated: true)
+                                        print("please check id",id,likeuser)
+                                    }
+                                }
             }
-            if direction == .down{
-                
-            }
-            
         }
       }
     
     func koloda(_ koloda: KolodaView, allowedDirectionsForIndex index: Int) -> [SwipeResultDirection] {
-        return [.left, .right, .up, .down]
+        return [.left, .right, .up]
     }
 
     func koloda(_ koloda: KolodaView, didSelectCardAt index: Int) {

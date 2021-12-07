@@ -306,20 +306,21 @@ class ApiManager: UIViewController{
                 case .success(let data):do{
                     let json = try JSONSerialization.jsonObject(with: data!, options: [])
                     let respond = json as! NSDictionary
+                    let message = respond.object(forKey: "message") as! String
                     if response.response?.statusCode == 200{
                         
                         print("Success",respond)
                         completionHandler(true)
+                    }else{
+                        self.alert(message: message)
                     }
                 }catch{
-                   
                     self.alert(message: "Something went wrong please try again")
                     print("Errorrr",error.localizedDescription)
                     completionHandler(false)
                 }
                     
                 case .failure(let error):do{
-                    
                     self.alert(message: "Something went wrong please try again")
                     print("Errorrr",error.localizedDescription)
                     completionHandler(false)
@@ -413,6 +414,7 @@ class ApiManager: UIViewController{
     func rejectReq(id:String,completionHandler: @escaping (Bool) -> ()){
         if ReachabilityNetwork.isConnectedToNetwork(){
             let token = UserDefaults.standard.value(forKey: "token") as! String
+            print("token",token)
             let headere : HTTPHeaders = ["x-access-token":token]
             AF.request(API.rejectRequest+id,method: .put,headers: headere).response{
                 response in

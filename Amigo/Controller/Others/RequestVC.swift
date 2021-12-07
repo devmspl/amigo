@@ -11,7 +11,7 @@ import MBProgressHUD
 
 class RequestVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
-    let requestId = ""
+    var requestId = [String]()
     @IBOutlet weak var likeTable: UITableView!{
         didSet{
             likeTable.tableFooterView = UIView(frame: .zero)
@@ -36,7 +36,9 @@ class RequestVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     @IBAction func deleteRequest(_ sender: UIButton) {
         MBProgressHUD.showAdded(to: self.view, animated: true)
-        ApiManager.shared.rejectReq(id: requestId) { (issuccess) in
+        let requestid = requestId[sender.tag]
+        print("request id",requestid)
+        ApiManager.shared.rejectReq(id: requestid) { (issuccess) in
             if issuccess{
                 MBProgressHUD.hide(for: self.view, animated: true)
                 print("Hello Accepted")
@@ -50,7 +52,9 @@ class RequestVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
     @IBAction func acceptRequest(_ sender: UIButton) {
         MBProgressHUD.showAdded(to: self.view, animated: true)
-        ApiManager.shared.approveReq(id: requestId) { (issuccess) in
+        let requestid = requestId[sender.tag]
+        print("request approve id",requestid)
+        ApiManager.shared.approveReq(id: requestid) { (issuccess) in
             if issuccess{
                 MBProgressHUD.hide(for: self.view, animated: true)
                 print("Hello Accepted")
@@ -74,7 +78,8 @@ class RequestVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         let cell = likeTable.dequeueReusableCell(withIdentifier: "cell") as! RequestTableCell
        let reqBy = dataArray[indexPath.row]["reqBy"] as! NSDictionary
         cell.cellName.text = reqBy.object(forKey: "name") as? String ?? ""
-        
+        cell.acceptBtn.tag = indexPath.row
+        cell.deleteBtn.tag = indexPath.row
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -84,13 +89,13 @@ class RequestVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         let vc = storyboard?.instantiateViewController(withIdentifier: "SomeProfileVC") as! SomeProfileVC
         let reqBy = dataArray[indexPath.row]["reqBy"] as! NSDictionary
         vc.id = reqBy.object(forKey: "_id") as! String
-        vc.key = "R"
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
 
 }
 
+//MARK: - REQUEST LIST API
 extension RequestVC{
     func requestList(){
         if ReachabilityNetwork.isConnectedToNetwork(){
@@ -110,6 +115,10 @@ extension RequestVC{
                         MBProgressHUD.hide(for: self.view, animated: true)
                         let data = respond.object(forKey: "data") as! [AnyObject]
                         dataArray = data
+                        for i in 0...dataArray.count-1{
+                            let reqBy = dataArray[i]["reqBy"] as! NSDictionary
+                            requestId.append(reqBy.object(forKey: "reqBy") as! String)
+                        }
                         likeTable.reloadData()
                         print("success=====",respond)
                         

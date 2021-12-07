@@ -7,176 +7,112 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DEEBCBA5-8928-4F94-93CE-C693263217EC"
+            uuid = "E225302C-DA82-46A1-A16A-38E67347D50D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Amigo/ApiManager/ApisManage.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "308"
-            endingLineNumber = "308"
-            landmarkName = "removeFav(model:completionHandler:)"
+            startingLineNumber = "384"
+            endingLineNumber = "384"
+            landmarkName = "approveReq(id:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "20012514-7668-41B3-8AAF-B67CEC5860CB"
+            uuid = "F91F02EB-8FEC-4F67-8441-0D89CFA72B7A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Amigo/ApiManager/ApisManage.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "316"
-            endingLineNumber = "316"
-            landmarkName = "removeFav(model:completionHandler:)"
+            startingLineNumber = "386"
+            endingLineNumber = "386"
+            landmarkName = "approveReq(id:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FA9E9733-9817-4F52-86F7-0D22979E3E59"
+            uuid = "90CCEFC2-E221-4575-8D17-805426E8089A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Amigo/ApiManager/ApisManage.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "322"
-            endingLineNumber = "322"
-            landmarkName = "removeFav(model:completionHandler:)"
+            startingLineNumber = "389"
+            endingLineNumber = "389"
+            landmarkName = "approveReq(id:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A9CCE06A-4984-4CD6-8F36-E6020FC360D6"
+            uuid = "C5BF0C4F-B0C8-4DB6-8180-D969E610DBD7"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Amigo/ApiManager/ApisManage.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "302"
-            endingLineNumber = "302"
-            landmarkName = "removeFav(model:completionHandler:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "A9CCE06A-4984-4CD6-8F36-E6020FC360D6 - 59fc6b58b4290282"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Amigo.ApiManager.removeFav(model: Amigo.RemoveFavModel, completionHandler: (Swift.Bool) -&gt; ()) -&gt; ()"
-                  moduleName = "Amigo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Desktop/Amigo/Amigo/ApiManager/ApisManage.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "302"
-                  endingLineNumber = "302"
-                  offsetFromSymbolStart = "267">
-               </Location>
-               <Location
-                  uuid = "A9CCE06A-4984-4CD6-8F36-E6020FC360D6 - aae5e327bdaf2a5f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Swift.Optional&lt;Foundation.Data&gt;, Alamofire.AFError&gt;) -&gt; () in Amigo.ApiManager.removeFav(model: Amigo.RemoveFavModel, completionHandler: (Swift.Bool) -&gt; ()) -&gt; ()"
-                  moduleName = "Amigo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac/Desktop/Amigo/Amigo/ApiManager/ApisManage.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "304"
-                  endingLineNumber = "304"
-                  offsetFromSymbolStart = "284">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "965B30C5-C8CA-4EDC-B0F4-314D69E24A45"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Amigo/ApiManager/ApisManage.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "347"
-            endingLineNumber = "347"
-            landmarkName = "requestApi(model:completionHandler:)"
+            startingLineNumber = "425"
+            endingLineNumber = "425"
+            landmarkName = "rejectReq(id:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B38222DF-BE29-4613-8B80-D9E6E8EC58F9"
+            uuid = "47611C3F-0FAB-438D-BF51-DCA506893523"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Amigo/ApiManager/ApisManage.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "350"
-            endingLineNumber = "350"
-            landmarkName = "requestApi(model:completionHandler:)"
+            startingLineNumber = "429"
+            endingLineNumber = "429"
+            landmarkName = "rejectReq(id:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D079D22D-EFEA-4B75-9949-27F5A6FAD342"
+            uuid = "905FDD0D-F565-488C-AB01-65A3A44C5F56"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Amigo/ApiManager/ApisManage.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "353"
-            endingLineNumber = "353"
-            landmarkName = "requestApi(model:completionHandler:)"
+            startingLineNumber = "433"
+            endingLineNumber = "433"
+            landmarkName = "rejectReq(id:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A4EBE4E1-9A34-4334-89A0-D955A4913875"
+            uuid = "1D9AAC3C-677B-4A07-A371-93EEA8ED9E95"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Amigo/ApiManager/ApisManage.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "358"
-            endingLineNumber = "358"
-            landmarkName = "requestApi(model:completionHandler:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F6B75AC5-69A1-4B69-914F-654AD9AC1E36"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Amigo/ApiManager/ApisManage.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "363"
-            endingLineNumber = "363"
-            landmarkName = "requestApi(model:completionHandler:)"
+            startingLineNumber = "438"
+            endingLineNumber = "438"
+            landmarkName = "rejectReq(id:completionHandler:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

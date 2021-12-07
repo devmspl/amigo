@@ -20,6 +20,8 @@ public struct API{
     public static let getUser             = baseUrl+"users/currentUser/"
     public static let otp                 = baseUrl+"users/otpVerify"
     public static let resetpass           = baseUrl+"users/changePassword"
+    public static let profileImage        = baseUrl+"users/profileImageUpload/"
+    public static let multiImage          = baseUrl+"users/uploadImagesByUserId/"
     
 //MARK: - FAVOURITE API
     public static let favourite           = baseUrl+"favourites/add"

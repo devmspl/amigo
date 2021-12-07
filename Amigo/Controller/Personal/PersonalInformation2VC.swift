@@ -11,8 +11,9 @@ import DropDown
 import Photos
 import BSImagePicker
 import MBProgressHUD
+import Alamofire
 
-class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIImagePickerControllerDelegate {
+class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate{
 
     @IBOutlet var imageCollection: UICollectionView!
     @IBOutlet var textViews: [UIView]!
@@ -33,26 +34,28 @@ class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollec
     var email = ""
     var phone = ""
     var dob = ""
-    
-    
-//    let imagePickerController = ImagePickerController()
+    var imagee = [UIImage(named: "addicon"),UIImage(named: "addicon"),UIImage(named: "addicon"),UIImage(named: "addicon"),UIImage(named: "addicon"),UIImage(named: "addicon")]
 //    let config = Configuration()
   
    
-    
-    var img = [UIImage.init(named: "pic1"),UIImage.init(named: "pic2"),UIImage.init(named: "pic3"),UIImage.init(named: "picLike"),UIImage.init(named: "pic4"),UIImage.init(named: "pic2")]
+    var myimage: [Data] = [Data]()
+    var selectedAsset = [PHAsset]()
+    var img = [UIImage]()
+
+    let imagePickerController = ImagePickerController()
+
 
 //MARK:- VIEWDID LOAD
     override func viewDidLoad() {
         super.viewDidLoad()
         continueView.layer.cornerRadius = 20
 //        imagePickerController.imageLimit = 6
-//        imagePickerController.delegate = self
+   
 //        config.allowMultiplePhotoSelection = true
 //        let imagePicker = ImagePickerController(configuration: config)
-//        imagePicker.delegate = self
+//        imagePickerController.delegate = self
         print(name);print(email);print(phone);print(dob)
-        
+        imagePickerController.delegate = self
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
@@ -71,36 +74,91 @@ class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollec
     }
 
     func hello(){
-        let imagePicker = ImagePickerController()
         
-        self.presentImagePicker(imagePicker, select: { (asset) in
+        self.presentImagePicker(self.imagePickerController, select: { (asset) in
             // User selected an asset. Do something with it. Perhaps begin processing/upload?
         }, deselect: { (asset) in
             // User deselected an asset. Cancel whatever you did when asset was selected.
         }, cancel: { (assets) in
             // User canceled selection.
+            print("dnvkdsbkdbkvjb")
+
         }, finish: { (assets) in
             // User finished selection assets.
+            print("jsdjbfkjebwfj")
+            for i in 0..<assets.count{
+                self.selectedAsset.append(assets[i])
+//                self.convertAssestToImage()
+            }
         })
     }
     
 
-//MARK:- IMAGEPICKER METHOD
-//    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-//        print("hellowrapper")
-//    }
-//    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-//        print("hellodone")
-//        print(images)
-//        img.removeAll()
-//        img = images
-//        imageCollection.reloadData()
-//        dismiss(animated: true, completion: nil)
-//    }
+//    func convertAssestToImage(){
+//        self.img.removeAll()
+//        self.myimage.removeAll()
 //
-//    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
-//        print("hellocancel")
-//    }
+//        for i in 0..<selectedAsset.count {
+//
+//                    let manager = PHImageManager.default()
+//                    let option = PHImageRequestOptions()
+//                    var thumbnail = UIImage()
+//                    option.isSynchronous = true
+//                    manager.requestImage(for: selectedAsset[i],targetSize: CGSize(width: 200, height: 200), contentMode: PHImageContentMode.aspectFill, options: option, resultHandler: { (result, info) -> Void in
+//                        thumbnail = result!
+//                    })
+//
+//                    let data = thumbnail.jpegData(compressionQuality: 0.7)
+//                    let newImage = UIImage(data: data!)
+//                    self.img.append(newImage! as UIImage)
+//                        // This for send images data to another view cntroller for make request
+//                    self.myimage.append(data!)
+//
+//                    }
+//
+//                    DispatchQueue.main.async {
+//                      self.imageCollection.reloadData()
+//                    }
+//
+//                }
+//
+//                print("complete photo array \(self.photoArray)")
+//}
+//}
+    
+//MARK:- IMAGEPICKER METHOD
+    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+        print("hellowrapper")
+    }
+    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+        print("hellodone")
+        print(images)
+        img.removeAll()
+        img = images
+        upload(
+            image: img,
+                    progressCompletion: { [weak self] percent in
+                       guard let _ = self else {
+                         return
+                       }
+                       print("Status: \(percent)")
+                      if percent == 1.0{
+                     self!.alert(message: "Profile updated Successfully", title: "Image")
+
+                       }
+                     },
+                     completion: { [weak self] result in
+                       guard let _ = self else {
+                         return
+                       }
+                   })
+        imageCollection.reloadData()
+        dismiss(animated: true, completion: nil)
+    }
+
+    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
+        print("hellocancel")
+    }
 //MARK:- GESTURE METHOD
     @objc func gestureRecognizer( _ gesture: UILongPressGestureRecognizer){
         guard let collectionView = imageCollection else{
@@ -166,12 +224,22 @@ class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollec
 //MARK:- extension
 extension PersonalInformation2VC{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return img.count
+        if img.count != 0{
+            return img.count
+        }else{
+            return imagee.count
+        }
+       
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = imageCollection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! InformationCell
-        cell.picSelected.image = img[indexPath.item]
+        if img.count == 0{
+            cell.picSelected.image = imagee[indexPath.item]
+        }
+        else{
+            cell.picSelected.image = img[indexPath.item]
+        }
         
         return cell
     }
@@ -185,7 +253,61 @@ extension PersonalInformation2VC{
         return true
     }
     func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let item = img.remove(at: sourceIndexPath.row)
-        img.insert(item, at: destinationIndexPath.row)
+        if img.count == 0{
+            print("Select")
+        }else{
+            let item = img.remove(at: sourceIndexPath.row)
+            img.insert(item, at: destinationIndexPath.row)
+        }
+        
     }
+}
+
+
+extension PersonalInformation2VC{
+    func upload(image: [UIImage],
+                      progressCompletion: @escaping (_ percent: Float) -> Void,
+                      completion: @escaping (_ result: Bool) -> Void) {
+//              guard let imageData = image.jpegData(compressionQuality: 0.5) else {
+//              print("Could not get JPEG representation of UIImage")
+//              return
+//            }
+       
+            let randomno = Int.random(in: 1000...100000)
+           let imgFileName = "image\(randomno).jpg"
+        
+            
+//        let parameterS: Parameters = ["id": "\(UserDefaults.standard.value(forKey: "userid")!)"]
+        let userId = UserDefaults.standard.value(forKey: "id") as! String
+            AF.upload(
+              multipartFormData: { multipartFormData in
+                
+                for i in 0...image.count-1{
+                                    
+                    multipartFormData.append(image[i].jpegData(compressionQuality: 0.5)!,
+                                             withName: "files[]",
+                                             fileName: imgFileName,
+                                             mimeType: "image/jpeg")
+                               
+                              }
+                         
+//                for (key, value) in parameterS {
+//                if let temp = value as? String {
+//                multipartFormData.append(temp.data(using: .utf8)!, withName: key)
+//                }
+//                }
+//                multipartFormData.append(imageData,
+//                                         withName: "file",
+//                                         fileName: imgFileName,
+//                                         mimeType: "image/jpeg")
+//                multipartFormData = image
+              },
+                to: API.multiImage+userId, usingThreshold: UInt64.init(), method: .put)
+              .uploadProgress { progress in
+                   progressCompletion(Float(progress.fractionCompleted))
+              }
+              .response { response in
+                  debugPrint(response)
+              }
+          }
 }

@@ -2482,9 +2482,11 @@ location in order to use Amigo</string>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
+                                            <outlet property="acceptBtn" destination="8dZ-8F-gT1" id="UKX-Sa-BDA"/>
                                             <outlet property="cellImage" destination="OGn-s0-vpW" id="whk-n4-WIP"/>
                                             <outlet property="cellName" destination="MNI-Og-wtF" id="3Hj-X5-Zzy"/>
                                             <outlet property="cellView" destination="RiB-9q-TC5" id="sTu-YE-Fb2"/>
+                                            <outlet property="deleteBtn" destination="PtI-di-7MY" id="ac6-ek-T8E"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -3641,6 +3643,11 @@ location in order to use Amigo</string>
             <point key="canvasLocation" x="18.840579710144929" y="69.642857142857139"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="msR-gZ-eEg">
+            <size key="intrinsicContentSize" width="374" height="45"/>
+        </designable>
+    </designables>
     <resources>
         <image name="Background" width="414" height="388"/>
         <image name="Close" width="72" height="72"/>

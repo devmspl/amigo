@@ -8,9 +8,13 @@
 import UIKit
 import Alamofire
 import MBProgressHUD
+import Photos
+import BSImagePicker
+import AlamofireImage
 
-class ProfileVC: UIViewController,UIImagePickerControllerDelegate{
+class ProfileVC: BaseClass{
 
+    
     @IBOutlet weak var seprator: UIImageView!
     @IBOutlet weak var viewImage: UIView!
     @IBOutlet weak var name: UITextField!
@@ -23,7 +27,8 @@ class ProfileVC: UIViewController,UIImagePickerControllerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        viewImage.layer.cornerRadius = 65
+        profileImage.layer.cornerRadius = 65
         if UserDefaults.standard.value(forKey: "Gender") as! String == "Male"{
             self.view.backgroundColor = UIColor(named: "MenColor")
             seprator.isHidden = false
@@ -44,6 +49,28 @@ class ProfileVC: UIViewController,UIImagePickerControllerDelegate{
         self.navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func imageChange(_ sender: Any) {
+        openCameraAndPhotos(isEditImage: false) { [self] image, string in
+            self.profileImage.image = image
+            upload(
+                image: self.profileImage.image!,
+                        progressCompletion: { [weak self] percent in
+                           guard let _ = self else {
+                             return
+                           }
+                           print("Status: \(percent)")
+                          if percent == 1.0{
+                         self!.alert(message: "Profile updated Successfully", title: "Image")
+                               
+                           }
+                         },
+                         completion: { [weak self] result in
+                           guard let _ = self else {
+                             return
+                           }
+                       })
+        } failure: { Error in
+            print(Error)
+        }
     }
     
 }
@@ -91,4 +118,39 @@ extension ProfileVC{
             self.alert(message: "Please check internet connection")
         }
     }
+}
+
+//MARK: - UPLOAD PROFILE IMAGE
+extension ProfileVC{
+    func upload(image: UIImage,
+                      progressCompletion: @escaping (_ percent: Float) -> Void,
+                      completion: @escaping (_ result: Bool) -> Void) {
+              guard let imageData = image.jpegData(compressionQuality: 0.5) else {
+              print("Could not get JPEG representation of UIImage")
+              return
+            }
+            let randomno = Int.random(in: 1000...100000)
+            let imgFileName = "image\(randomno).jpg"
+//        let parameterS: Parameters = ["id": "\(UserDefaults.standard.value(forKey: "userid")!)"]
+        let userId = UserDefaults.standard.value(forKey: "id") as! String
+            AF.upload(
+              multipartFormData: { multipartFormData in
+//                for (key, value) in parameterS {
+//                if let temp = value as? String {
+//                multipartFormData.append(temp.data(using: .utf8)!, withName: key)
+//                }
+//                }
+                multipartFormData.append(imageData,
+                                         withName: "file",
+                                         fileName: imgFileName,
+                                         mimeType: "image/jpeg")
+              },
+              to: API.profileImage+userId, usingThreshold: UInt64.init(), method: .put)
+              .uploadProgress { progress in
+                   progressCompletion(Float(progress.fractionCompleted))
+              }
+              .response { response in
+                  debugPrint(response)
+              }
+          }
 }

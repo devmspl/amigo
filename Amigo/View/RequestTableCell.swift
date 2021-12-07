@@ -12,7 +12,8 @@ class RequestTableCell: UITableViewCell {
     @IBOutlet weak var cellImage: UIImageView!
     @IBOutlet weak var cellName: UILabel!
     @IBOutlet weak var cellView: UIView!
-    
+    @IBOutlet weak var deleteBtn: UIButton!
+    @IBOutlet weak var acceptBtn: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         cellImage.layer.cornerRadius = 30
