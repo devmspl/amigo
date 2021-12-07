@@ -54,7 +54,7 @@ class FavouriteVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "SomeProfileVC") as! SomeProfileVC
-        
+        vc.id = userUnlikeId[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func removeFav(_ sender: UIButton) {
@@ -128,4 +128,5 @@ extension FavouriteVC{
             self.alert(message: "Please check internet connection")
         }
     }
+    
 }
