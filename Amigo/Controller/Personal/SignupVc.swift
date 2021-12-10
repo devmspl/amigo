@@ -20,7 +20,7 @@ class SignupVc: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         background()
-        
+        back2()
         for i in 0...viewCollection.count-1{
             viewCollection[i].layer.cornerRadius = 10
             viewCollection[i].layer.borderWidth = 1
@@ -44,6 +44,19 @@ class SignupVc: UIViewController {
                    
            self.mainView.layer.insertSublayer(gradientLayer, at:0)
         self.view.layer.insertSublayer(gradientLayer, at: 0)
+    }
+    func back2(){
+        let colorTop =  UIColor(red: 169.0/255.0, green: 8.0/255.0, blue: 49.0/255.0, alpha: 1.0).cgColor
+//        let colorCenter = UIColor(red: 246.0/255.0, green: 94.0/255.0, blue: 126.0/255.0, alpha: 1.0).cgColor
+        let colorBottom = UIColor(red: 243.0/255.0, green: 93.0/255.0, blue: 131.0/255.0, alpha: 1.0).cgColor
+                       
+           let gradientLayer = CAGradientLayer()
+        gradientLayer.cornerRadius = 10
+           gradientLayer.colors = [colorTop, colorBottom]
+           gradientLayer.locations = [0.0, 1.0]
+           gradientLayer.frame = self.signupBtn.bounds
+                   
+           self.signupBtn.layer.insertSublayer(gradientLayer, at:0)
     }
     
 //MARK:- BTN COLOR

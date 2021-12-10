@@ -148,6 +148,7 @@ extension SomeProfileVC{
 //                        email.text = data.object(forKey: "email") as! String
                         name.text = data.object(forKey: "name") as? String ?? "---"
                         about.text = data.object(forKey: "aboutMe") as? String ?? "---"
+                        work.text = data.object(forKey: "myWork") as? String ?? "---"
 //                        nameLabel.text = name.text
 //                        livingIn.text = data.object(forKey: "livingIn") as! String
                         print("success=====",respond)

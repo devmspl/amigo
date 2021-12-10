@@ -15,6 +15,7 @@ class ForgotPassVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 background()
+        back2()
         emailText.layer.borderWidth = 1
         emailText.layer.borderColor = UIColor.white.cgColor
         emailText.layer.cornerRadius = 10
@@ -35,6 +36,20 @@ background()
            self.view.layer.insertSublayer(gradientLayer, at:0)
     }
 
+    func back2(){
+        let colorTop =  UIColor(red: 169.0/255.0, green: 8.0/255.0, blue: 49.0/255.0, alpha: 1.0).cgColor
+//        let colorCenter = UIColor(red: 246.0/255.0, green: 94.0/255.0, blue: 126.0/255.0, alpha: 1.0).cgColor
+        let colorBottom = UIColor(red: 243.0/255.0, green: 93.0/255.0, blue: 131.0/255.0, alpha: 1.0).cgColor
+                       
+           let gradientLayer = CAGradientLayer()
+        gradientLayer.cornerRadius = 10
+           gradientLayer.colors = [colorTop, colorBottom]
+           gradientLayer.locations = [0.0, 1.0]
+           gradientLayer.frame = self.forgotPassword.bounds
+                   
+           self.forgotPassword.layer.insertSublayer(gradientLayer, at:0)
+    }
+    
     @IBAction func back_btn(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }

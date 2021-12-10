@@ -16,7 +16,7 @@ class ResetPasswordVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         background()
-        
+        back2()
         for i in 0...textViews.count-1{
             textViews[i].layer.cornerRadius = 10
             textViews[i].layer.borderWidth = 1
@@ -25,6 +25,8 @@ class ResetPasswordVC: UIViewController {
         btnView.layer.cornerRadius = 20
       
     }
+
+    //MARK: - BACKGROUND COLORS
     func background(){
         let colorTop =  UIColor(red: 37.0/255.0, green: 50.0/255.0, blue: 116.0/255.0, alpha: 1.0).cgColor
         let colorCenter = UIColor(red: 246.0/255.0, green: 94.0/255.0, blue: 126.0/255.0, alpha: 1.0).cgColor
@@ -37,8 +39,22 @@ class ResetPasswordVC: UIViewController {
                    
            self.view.layer.insertSublayer(gradientLayer, at:0)
     }
+    func back2(){
+        let colorTop =  UIColor(red: 169.0/255.0, green: 8.0/255.0, blue: 49.0/255.0, alpha: 1.0).cgColor
+//        let colorCenter = UIColor(red: 246.0/255.0, green: 94.0/255.0, blue: 126.0/255.0, alpha: 1.0).cgColor
+        let colorBottom = UIColor(red: 243.0/255.0, green: 93.0/255.0, blue: 131.0/255.0, alpha: 1.0).cgColor
+                       
+           let gradientLayer = CAGradientLayer()
+        gradientLayer.cornerRadius = 10
+           gradientLayer.colors = [colorTop, colorBottom]
+           gradientLayer.locations = [0.0, 1.0]
+           gradientLayer.frame = self.btnView.bounds
+                   
+           self.btnView.layer.insertSublayer(gradientLayer, at:0)
+    }
 
-
+    //MARK: - BTN ACTIONS
+    
     @IBAction func backTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }

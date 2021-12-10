@@ -19,6 +19,7 @@
 		040E12B4272191CE007E1A69 /* GenderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E12B3272191CE007E1A69 /* GenderVC.swift */; };
 		040E12B927219223007E1A69 /* PersonalInformation1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E12B827219223007E1A69 /* PersonalInformation1VC.swift */; };
 		040E12BE2721925C007E1A69 /* PersonalInformation2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E12BD2721925B007E1A69 /* PersonalInformation2VC.swift */; };
+		0429589427608C27004572A3 /* ChangePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0429589327608C27004572A3 /* ChangePassword.swift */; };
 		04526BF72750F84300D1F59C /* FavouriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04526BF62750F84300D1F59C /* FavouriteModel.swift */; };
 		046B5EF62729216A00A00728 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B5EF52729216A00A00728 /* TabBarVC.swift */; };
 		046B5F032729253100A00728 /* InformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046B5F022729253100A00728 /* InformationCell.swift */; };
@@ -88,6 +89,7 @@
 		040E12B3272191CE007E1A69 /* GenderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderVC.swift; sourceTree = "<group>"; };
 		040E12B827219223007E1A69 /* PersonalInformation1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformation1VC.swift; sourceTree = "<group>"; };
 		040E12BD2721925B007E1A69 /* PersonalInformation2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInformation2VC.swift; sourceTree = "<group>"; };
+		0429589327608C27004572A3 /* ChangePassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassword.swift; sourceTree = "<group>"; };
 		04526BF62750F84300D1F59C /* FavouriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteModel.swift; sourceTree = "<group>"; };
 		046B5EF52729216A00A00728 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		046B5F022729253100A00728 /* InformationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCell.swift; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 				048AD0102747B00B00A68277 /* FavouriteVC.swift */,
 				04B9FB11274F6533006BBA45 /* LocationVC.swift */,
 				04B9FB74274FC0D2006BBA45 /* SettingVC.swift */,
+				0429589327608C27004572A3 /* ChangePassword.swift */,
 			);
 			path = Personal;
 			sourceTree = "<group>";
@@ -594,6 +597,7 @@
 				FA6F8F102718524300AD9946 /* LoginVC.swift in Sources */,
 				046B5EF62729216A00A00728 /* TabBarVC.swift in Sources */,
 				048E4E472738EF3D00F18A09 /* UserModel.swift in Sources */,
+				0429589427608C27004572A3 /* ChangePassword.swift in Sources */,
 				040E12B4272191CE007E1A69 /* GenderVC.swift in Sources */,
 				048ACFF72747837800A68277 /* RequestVC.swift in Sources */,
 				048ACFFC274783C700A68277 /* RequestTableCell.swift in Sources */,

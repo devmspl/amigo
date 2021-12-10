@@ -103,10 +103,15 @@ extension FavouriteVC{
                         let data = respond.object(forKey: "data") as! [AnyObject]
                         dataArray = data
                         userUnlikeId.removeAll()
-                        for i in 0...dataArray.count-1{
-                            userUnlikeId.append(dataArray[i]["_id"] as! String)
-                            print("userto delete",userUnlikeId)
+                        if dataArray.count != 0{
+                            for i in 0...dataArray.count-1{
+                                userUnlikeId.append(dataArray[i]["_id"] as! String)
+                                print("userto delete",userUnlikeId)
+                            }
+                        }else{
+                            self.alert(message: "Favourite list is empty")
                         }
+                       
                         
                         favouriteTable.reloadData()
                         print("success=====",respond)

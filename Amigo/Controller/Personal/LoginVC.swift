@@ -21,12 +21,14 @@ class LoginVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        background()
+        back2()
+        password.isSecureTextEntry = true
         for i in 0...textViews.count-1{
             textViews[i].layer.cornerRadius = 10
             textViews[i].layer.borderWidth = 1
             textViews[i].layer.borderColor = UIColor.white.cgColor
         }
-        loginBtn.layer.cornerRadius = 20
+        loginBtn.layer.cornerRadius = 10
         if UserDefaults.standard.value(forKey: "id") != nil{
             let vc = storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as! TabBarVC
             self.navigationController?.pushViewController(vc, animated: true)
@@ -45,6 +47,21 @@ class LoginVC: UIViewController {
                    
            self.view.layer.insertSublayer(gradientLayer, at:0)
     }
+    
+    func back2(){
+        let colorTop =  UIColor(red: 169.0/255.0, green: 8.0/255.0, blue: 49.0/255.0, alpha: 1.0).cgColor
+//        let colorCenter = UIColor(red: 246.0/255.0, green: 94.0/255.0, blue: 126.0/255.0, alpha: 1.0).cgColor
+        let colorBottom = UIColor(red: 243.0/255.0, green: 93.0/255.0, blue: 131.0/255.0, alpha: 1.0).cgColor
+                       
+           let gradientLayer = CAGradientLayer()
+        gradientLayer.cornerRadius = 10
+           gradientLayer.colors = [colorTop, colorBottom]
+           gradientLayer.locations = [0.0, 1.0]
+           gradientLayer.frame = self.loginBtn.bounds
+                   
+           self.loginBtn.layer.insertSublayer(gradientLayer, at:0)
+    }
+    
 //MARK:- BUTTON ACTIONS
     
     @IBAction func forgot_pass(_ sender: Any) {
@@ -74,6 +91,13 @@ class LoginVC: UIViewController {
         }
         
         
+    }
+    @IBAction func showPassword(_ sender: Any) {
+        if password.isSecureTextEntry == true{
+            password.isSecureTextEntry = false
+        }else{
+            password.isSecureTextEntry = true
+        }
     }
     @IBAction func googleTapped(_ sender: Any) {
         print("hello")

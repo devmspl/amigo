@@ -14,6 +14,7 @@ target 'Amigo' do
   pod 'Koloda'
   pod 'DropDown'
   pod "BSImagePicker", "~> 3.1"
+  pod 'OpalImagePicker'
   
 
   target 'AmigoTests' do

@@ -212,6 +212,45 @@ class ApiManager: UIViewController{
             self.alert(message: "Please check internet connection")
         }
     }
+    
+//MARK: - CHANGE PASSWORD
+    func changePass(model: ChangePassModel,completionHandler: @escaping (Bool) ->()){
+        if ReachabilityNetwork.isConnectedToNetwork(){
+            let userId = UserDefaults.standard.value(forKey: "id") as! String
+            let token = UserDefaults.standard.value(forKey: "token") as! String
+            let head: HTTPHeaders = ["x-access-token": token]
+            print(API.changePass+userId)
+            print(token)
+            AF.request(API.changePass+userId, method: .put, parameters: model, headers: head).response{
+                response in
+                switch(response.result){
+                case .success(let data):do{
+                    let json = try JSONSerialization.jsonObject(with: data!, options: [])
+                    let respond = json as! NSDictionary
+                    let message = respond.object(forKey: "message") as? String ?? ""
+                    if response.response?.statusCode == 200{
+                        print("success",respond)
+                        self.alert(message: message, title: "Success")
+                        completionHandler(true)
+                    }else{
+                        let error = respond.object(forKey: "error") as? String ?? ""
+                        self.alert(message: error)
+                        completionHandler(false)
+                    }
+                }catch{
+                    print("erroorrr===",error.localizedDescription)
+                    completionHandler(false)
+                }
+                case .failure(let error): do{
+                    print("erroorrr===",error.localizedDescription)
+                    completionHandler(false)
+                }
+                }
+            }
+        }else{
+            alert(message: "please check internet connection")
+        }
+    }
     // MARK: - update user
     
     func update(model: UpdateUser, completionHandler: @escaping (Bool) -> ()){

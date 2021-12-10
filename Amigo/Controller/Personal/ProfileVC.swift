@@ -99,6 +99,18 @@ extension ProfileVC{
                         about.text = data.object(forKey: "aboutMe") as? String ?? ""
                         nameLabel.text = name.text
                         livingIn.text = data.object(forKey: "livingIn") as? String ?? ""
+                        if let image = data.object(forKey: "profileImageName") as? String{
+                           
+                            let url = URL(string: image ?? "")
+                            if url != nil{
+                                                         
+                                self.profileImage.af.setImage(withURL: url!)
+                               
+                                print("hello")
+                            }else{
+                                print("hello")
+                            }
+                        }
                         print("success=====",respond)
                         
                     }else{

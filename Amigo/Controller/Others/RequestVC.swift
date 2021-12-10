@@ -43,7 +43,7 @@ class RequestVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 MBProgressHUD.hide(for: self.view, animated: true)
                 print("Hello Accepted")
                 self.likeTable.reloadData()
-                self.alert(message: "Hello Accepted")
+                self.alert(message: "Request rejected successfully")
             }else{
                 MBProgressHUD.hide(for: self.view, animated: true)
                 print("completionFalse")
@@ -115,9 +115,13 @@ extension RequestVC{
                         MBProgressHUD.hide(for: self.view, animated: true)
                         let data = respond.object(forKey: "data") as! [AnyObject]
                         dataArray = data
-                        for i in 0...dataArray.count-1{
-                            let reqBy = dataArray[i]["reqBy"] as! NSDictionary
-                            requestId.append(reqBy.object(forKey: "reqBy") as! String)
+                        if dataArray.count != 0{
+                            for i in 0...dataArray.count-1{
+                                let reqBy = dataArray[i]["reqBy"] as! NSDictionary
+                                requestId.append(reqBy.object(forKey: "reqBy") as! String)
+                            }
+                        }else{
+                            self.alert(message: "No request found")
                         }
                         likeTable.reloadData()
                         print("success=====",respond)

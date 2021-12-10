@@ -60,8 +60,14 @@ extension SettingVC: UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 4{
-            let alert = UIAlertController.init(title: "", message: "sign out", preferredStyle: .alert)
-            let ok = UIAlertAction.init(title: "ok", style: .default) { (ok) in
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "ChangePassword") as! ChangePassword
+        
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        else if indexPath.row == 5{
+            let alert = UIAlertController.init(title: "Sign out", message: "Do you want to sign out?", preferredStyle: .alert)
+           
+            let ok = UIAlertAction.init(title: "Yes", style: .destructive) { (ok) in
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
                 UserDefaults.standard.removeObject(forKey: "id")
                 print("sign")
@@ -70,7 +76,9 @@ extension SettingVC: UITableViewDelegate,UITableViewDataSource{
 //                let nav = UINavigationController(rootViewController: vc)
                 self.navigationController?.pushViewController(vc, animated: true)
             }
+            
             alert.addAction(ok)
+            alert.addAction(UIAlertAction.init(title: "no", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
            
             

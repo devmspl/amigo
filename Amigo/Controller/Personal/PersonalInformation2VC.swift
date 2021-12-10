@@ -12,8 +12,9 @@ import Photos
 import BSImagePicker
 import MBProgressHUD
 import Alamofire
+import OpalImagePicker
 
-class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate{
+class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate, OpalImagePickerControllerDelegate{
 
     @IBOutlet var imageCollection: UICollectionView!
     @IBOutlet var textViews: [UIView]!
@@ -41,21 +42,19 @@ class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollec
     var myimage: [Data] = [Data]()
     var selectedAsset = [PHAsset]()
     var img = [UIImage]()
-
-    let imagePickerController = ImagePickerController()
+    let imageVC = OpalImagePickerController()
 
 
 //MARK:- VIEWDID LOAD
     override func viewDidLoad() {
         super.viewDidLoad()
         continueView.layer.cornerRadius = 20
-//        imagePickerController.imageLimit = 6
-   
+        imageVC.imagePickerDelegate = self
 //        config.allowMultiplePhotoSelection = true
 //        let imagePicker = ImagePickerController(configuration: config)
 //        imagePickerController.delegate = self
         print(name);print(email);print(phone);print(dob)
-        imagePickerController.delegate = self
+//        imagePickerController.delegate = self
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
@@ -73,26 +72,29 @@ class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollec
         }
     }
 
-    func hello(){
-        
-        self.presentImagePicker(self.imagePickerController, select: { (asset) in
-            // User selected an asset. Do something with it. Perhaps begin processing/upload?
-        }, deselect: { (asset) in
-            // User deselected an asset. Cancel whatever you did when asset was selected.
-        }, cancel: { (assets) in
-            // User canceled selection.
-            print("dnvkdsbkdbkvjb")
-
-        }, finish: { (assets) in
-            // User finished selection assets.
-            print("jsdjbfkjebwfj")
-            for i in 0..<assets.count{
-                self.selectedAsset.append(assets[i])
-//                self.convertAssestToImage()
-            }
-        })
-    }
     
+//    func hello(){
+//
+//        self.presentImagePicker(self.imagePickerController, select: { (asset) in
+//            // User selected an asset. Do something with it. Perhaps begin processing/upload?
+//        }, deselect: { (asset) in
+//            // User deselected an asset. Cancel whatever you did when asset was selected.
+//        }, cancel: { (assets) in
+//            // User canceled selection.
+//            print("dnvkdsbkdbkvjb")
+//
+//        }, finish: { (assets) in
+//            // User finished selection assets.
+//            print("Finish: \(assets)")
+//                       print(assets.count)
+//                       for i in 0..<assets.count
+//                       {
+//                           self.selectedAsset.append(assets[i])
+//                           print(self.selectedAsset)
+//                       }
+//        })
+//    }
+//
 
 //    func convertAssestToImage(){
 //        self.img.removeAll()
@@ -127,38 +129,42 @@ class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollec
 //}
     
 //MARK:- IMAGEPICKER METHOD
-    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-        print("hellowrapper")
-    }
-    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-        print("hellodone")
-        print(images)
-        img.removeAll()
-        img = images
-        upload(
-            image: img,
-                    progressCompletion: { [weak self] percent in
-                       guard let _ = self else {
-                         return
-                       }
-                       print("Status: \(percent)")
-                      if percent == 1.0{
-                     self!.alert(message: "Profile updated Successfully", title: "Image")
-
-                       }
-                     },
-                     completion: { [weak self] result in
-                       guard let _ = self else {
-                         return
-                       }
-                   })
-        imageCollection.reloadData()
-        dismiss(animated: true, completion: nil)
-    }
-
-    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
-        print("hellocancel")
-    }
+//    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+//        print("hellowrapper")
+//    }
+//    func imagePickerController(picker: ImagePickerController, didFinishPickingImage image: [UIImage], editingInfo: [NSObject : AnyObject]!) {
+//        print(image)
+//        img.removeAll()
+//        img = image
+//        upload(
+//            image: img,
+//                    progressCompletion: { [weak self] percent in
+//                       guard let _ = self else {
+//                         return
+//                       }
+//                       print("Status: \(percent)")
+//                      if percent == 1.0{
+//                     self!.alert(message: "Profile updated Successfully", title: "Image")
+//
+//                       }
+//                     },
+//                     completion: { [weak self] result in
+//                       guard let _ = self else {
+//                         return
+//                       }
+//                   })
+//        imageCollection.reloadData()
+//        dismiss(animated: true, completion: nil)
+//    }
+//
+//    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+//        print("hellodone")
+//
+//    }
+//
+//    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
+//        print("hellocancel")
+//    }
 //MARK:- GESTURE METHOD
     @objc func gestureRecognizer( _ gesture: UILongPressGestureRecognizer){
         guard let collectionView = imageCollection else{
@@ -224,27 +230,29 @@ class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollec
 //MARK:- extension
 extension PersonalInformation2VC{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if img.count != 0{
-            return img.count
-        }else{
-            return imagee.count
-        }
-       
+//        if img.count != 0{
+//            return img.count
+//        }else{
+//            return imagee.count
+//        }
+       return 6
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = imageCollection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! InformationCell
-        if img.count == 0{
-            cell.picSelected.image = imagee[indexPath.item]
-        }
-        else{
-            cell.picSelected.image = img[indexPath.item]
-        }
+//        if img.count == 0{
+//            cell.picSelected.image = imagee[indexPath.item]
+//        }
+//        else{
+//            cell.picSelected.image = img[indexPath.item]
+//        }
         
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       hello()
+//       hello()
+        
+        present(imageVC, animated: true, completion: nil)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: imageCollection.frame.width/3.6, height: imageCollection.frame.height/2.1)
