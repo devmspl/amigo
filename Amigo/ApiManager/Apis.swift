@@ -31,8 +31,12 @@ public struct API{
     
 //MARK: - REQUESTAPI
     public static let addrequest          = baseUrl+"requests/create"
-    public static let acceptRequest       = baseUrl+"requests/approve/"
+    public static let acceptRequest       = baseUrl+"requests/accept/"
     public static let rejectRequest       = baseUrl+"requests/reject/"
     public static let requestList         = baseUrl+"requests/listByUserId/"
     
+    
+//MARK: - CONVERSATION API
+    public static let conversation        = baseUrl+"conversations/getOldCoversations/"
+
 }

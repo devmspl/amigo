@@ -24,6 +24,10 @@ class ProfileVC: BaseClass{
     @IBOutlet weak var about: UILabel!
     @IBOutlet weak var email: UITextField!
     
+    var urlImg = String()
+    var nameSet = ""
+    var emailSet = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,6 +50,9 @@ class ProfileVC: BaseClass{
 //    }
     @IBAction func settingTapped(_ sender: Any) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "SettingVC") as! SettingVC
+        vc.image = urlImg
+        vc.name = nameSet
+        vc.email = emailSet
         self.navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func imageChange(_ sender: Any) {
@@ -98,17 +105,21 @@ extension ProfileVC{
                         name.text = data.object(forKey: "name") as? String ?? ""
                         about.text = data.object(forKey: "aboutMe") as? String ?? ""
                         nameLabel.text = name.text
+                        
+                        nameSet = data.object(forKey: "name") as? String ?? ""
+                        emailSet = data.object(forKey: "email") as? String ?? ""
+                        
                         livingIn.text = data.object(forKey: "livingIn") as? String ?? ""
                         if let image = data.object(forKey: "profileImageName") as? String{
                            
                             let url = URL(string: image ?? "")
                             if url != nil{
-                                                         
+                                 urlImg = image
                                 self.profileImage.af.setImage(withURL: url!)
                                
                                 print("hello")
                             }else{
-                                print("hello")
+                                self.profileImage.image = UIImage(named: "proimage")
                             }
                         }
                         print("success=====",respond)

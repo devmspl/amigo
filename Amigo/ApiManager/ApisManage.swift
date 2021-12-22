@@ -376,11 +376,11 @@ class ApiManager: UIViewController{
         if ReachabilityNetwork.isConnectedToNetwork(){
             print(API.addrequest)
             let token = UserDefaults.standard.value(forKey: "token") as! String
+            print("xzbjkasbbdsavbdajbvjadbv",token)
             let head : HTTPHeaders = ["x-access-token":token]
             AF.request(API.addrequest, method: .post, parameters: model ,encoder: JSONParameterEncoder.default,headers: head).response{
                 response in
                 switch(response.result){
-                
                 case .success(let data):
                     do{
                         print(data)

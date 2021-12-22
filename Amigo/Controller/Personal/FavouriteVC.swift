@@ -22,7 +22,8 @@ class FavouriteVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     var dataArray = [AnyObject]()
     var userUnlikeId = [String]()
-    
+ 
+//MARK: - VIEW DID LOAD
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,10 +35,14 @@ class FavouriteVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         }
         
     }
+ 
+//MARK: - VIEW WILL APPEAR
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         favList()
     }
+
+//MARK: - TABLE DELEGATE METHODS
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataArray.count
     }
@@ -46,6 +51,17 @@ class FavouriteVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         let cell = favouriteTable.dequeueReusableCell(withIdentifier: "cell") as! FavouriteTableCell
         cell.img.image = UIImage(named: "pic4")
         cell.nameText.text = dataArray[indexPath.row]["name"] as? String ?? ""
+        
+        if let image = dataArray[indexPath.row]["profileImageName"] as? String {
+            print(image,"dsfasdfasdfasdf")
+            let url = URL(string: image)
+            if url != nil{
+            print(url)
+                cell.img.af.setImage(withURL: url!)
+            }else{
+                cell.img.image = UIImage(named: "proimage")
+            }
+        }
         cell.deleteBtn.tag = indexPath.row
         return cell
     }
@@ -57,6 +73,8 @@ class FavouriteVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         vc.id = userUnlikeId[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+//MARK: - BUTTON ACTIONS
     @IBAction func removeFav(_ sender: UIButton) {
         let alert = UIAlertController.init(title: "", message: "Are you sure?", preferredStyle: .alert)
         let yes = UIAlertAction.init(title: "Yes", style: .destructive) { (yes) in
@@ -69,6 +87,7 @@ class FavouriteVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 
                 if issuccess{
                     dataArray.remove(at: sender.tag)
+                    favouriteTable.reloadData()
                 }else{
                     print("useriddeslike",userdeslike)
                     print("error please check")
@@ -82,6 +101,7 @@ class FavouriteVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
 }
 
+//MARK: - EXTENSIONS
 extension FavouriteVC{
     func favList(){
         if ReachabilityNetwork.isConnectedToNetwork(){
@@ -105,7 +125,7 @@ extension FavouriteVC{
                         userUnlikeId.removeAll()
                         if dataArray.count != 0{
                             for i in 0...dataArray.count-1{
-                                userUnlikeId.append(dataArray[i]["_id"] as! String)
+                                userUnlikeId.append(dataArray[i]["id"] as! String)
                                 print("userto delete",userUnlikeId)
                             }
                         }else{

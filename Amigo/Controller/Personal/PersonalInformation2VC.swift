@@ -43,13 +43,20 @@ class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollec
     var selectedAsset = [PHAsset]()
     var img = [UIImage]()
     let imageVC = OpalImagePickerController()
+    let configuration = OpalImagePickerConfiguration()
 
 
 //MARK:- VIEWDID LOAD
     override func viewDidLoad() {
         super.viewDidLoad()
         continueView.layer.cornerRadius = 20
+        
         imageVC.imagePickerDelegate = self
+        imageVC.maximumSelectionsAllowed = 6
+        
+        imageVC.allowedMediaTypes = Set([PHAssetMediaType.image])
+        configuration.maximumSelectionsAllowedMessage = NSLocalizedString("You cannot select that many images!", comment: "")
+        imageVC.configuration = configuration
 //        config.allowMultiplePhotoSelection = true
 //        let imagePicker = ImagePickerController(configuration: config)
 //        imagePickerController.delegate = self
@@ -96,33 +103,33 @@ class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollec
 //    }
 //
 
-//    func convertAssestToImage(){
-//        self.img.removeAll()
-//        self.myimage.removeAll()
-//
-//        for i in 0..<selectedAsset.count {
-//
-//                    let manager = PHImageManager.default()
-//                    let option = PHImageRequestOptions()
-//                    var thumbnail = UIImage()
-//                    option.isSynchronous = true
-//                    manager.requestImage(for: selectedAsset[i],targetSize: CGSize(width: 200, height: 200), contentMode: PHImageContentMode.aspectFill, options: option, resultHandler: { (result, info) -> Void in
-//                        thumbnail = result!
-//                    })
-//
-//                    let data = thumbnail.jpegData(compressionQuality: 0.7)
-//                    let newImage = UIImage(data: data!)
-//                    self.img.append(newImage! as UIImage)
-//                        // This for send images data to another view cntroller for make request
-//                    self.myimage.append(data!)
-//
-//                    }
-//
-//                    DispatchQueue.main.async {
-//                      self.imageCollection.reloadData()
-//                    }
-//
-//                }
+    func convertAssestToImage(assets: [PHAsset]){
+        self.img.removeAll()
+        self.myimage.removeAll()
+
+        for i in 0..<assets.count {
+
+                    let manager = PHImageManager.default()
+                    let option = PHImageRequestOptions()
+                    var thumbnail = UIImage()
+                    option.isSynchronous = true
+                    manager.requestImage(for: selectedAsset[i],targetSize: CGSize(width: 200, height: 200), contentMode: PHImageContentMode.aspectFill, options: option, resultHandler: { (result, info) -> Void in
+                        thumbnail = result!
+                    })
+
+                    let data = thumbnail.jpegData(compressionQuality: 0.7)
+                    let newImage = UIImage(data: data!)
+                    self.img.append(newImage! as UIImage)
+                        // This for send images data to another view cntroller for make request
+                    self.myimage.append(data!)
+
+                    }
+
+                    DispatchQueue.main.async {
+                      self.imageCollection.reloadData()
+                    }
+        
+            }
 //
 //                print("complete photo array \(self.photoArray)")
 //}
@@ -198,8 +205,26 @@ class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollec
         print("fdfgshdf")
     }
     @IBAction func continueTapped(_ sender: Any) {
+        
+                upload(
+                    image: img,
+                            progressCompletion: { [weak self] percent in
+                               guard let _ = self else {
+                                 return
+                               }
+                               print("Status: \(percent)")
+                              if percent == 1.0{
+                             self!.alert(message: "Profile updated Successfully", title: "Image")
+        
+                               }
+                             },
+                             completion: { [weak self] result in
+                               guard let _ = self else {
+                                 return
+                               }
+                           })
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "LocationVC") as! LocationVC
-        self.navigationController?.pushViewController(vc, animated: true)
+        //self.navigationController?.pushViewController(vc, animated: true)
         
 //if education.text == "" || aboutMe.text == "" || selectCityText.text == "" || height.text == "" || weight.text == "" || favouriteSport.text == "" || eduDegree.text == "" || lookingFor.text == "" || myWork.text == "" {
 //            alert(message: "Please enter all fields")
@@ -230,22 +255,21 @@ class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollec
 //MARK:- extension
 extension PersonalInformation2VC{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        if img.count != 0{
-//            return img.count
-//        }else{
-//            return imagee.count
-//        }
-       return 6
+        if img.count != 0{
+            return img.count
+        }else{
+            return imagee.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = imageCollection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! InformationCell
-//        if img.count == 0{
-//            cell.picSelected.image = imagee[indexPath.item]
-//        }
-//        else{
-//            cell.picSelected.image = img[indexPath.item]
-//        }
+        if img.count == 0{
+            cell.picSelected.image = imagee[indexPath.item]
+        }
+        else{
+            cell.picSelected.image = img[indexPath.item]
+        }
         
         return cell
     }
@@ -253,7 +277,24 @@ extension PersonalInformation2VC{
 //       hello()
         
         present(imageVC, animated: true, completion: nil)
+        
+        
     }
+    
+    func imagePicker(_ picker: OpalImagePickerController, didFinishPickingAssets assets: [PHAsset]){
+        selectedAsset.append(contentsOf: assets)
+        convertAssestToImage(assets: assets)
+        imageCollection.reloadData()
+        dismiss(animated: true, completion: nil)
+        
+    }
+    
+    
+    func imagePickerDidCancel(_ picker: OpalImagePickerController){
+        
+    }
+    
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: imageCollection.frame.width/3.6, height: imageCollection.frame.height/2.1)
     }
@@ -292,7 +333,7 @@ extension PersonalInformation2VC{
                 
                 for i in 0...image.count-1{
                                     
-                    multipartFormData.append(image[i].jpegData(compressionQuality: 0.5)!,
+                    multipartFormData.append(image[i].jpegData(compressionQuality: 0.8)!,
                                              withName: "files[]",
                                              fileName: imgFileName,
                                              mimeType: "image/jpeg")

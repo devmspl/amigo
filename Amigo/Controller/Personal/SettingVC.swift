@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class SettingVC: UIViewController {
 
@@ -13,6 +14,7 @@ class SettingVC: UIViewController {
     @IBOutlet weak var nameOut: UILabel!
     @IBOutlet weak var emailOut: UILabel!
     @IBOutlet weak var imagePro: UIImageView!
+    @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var settingTable: UITableView!{
         didSet{
             settingTable.tableFooterView = UIView(frame: .zero)
@@ -23,8 +25,7 @@ class SettingVC: UIViewController {
     var image = ""
     
     let setarray = ["Terms and conditions","Privacy policy","Support","Edit profile","Change password","Sign out"]
-    @IBOutlet weak var profileImage: UIImageView!
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,6 +37,20 @@ class SettingVC: UIViewController {
 //            seprator.isHidden = true
 //            self.continueView.backgroundColor = UIColor(named: "girlButton")
         }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        profileImage.layer.cornerRadius = 25
+        imagePro.layer.cornerRadius = 25
+        let url = URL(string: image)
+        if url != nil{
+            self.profileImage.af.setImage(withURL: url!)
+        }else{
+            self.profileImage.image = UIImage(named: "proimage")
+        }
+        emailOut.text = email
+        nameOut.text = name
+        
     }
     @IBAction func backTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)

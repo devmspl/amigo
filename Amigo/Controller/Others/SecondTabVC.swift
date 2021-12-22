@@ -9,6 +9,7 @@ import UIKit
 import Koloda
 import Alamofire
 import MBProgressHUD
+import AlamofireImage
 
 class SecondTabVC: UIViewController {
    
@@ -18,6 +19,7 @@ class SecondTabVC: UIViewController {
     var userData = [AnyObject]()
     var toLikeUser = [String]()
     var id = UserDefaults.standard.value(forKey: "id") as! String
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +66,7 @@ class SecondTabVC: UIViewController {
                                 toLikeUser += [userData[i]["id"] as! String]
                                 MBProgressHUD.hide(for: self.view, animated: true)
                             }
-                            
+                            print("sbkbsdfkbasbfasbfksabdf",toLikeUser)
                             swipeView.reloadData()
                         }else{
                             MBProgressHUD.hide(for: self.view, animated: true)
@@ -114,6 +116,7 @@ class SecondTabVC: UIViewController {
     
 }
 
+//MARK: - KOLODA VIEW DELEGATE
 extension SecondTabVC: KolodaViewDelegate{
     
     func koloda(_ koloda: KolodaView, didSwipeCardAt index: Int, in direction: SwipeResultDirection)
@@ -169,11 +172,13 @@ extension SecondTabVC: KolodaViewDelegate{
          let vc = self.storyboard!.instantiateViewController(
                                  withIdentifier: "SomeProfileVC") as! SomeProfileVC
         
-//               vc.Propertyid = HomelistArray[index]["_id"] as! String
+               vc.id = userData[index]["id"] as! String
                self.navigationController?.pushViewController(vc, animated: true)
        
     }
 }
+
+//MARK: - KOLODA VIEW DATA SOURCE
 extension SecondTabVC: KolodaViewDataSource{
     func kolodaDidRunOutOfCards(_ koloda: KolodaView) {
          koloda.resetCurrentCardIndex()
@@ -193,9 +198,20 @@ extension SecondTabVC: KolodaViewDataSource{
     func koloda(_ koloda: KolodaView, viewForCardAt index: Int) -> UIView {
         let overlay1 = (Bundle.main.loadNibNamed("slider", owner: self, options: nil)?[0] as! OverlayChild)
         overlay1.nameOutlet.text = userData[index]["name"] as? String ?? ""
-        overlay1.picOutlet.image = UIImage(named: "Background")
-   
+        if let image = userData[index]["profileImageName"] as? String{
+            let url = URL(string: image)
+            if url != nil{
+                overlay1.picOutlet.af.setImage(withURL: url!)
+                print("image",url!)
+            }else{
+                overlay1.picOutlet.image = UIImage(named: "proimage")
+                print("hello")
+            }
+        }
+//        overlay1.picOutlet.image = UIImage(named: "Background")
         return overlay1
        
     }
 }
+
+

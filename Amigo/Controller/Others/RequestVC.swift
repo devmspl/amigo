@@ -38,14 +38,15 @@ class RequestVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         MBProgressHUD.showAdded(to: self.view, animated: true)
         let requestid = requestId[sender.tag]
         print("request id",requestid)
-        ApiManager.shared.rejectReq(id: requestid) { (issuccess) in
+        ApiManager.shared.rejectReq(id: requestid) { [self] (issuccess) in
             if issuccess{
                 MBProgressHUD.hide(for: self.view, animated: true)
                 print("Hello Accepted")
-                self.likeTable.reloadData()
                 self.alert(message: "Request rejected successfully")
+               requestList()
             }else{
                 MBProgressHUD.hide(for: self.view, animated: true)
+                requestList()
                 print("completionFalse")
             }
         }
@@ -54,14 +55,15 @@ class RequestVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         MBProgressHUD.showAdded(to: self.view, animated: true)
         let requestid = requestId[sender.tag]
         print("request approve id",requestid)
-        ApiManager.shared.approveReq(id: requestid) { (issuccess) in
+        ApiManager.shared.approveReq(id: requestid) { [self] (issuccess) in
             if issuccess{
                 MBProgressHUD.hide(for: self.view, animated: true)
                 print("Hello Accepted")
-                self.likeTable.reloadData()
-                self.alert(message: "Hello Accepted")
+                self.alert(message: "Request accepted successfully")
+                requestList()
             }else{
                 MBProgressHUD.hide(for: self.view, animated: true)
+                requestList()
                 print("completionFalse")
             }
         }
@@ -80,6 +82,17 @@ class RequestVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         cell.cellName.text = reqBy.object(forKey: "name") as? String ?? ""
         cell.acceptBtn.tag = indexPath.row
         cell.deleteBtn.tag = indexPath.row
+        
+        if let image = reqBy.object(forKey: "picUrl") as? String {
+            let url = URL(string: image)
+            if url != nil{
+                cell.cellImage.af.setImage(withURL: url!)
+            }
+           
+        }else{
+            cell.cellImage.image = UIImage(named: "proimage")
+        }
+        
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -88,7 +101,7 @@ class RequestVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "SomeProfileVC") as! SomeProfileVC
         let reqBy = dataArray[indexPath.row]["reqBy"] as! NSDictionary
-        vc.id = reqBy.object(forKey: "_id") as! String
+        vc.id = reqBy.object(forKey: "reqBy") as! String
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
@@ -102,6 +115,8 @@ extension RequestVC{
             
             let id = UserDefaults.standard.value(forKey: "id") as! String
             let token = UserDefaults.standard.value(forKey: "token") as! String
+            print(token)
+            print("hdkj",id)
             let headerss : HTTPHeaders = ["x-access-token":token]
             AF.request(API.requestList+id,method: .get,headers: headerss).responseJSON{ [self]
                 response in
@@ -117,8 +132,9 @@ extension RequestVC{
                         dataArray = data
                         if dataArray.count != 0{
                             for i in 0...dataArray.count-1{
-                                let reqBy = dataArray[i]["reqBy"] as! NSDictionary
-                                requestId.append(reqBy.object(forKey: "reqBy") as! String)
+                                let reqBy = dataArray[i]["reqId"] as! String
+                                print("reby",reqBy)
+                                requestId.append(reqBy)
                             }
                         }else{
                             self.alert(message: "No request found")

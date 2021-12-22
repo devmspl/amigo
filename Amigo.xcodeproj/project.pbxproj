@@ -42,6 +42,8 @@
 		04B9FB12274F6533006BBA45 /* LocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B9FB11274F6533006BBA45 /* LocationVC.swift */; };
 		04B9FB75274FC0D2006BBA45 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B9FB74274FC0D2006BBA45 /* SettingVC.swift */; };
 		04DF858F272C291400E4EE0D /* SomeProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF858E272C291300E4EE0D /* SomeProfileVC.swift */; };
+		04E0B96027705A20003E989F /* ChatSenderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E0B95F27705A20003E989F /* ChatSenderCell.swift */; };
+		04E0B96527705A3A003E989F /* ChatRecieveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E0B96427705A3A003E989F /* ChatRecieveCell.swift */; };
 		04E97C522743959900AC268C /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E97C512743959900AC268C /* ChatVC.swift */; };
 		04EAEB3D27311380004D4FFE /* ProUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EAEB3C27311380004D4FFE /* ProUserVC.swift */; };
 		375A222F2684AFC0F7C8EB76 /* Pods_Amigo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C2F6CAB23A9404DF502EA /* Pods_Amigo.framework */; };
@@ -112,6 +114,8 @@
 		04B9FB11274F6533006BBA45 /* LocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationVC.swift; sourceTree = "<group>"; };
 		04B9FB74274FC0D2006BBA45 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		04DF858E272C291300E4EE0D /* SomeProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeProfileVC.swift; sourceTree = "<group>"; };
+		04E0B95F27705A20003E989F /* ChatSenderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSenderCell.swift; sourceTree = "<group>"; };
+		04E0B96427705A3A003E989F /* ChatRecieveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRecieveCell.swift; sourceTree = "<group>"; };
 		04E97C512743959900AC268C /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		04EAEB3C27311380004D4FFE /* ProUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProUserVC.swift; sourceTree = "<group>"; };
 		1DD55326FB770106F914AAB1 /* Pods-AmigoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmigoTests.debug.xcconfig"; path = "Target Support Files/Pods-AmigoTests/Pods-AmigoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -258,6 +262,8 @@
 				046B5F022729253100A00728 /* InformationCell.swift */,
 				048ACFFB274783C700A68277 /* RequestTableCell.swift */,
 				048AD01B2747B14200A68277 /* FavouriteTableCell.swift */,
+				04E0B95F27705A20003E989F /* ChatSenderCell.swift */,
+				04E0B96427705A3A003E989F /* ChatRecieveCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -576,8 +582,10 @@
 				04056B37273E76F90034F733 /* OverlayChild.swift in Sources */,
 				04AAD039273A3D6B00A900B1 /* Apis.swift in Sources */,
 				04B9FB12274F6533006BBA45 /* LocationVC.swift in Sources */,
+				04E0B96527705A3A003E989F /* ChatRecieveCell.swift in Sources */,
 				040351872718101B007E5833 /* AppDelegate.swift in Sources */,
 				047E46C8275E2D4C00A08F48 /* BaseClass.swift in Sources */,
+				04E0B96027705A20003E989F /* ChatSenderCell.swift in Sources */,
 				FA6D6EB627184DA3009D6141 /* ForgotPassVC.swift in Sources */,
 				046B5F122729285900A00728 /* ProfileVC.swift in Sources */,
 				04EAEB3D27311380004D4FFE /* ProUserVC.swift in Sources */,

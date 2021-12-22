@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
 
 class FirstTabVC: UIViewController {
    
@@ -17,10 +19,10 @@ class FirstTabVC: UIViewController {
     let imgTable = [UIImage(named: "1"),UIImage(named: "2"),UIImage(named: "3"),UIImage(named: "4"),UIImage(named: "5"),UIImage(named: "6"),UIImage(named: "7"),UIImage(named: "8")]
     let tableName = ["Anika","Sherya","Lilly","Mona","Sonia","Monika","Katrina","Kiran"]
     let message = ["Hello","hii","How are you","Where you  live?","lets meet on coffee","Yes offcource","No we can't","Let's do this"]
+    var conversationId = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         if UserDefaults.standard.value(forKey: "Gender") as! String == "Male"{
             self.view.backgroundColor = UIColor(named: "MenColor")
         }else{
@@ -28,7 +30,12 @@ class FirstTabVC: UIViewController {
 //          self.continueView.backgroundColor = UIColor(named: "girlButton")
         }
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getConversionApi()
+    }
 }
+
 
 class MessageTable: UITableViewCell{
     @IBOutlet weak var nameLabel: UILabel!
@@ -80,5 +87,32 @@ extension FirstTabVC: UITableViewDelegate,UITableViewDataSource,UICollectionView
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: newMatchColloction.frame.width/4.5, height: newMatchColloction.frame.height/0.5)
+    }
+}
+
+extension FirstTabVC{
+    func getConversionApi(){
+        if ReachabilityNetwork.isConnectedToNetwork(){
+            AF.request(API.conversation+conversationId, method: .get,encoding: JSONEncoding.default).responseJSON{
+                response in
+                switch (response.result){
+                case .success(let json):do{
+                    let status = response.response?.statusCode
+                    let respond = json as! NSDictionary
+                    if status == 200{
+                        print(respond)
+                        self.messagetable.reloadData()
+                    }else{
+                        print("hello")
+                    }
+                }case .failure(let error):do{
+                    print(error,"errorfsdfsd")
+                    self.alert(message: "Status not 200")
+                }
+                }
+            }
+        }else{
+            self.alert(message: "Please check iternet connection")
+        }
     }
 }
