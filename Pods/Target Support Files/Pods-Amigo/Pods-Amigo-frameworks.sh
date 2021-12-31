@@ -183,7 +183,10 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Koloda/Koloda.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/OpalImagePicker/OpalImagePicker.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/StepSlider/StepSlider.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Toast/Toast.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/pop/pop.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -194,7 +197,10 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Koloda/Koloda.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/OpalImagePicker/OpalImagePicker.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/StepSlider/StepSlider.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Toast/Toast.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/pop/pop.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

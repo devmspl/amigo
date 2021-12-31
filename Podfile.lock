@@ -9,7 +9,11 @@ PODS:
   - MBProgressHUD (1.2.0)
   - OpalImagePicker (3.0.0)
   - pop (1.0.12)
+  - Socket.IO-Client-Swift (15.2.0):
+    - Starscream (~> 3.1)
+  - Starscream (3.1.1)
   - StepSlider (1.8.0)
+  - Toast (4.0.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -19,7 +23,9 @@ DEPENDENCIES:
   - Koloda
   - MBProgressHUD
   - OpalImagePicker
+  - Socket.IO-Client-Swift (~> 15.2.0)
   - StepSlider
+  - Toast
 
 SPEC REPOS:
   trunk:
@@ -31,7 +37,10 @@ SPEC REPOS:
     - MBProgressHUD
     - OpalImagePicker
     - pop
+    - Socket.IO-Client-Swift
+    - Starscream
     - StepSlider
+    - Toast
 
 SPEC CHECKSUMS:
   Alamofire: e447a2774a40c996748296fa2c55112fdbbc42f9
@@ -42,8 +51,11 @@ SPEC CHECKSUMS:
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   OpalImagePicker: 38e772dd93a54431fc516b33e1f337c50f745834
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
+  Socket.IO-Client-Swift: 1e3e3a1f09f3312a167f0d781eb2f383d477357c
+  Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
   StepSlider: 890db727e779fa99cb32afffc5887c1109e151f4
+  Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
 
-PODFILE CHECKSUM: 86196fa6a9f80eb1e2d3ad6efd20ffdfb7850213
+PODFILE CHECKSUM: a207a436ec56d099a20504ee97bac2f334c950ed
 
 COCOAPODS: 1.11.2

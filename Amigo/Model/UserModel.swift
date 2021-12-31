@@ -47,6 +47,7 @@ struct UpdateUser: Encodable {
     let degreeOfEducation: String?
     let lookingFor: String?
     let myWork: String?
+    let sex: String?
     let loc: loction?
 }
 

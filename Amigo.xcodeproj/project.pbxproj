@@ -44,6 +44,8 @@
 		04DF858F272C291400E4EE0D /* SomeProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF858E272C291300E4EE0D /* SomeProfileVC.swift */; };
 		04E0B96027705A20003E989F /* ChatSenderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E0B95F27705A20003E989F /* ChatSenderCell.swift */; };
 		04E0B96527705A3A003E989F /* ChatRecieveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E0B96427705A3A003E989F /* ChatRecieveCell.swift */; };
+		04E0B9B02779A132003E989F /* MessageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E0B9AF2779A132003E989F /* MessageData.swift */; };
+		04E0B9B52779A16E003E989F /* Socket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E0B9B42779A16E003E989F /* Socket.swift */; };
 		04E97C522743959900AC268C /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E97C512743959900AC268C /* ChatVC.swift */; };
 		04EAEB3D27311380004D4FFE /* ProUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EAEB3C27311380004D4FFE /* ProUserVC.swift */; };
 		375A222F2684AFC0F7C8EB76 /* Pods_Amigo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C2F6CAB23A9404DF502EA /* Pods_Amigo.framework */; };
@@ -116,6 +118,8 @@
 		04DF858E272C291300E4EE0D /* SomeProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeProfileVC.swift; sourceTree = "<group>"; };
 		04E0B95F27705A20003E989F /* ChatSenderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSenderCell.swift; sourceTree = "<group>"; };
 		04E0B96427705A3A003E989F /* ChatRecieveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRecieveCell.swift; sourceTree = "<group>"; };
+		04E0B9AF2779A132003E989F /* MessageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageData.swift; sourceTree = "<group>"; };
+		04E0B9B42779A16E003E989F /* Socket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Socket.swift; sourceTree = "<group>"; };
 		04E97C512743959900AC268C /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		04EAEB3C27311380004D4FFE /* ProUserVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProUserVC.swift; sourceTree = "<group>"; };
 		1DD55326FB770106F914AAB1 /* Pods-AmigoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AmigoTests.debug.xcconfig"; path = "Target Support Files/Pods-AmigoTests/Pods-AmigoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -252,6 +256,7 @@
 				048E4E462738EF3D00F18A09 /* UserModel.swift */,
 				04526BF62750F84300D1F59C /* FavouriteModel.swift */,
 				04857FEA2755F6C60097C5BA /* AddRequestModel.swift */,
+				04E0B9AF2779A132003E989F /* MessageData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -310,6 +315,7 @@
 				04E97C512743959900AC268C /* ChatVC.swift */,
 				048ACFF62747837800A68277 /* RequestVC.swift */,
 				048AD008274793A600A68277 /* CongratulationVC.swift */,
+				04E0B9B42779A16E003E989F /* Socket.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -596,9 +602,11 @@
 				040E12BE2721925C007E1A69 /* PersonalInformation2VC.swift in Sources */,
 				046B5F0D2729284900A00728 /* SecondTabVC.swift in Sources */,
 				040E12AF2721915B007E1A69 /* OrientationVC.swift in Sources */,
+				04E0B9B52779A16E003E989F /* Socket.swift in Sources */,
 				040351892718101B007E5833 /* SceneDelegate.swift in Sources */,
 				046B5F082729283A00A00728 /* FirstTabVC.swift in Sources */,
 				048AD009274793A600A68277 /* CongratulationVC.swift in Sources */,
+				04E0B9B02779A132003E989F /* MessageData.swift in Sources */,
 				04AAD061273A465600A900B1 /* ApisManage.swift in Sources */,
 				04857FEB2755F6C60097C5BA /* AddRequestModel.swift in Sources */,
 				04526BF72750F84300D1F59C /* FavouriteModel.swift in Sources */,

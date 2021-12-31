@@ -13,6 +13,7 @@ import BSImagePicker
 import MBProgressHUD
 import Alamofire
 import OpalImagePicker
+import Toast
 
 class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, UINavigationControllerDelegate, OpalImagePickerControllerDelegate{
 
@@ -36,9 +37,8 @@ class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollec
     var phone = ""
     var dob = ""
     var imagee = [UIImage(named: "addicon"),UIImage(named: "addicon"),UIImage(named: "addicon"),UIImage(named: "addicon"),UIImage(named: "addicon"),UIImage(named: "addicon")]
-//    let config = Configuration()
   
-   
+    
     var myimage: [Data] = [Data]()
     var selectedAsset = [PHAsset]()
     var img = [UIImage]()
@@ -57,11 +57,7 @@ class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollec
         imageVC.allowedMediaTypes = Set([PHAssetMediaType.image])
         configuration.maximumSelectionsAllowedMessage = NSLocalizedString("You cannot select that many images!", comment: "")
         imageVC.configuration = configuration
-//        config.allowMultiplePhotoSelection = true
-//        let imagePicker = ImagePickerController(configuration: config)
-//        imagePickerController.delegate = self
         print(name);print(email);print(phone);print(dob)
-//        imagePickerController.delegate = self
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
@@ -78,30 +74,6 @@ class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollec
             self.continueView.backgroundColor = UIColor(named: "girlButton")
         }
     }
-
-    
-//    func hello(){
-//
-//        self.presentImagePicker(self.imagePickerController, select: { (asset) in
-//            // User selected an asset. Do something with it. Perhaps begin processing/upload?
-//        }, deselect: { (asset) in
-//            // User deselected an asset. Cancel whatever you did when asset was selected.
-//        }, cancel: { (assets) in
-//            // User canceled selection.
-//            print("dnvkdsbkdbkvjb")
-//
-//        }, finish: { (assets) in
-//            // User finished selection assets.
-//            print("Finish: \(assets)")
-//                       print(assets.count)
-//                       for i in 0..<assets.count
-//                       {
-//                           self.selectedAsset.append(assets[i])
-//                           print(self.selectedAsset)
-//                       }
-//        })
-//    }
-//
 
     func convertAssestToImage(assets: [PHAsset]){
         self.img.removeAll()
@@ -120,7 +92,6 @@ class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollec
                     let data = thumbnail.jpegData(compressionQuality: 0.7)
                     let newImage = UIImage(data: data!)
                     self.img.append(newImage! as UIImage)
-                        // This for send images data to another view cntroller for make request
                     self.myimage.append(data!)
 
                     }
@@ -130,48 +101,8 @@ class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollec
                     }
         
             }
-//
-//                print("complete photo array \(self.photoArray)")
-//}
-//}
     
-//MARK:- IMAGEPICKER METHOD
-//    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-//        print("hellowrapper")
-//    }
-//    func imagePickerController(picker: ImagePickerController, didFinishPickingImage image: [UIImage], editingInfo: [NSObject : AnyObject]!) {
-//        print(image)
-//        img.removeAll()
-//        img = image
-//        upload(
-//            image: img,
-//                    progressCompletion: { [weak self] percent in
-//                       guard let _ = self else {
-//                         return
-//                       }
-//                       print("Status: \(percent)")
-//                      if percent == 1.0{
-//                     self!.alert(message: "Profile updated Successfully", title: "Image")
-//
-//                       }
-//                     },
-//                     completion: { [weak self] result in
-//                       guard let _ = self else {
-//                         return
-//                       }
-//                   })
-//        imageCollection.reloadData()
-//        dismiss(animated: true, completion: nil)
-//    }
-//
-//    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-//        print("hellodone")
-//
-//    }
-//
-//    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
-//        print("hellocancel")
-//    }
+
 //MARK:- GESTURE METHOD
     @objc func gestureRecognizer( _ gesture: UILongPressGestureRecognizer){
         guard let collectionView = imageCollection else{
@@ -206,45 +137,46 @@ class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollec
     }
     @IBAction func continueTapped(_ sender: Any) {
         
-                upload(
-                    image: img,
-                            progressCompletion: { [weak self] percent in
-                               guard let _ = self else {
-                                 return
-                               }
-                               print("Status: \(percent)")
-                              if percent == 1.0{
-                             self!.alert(message: "Profile updated Successfully", title: "Image")
+               
+      if education.text == "" || aboutMe.text == "" || selectCityText.text == "" || height.text == "" || weight.text == "" || favouriteSport.text == "" || eduDegree.text == "" || lookingFor.text == "" || myWork.text == "" {
+           
+        alert(message: "Please enter all fields")
         
-                               }
-                             },
-                             completion: { [weak self] result in
-                               guard let _ = self else {
-                                 return
-                               }
-                           })
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "LocationVC") as! LocationVC
-        //self.navigationController?.pushViewController(vc, animated: true)
-        
-//if education.text == "" || aboutMe.text == "" || selectCityText.text == "" || height.text == "" || weight.text == "" || favouriteSport.text == "" || eduDegree.text == "" || lookingFor.text == "" || myWork.text == "" {
-//            alert(message: "Please enter all fields")
-//        }else{
-//            let modelLoc = loction(type: "hello", cordinates: [2.2,2.323])
-//            let model = UpdateUser(name: name, email: email, phoneNo: phone, dob: dob, school: education.text!, aboutMe: aboutMe.text!, livingIn: selectCityText.text!, height: height.text!, weight: weight.text!, favSports: favouriteSport.text!, degreeOfEducation: eduDegree.text!, lookingFor: lookingFor.text!, myWork: myWork.text!, loc: modelLoc)
-//            print(model)
-//            ApiManager.shared.update(model: model) { (isSuccess) in
-//                if isSuccess{
+        }else{
+            let sex =  UserDefaults.standard.value(forKey: "Gender") as! String
+            let modelLoc = loction(type: "hello", cordinates: [2.2,2.323])
+            let model = UpdateUser(name: name, email: email, phoneNo: phone, dob: dob, school: education.text!, aboutMe: aboutMe.text!, livingIn: selectCityText.text!, height: height.text!, weight: weight.text!, favSports: favouriteSport.text!, degreeOfEducation: eduDegree.text!, lookingFor: lookingFor.text!, myWork: myWork.text!,
+                                   sex: sex,loc: modelLoc)
+            print(model)
+            ApiManager.shared.update(model: model) { [self] (isSuccess) in
+                if isSuccess{
         MBProgressHUD.hide(for: self.view, animated: true)
-//                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as! TabBarVC
-//                    self.navigationController?.pushViewController(vc, animated: true)
-//                    print("hello")
-//                }else{
+                    upload(
+                        image: img,
+                                progressCompletion: { [weak self] percent in
+                                   guard let _ = self else {
+                                     return
+                                   }
+                                   print("Status: \(percent)")
+                                  if percent == 1.0{
+                                 self!.alert(message: "Profile updated Successfully", title: "Image")
+            
+                                   }
+                                 },
+                                 completion: { [weak self] result in
+                                   guard let _ = self else {
+                                     return
+                                   }
+                               })
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "LocationVC") as! LocationVC
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    print("hello")
+                }else{
         MBProgressHUD.hide(for: self.view, animated: true)
-//                    print("Failure")
-//                }
-//            }
-//        }
-     
+                    print("Failure")
+                }
+            }
+        }
     }
     @IBAction func backTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -282,16 +214,23 @@ extension PersonalInformation2VC{
     }
     
     func imagePicker(_ picker: OpalImagePickerController, didFinishPickingAssets assets: [PHAsset]){
-        selectedAsset.append(contentsOf: assets)
-        convertAssestToImage(assets: assets)
-        imageCollection.reloadData()
-        dismiss(animated: true, completion: nil)
-        
+        if assets.count < 6{
+//            picker.view.
+//            picker.view.makeToast("Please select 6 images", duration: 3.0, position: CSToastPositionTop)
+            
+            picker.alert(message: "Please Select 6 images")
+           
+        }else {
+            selectedAsset.append(contentsOf: assets)
+            convertAssestToImage(assets: assets)
+            imageCollection.reloadData()
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     
     func imagePickerDidCancel(_ picker: OpalImagePickerController){
-        
+        dismiss(animated: true, completion: nil)
     }
     
     
@@ -312,7 +251,7 @@ extension PersonalInformation2VC{
     }
 }
 
-
+// MARK: - IMAGE UPLOAD API
 extension PersonalInformation2VC{
     func upload(image: [UIImage],
                       progressCompletion: @escaping (_ percent: Float) -> Void,
@@ -320,7 +259,7 @@ extension PersonalInformation2VC{
 //              guard let imageData = image.jpegData(compressionQuality: 0.5) else {
 //              print("Could not get JPEG representation of UIImage")
 //              return
-//            }
+//            }`
        
             let randomno = Int.random(in: 1000...100000)
            let imgFileName = "image\(randomno).jpg"

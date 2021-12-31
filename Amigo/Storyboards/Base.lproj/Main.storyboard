@@ -1927,20 +1927,28 @@ location in order to use Amigo</string>
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="proimage" translatesAutoresizingMaskIntoConstraints="NO" id="oVs-Hz-py0">
-                                        <rect key="frame" x="187" y="5" width="40" height="40"/>
+                                        <rect key="frame" x="60" y="5" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="UtV-uU-Lpz"/>
                                             <constraint firstAttribute="height" constant="40" id="Wnm-Np-8Z3"/>
                                         </constraints>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ev-Lf-65E">
+                                        <rect key="frame" x="115" y="15.5" width="43" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.31870719178082191" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="0Ev-Lf-65E" firstAttribute="centerY" secondItem="J6c-pp-0jm" secondAttribute="centerY" id="0Ng-cB-m9K"/>
                                     <constraint firstItem="oVs-Hz-py0" firstAttribute="centerY" secondItem="J6c-pp-0jm" secondAttribute="centerY" id="0iR-cN-R3R"/>
                                     <constraint firstAttribute="height" constant="50" id="1Wd-jd-CkB"/>
+                                    <constraint firstItem="0Ev-Lf-65E" firstAttribute="leading" secondItem="oVs-Hz-py0" secondAttribute="trailing" constant="15" id="I3Z-iO-44l"/>
                                     <constraint firstAttribute="bottom" secondItem="PxG-jt-GnF" secondAttribute="bottom" id="Mib-BO-uwr"/>
+                                    <constraint firstItem="oVs-Hz-py0" firstAttribute="leading" secondItem="PxG-jt-GnF" secondAttribute="trailing" constant="10" id="WT6-Dv-BGw"/>
                                     <constraint firstItem="PxG-jt-GnF" firstAttribute="leading" secondItem="J6c-pp-0jm" secondAttribute="leading" constant="10" id="YFU-XU-FNr"/>
-                                    <constraint firstItem="oVs-Hz-py0" firstAttribute="centerX" secondItem="J6c-pp-0jm" secondAttribute="centerX" id="cck-Yy-FWg"/>
                                     <constraint firstItem="PxG-jt-GnF" firstAttribute="top" secondItem="J6c-pp-0jm" secondAttribute="top" id="ynV-re-YfZ"/>
                                 </constraints>
                             </view>
@@ -1998,7 +2006,7 @@ location in order to use Amigo</string>
                                     <constraint firstAttribute="bottom" secondItem="Lcx-qA-Pgz" secondAttribute="bottom" id="yLZ-Xc-Bv5"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Z2t-0b-fAk">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Z2t-0b-fAk">
                                 <rect key="frame" x="0.0" y="95" width="414" height="717"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
@@ -2010,16 +2018,16 @@ location in order to use Amigo</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bc3-7N-IDd">
-                                                    <rect key="frame" x="81" y="0.0" width="328" height="74"/>
+                                                    <rect key="frame" x="78" y="3" width="328" height="71"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="fsdfsdfsdfadsjkfbjkger ehr teht wekrht rht hkrwht ekwhtk ;ejrwfadsfa" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFj-aC-FQX">
-                                                            <rect key="frame" x="4" y="6.5" width="320" height="41"/>
+                                                            <rect key="frame" x="4" y="5" width="320" height="41"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3:30 " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8wq-NZ-2WY">
-                                                            <rect key="frame" x="284" y="50.5" width="40" height="19.5"/>
+                                                            <rect key="frame" x="284" y="49" width="40" height="18"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" systemColor="systemGrayColor"/>
                                                             <nil key="highlightedColor"/>
@@ -2041,13 +2049,14 @@ location in order to use Amigo</string>
                                             <constraints>
                                                 <constraint firstItem="Bc3-7N-IDd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="yBv-Af-vk3" secondAttribute="leading" constant="60" id="777-Ti-JFV"/>
                                                 <constraint firstAttribute="bottom" secondItem="Bc3-7N-IDd" secondAttribute="bottom" id="VJC-aO-JzW"/>
-                                                <constraint firstAttribute="trailing" secondItem="Bc3-7N-IDd" secondAttribute="trailing" constant="5" id="fiN-Kh-5wH"/>
-                                                <constraint firstItem="Bc3-7N-IDd" firstAttribute="top" secondItem="yBv-Af-vk3" secondAttribute="top" id="lOS-iO-3J1"/>
+                                                <constraint firstAttribute="trailing" secondItem="Bc3-7N-IDd" secondAttribute="trailing" constant="8" id="fiN-Kh-5wH"/>
+                                                <constraint firstItem="Bc3-7N-IDd" firstAttribute="top" secondItem="yBv-Af-vk3" secondAttribute="top" constant="3" id="lOS-iO-3J1"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="msgTime" destination="8wq-NZ-2WY" id="FUV-5O-XRb"/>
                                             <outlet property="sendMsg" destination="xFj-aC-FQX" id="NgI-Nh-1Jb"/>
+                                            <outlet property="viewMsg" destination="Bc3-7N-IDd" id="4r5-0n-Xnc"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellReceive" rowHeight="83" id="nEj-Jy-Y4i" customClass="ChatRecieveCell" customModule="Amigo" customModuleProvider="target">
@@ -2058,16 +2067,16 @@ location in order to use Amigo</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ohk-Xv-FUG">
-                                                    <rect key="frame" x="0.0" y="0.0" width="351.5" height="83"/>
+                                                    <rect key="frame" x="8" y="3" width="342.5" height="80"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="terterterteterwterwterwtertreterterterterwterterterterterterterterterte" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mgp-d3-aSg">
-                                                            <rect key="frame" x="8" y="11" width="335.5" height="41"/>
+                                                            <rect key="frame" x="8" y="9.5" width="326.5" height="41"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3:30 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3DW-Xg-cHj">
-                                                            <rect key="frame" x="307.5" y="55" width="40" height="24"/>
+                                                            <rect key="frame" x="298.5" y="53.5" width="40" height="22.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" systemColor="systemGrayColor"/>
                                                             <nil key="highlightedColor"/>
@@ -2086,15 +2095,16 @@ location in order to use Amigo</string>
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Ohk-Xv-FUG" firstAttribute="leading" secondItem="nNh-GL-NK5" secondAttribute="leading" id="DCt-C4-ZfJ"/>
+                                                <constraint firstItem="Ohk-Xv-FUG" firstAttribute="leading" secondItem="nNh-GL-NK5" secondAttribute="leading" constant="8" id="DCt-C4-ZfJ"/>
                                                 <constraint firstAttribute="bottom" secondItem="Ohk-Xv-FUG" secondAttribute="bottom" id="GkG-WZ-p3q"/>
-                                                <constraint firstItem="Ohk-Xv-FUG" firstAttribute="top" secondItem="nNh-GL-NK5" secondAttribute="top" id="KTe-aI-acH"/>
+                                                <constraint firstItem="Ohk-Xv-FUG" firstAttribute="top" secondItem="nNh-GL-NK5" secondAttribute="top" constant="3" id="KTe-aI-acH"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Ohk-Xv-FUG" secondAttribute="trailing" constant="60" id="Njj-Zl-38j"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="messageTime" destination="3DW-Xg-cHj" id="oEa-62-4M7"/>
                                             <outlet property="receiveMsg" destination="Mgp-d3-aSg" id="0Wg-09-Sbi"/>
+                                            <outlet property="viewMsgRec" destination="Ohk-Xv-FUG" id="XQM-t8-qUK"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -2124,6 +2134,7 @@ location in order to use Amigo</string>
                     </view>
                     <connections>
                         <outlet property="chatTable" destination="Z2t-0b-fAk" id="Iwb-sa-8Xq"/>
+                        <outlet property="nameUser" destination="0Ev-Lf-65E" id="kFg-Fe-uwR"/>
                         <outlet property="profileImage" destination="oVs-Hz-py0" id="5Za-TU-PbD"/>
                         <outlet property="textMessage" destination="Lcx-qA-Pgz" id="RDZ-Op-7uc"/>
                     </connections>
@@ -2958,98 +2969,6 @@ location in order to use Amigo</string>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Mz2-M8-K4z">
-                                                <rect key="frame" x="10" y="70.5" width="404" height="100"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="Igw-bb-MdB"/>
-                                                </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="yOc-1X-s8G">
-                                                    <size key="itemSize" width="239" height="134"/>
-                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                </collectionViewFlowLayout>
-                                                <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="9EZ-i7-YGg" customClass="NewCollection" customModule="Amigo" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="-17" width="239" height="134"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="kog-Gs-Kiu">
-                                                            <rect key="frame" x="0.0" y="0.0" width="239" height="134"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
-                                                            <subviews>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cJ2-WW-oRW">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="239" height="134"/>
-                                                                    <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Qc-af-TB8">
-                                                                            <rect key="frame" x="97" y="92" width="45" height="20.5"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                            <nil key="textColor"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fnD-xa-Yjo">
-                                                                            <rect key="frame" x="89.5" y="27" width="60" height="60"/>
-                                                                            <subviews>
-                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="proimage" translatesAutoresizingMaskIntoConstraints="NO" id="I8d-oA-UCK">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
-                                                                                    <constraints>
-                                                                                        <constraint firstAttribute="height" constant="60" id="Jtg-I1-i4e"/>
-                                                                                        <constraint firstAttribute="width" constant="60" id="eiM-Fs-T0p"/>
-                                                                                    </constraints>
-                                                                                    <userDefinedRuntimeAttributes>
-                                                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                                                            <integer key="value" value="30"/>
-                                                                                        </userDefinedRuntimeAttribute>
-                                                                                    </userDefinedRuntimeAttributes>
-                                                                                </imageView>
-                                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbN-az-khB">
-                                                                                    <rect key="frame" x="53" y="19" width="13" height="22"/>
-                                                                                    <state key="normal" image="dot"/>
-                                                                                </button>
-                                                                            </subviews>
-                                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                            <constraints>
-                                                                                <constraint firstItem="I8d-oA-UCK" firstAttribute="top" secondItem="fnD-xa-Yjo" secondAttribute="top" id="6yg-u5-lgh"/>
-                                                                                <constraint firstItem="wbN-az-khB" firstAttribute="centerY" secondItem="fnD-xa-Yjo" secondAttribute="centerY" id="7Bl-jB-m6a"/>
-                                                                                <constraint firstAttribute="bottom" secondItem="I8d-oA-UCK" secondAttribute="bottom" id="CxF-fA-Pug"/>
-                                                                                <constraint firstItem="I8d-oA-UCK" firstAttribute="leading" secondItem="fnD-xa-Yjo" secondAttribute="leading" id="GXC-hw-7b5"/>
-                                                                                <constraint firstAttribute="trailing" secondItem="I8d-oA-UCK" secondAttribute="trailing" id="O3m-1o-Nbm"/>
-                                                                                <constraint firstAttribute="trailing" secondItem="wbN-az-khB" secondAttribute="trailing" constant="-6" id="o1o-4q-n1O"/>
-                                                                                <constraint firstAttribute="width" constant="60" id="oqf-n5-WBH"/>
-                                                                                <constraint firstAttribute="height" constant="60" id="qTT-bJ-4bK"/>
-                                                                            </constraints>
-                                                                        </view>
-                                                                    </subviews>
-                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    <constraints>
-                                                                        <constraint firstItem="fnD-xa-Yjo" firstAttribute="centerX" secondItem="cJ2-WW-oRW" secondAttribute="centerX" id="6FC-lt-jpT"/>
-                                                                        <constraint firstItem="0Qc-af-TB8" firstAttribute="top" secondItem="fnD-xa-Yjo" secondAttribute="bottom" constant="5" id="8WA-mn-6s0"/>
-                                                                        <constraint firstItem="0Qc-af-TB8" firstAttribute="centerX" secondItem="cJ2-WW-oRW" secondAttribute="centerX" id="9i7-Q1-wl6"/>
-                                                                        <constraint firstItem="fnD-xa-Yjo" firstAttribute="centerY" secondItem="cJ2-WW-oRW" secondAttribute="centerY" constant="-10" id="WOG-lH-uE2"/>
-                                                                    </constraints>
-                                                                </view>
-                                                            </subviews>
-                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="bottom" secondItem="cJ2-WW-oRW" secondAttribute="bottom" id="1UX-tL-BEM"/>
-                                                                <constraint firstAttribute="trailing" secondItem="cJ2-WW-oRW" secondAttribute="trailing" id="ABV-aC-G96"/>
-                                                                <constraint firstItem="cJ2-WW-oRW" firstAttribute="leading" secondItem="kog-Gs-Kiu" secondAttribute="leading" id="gE0-EH-gQe"/>
-                                                                <constraint firstItem="cJ2-WW-oRW" firstAttribute="top" secondItem="kog-Gs-Kiu" secondAttribute="top" id="o5L-ty-hPV"/>
-                                                            </constraints>
-                                                        </collectionViewCellContentView>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <size key="customSize" width="239" height="134"/>
-                                                        <connections>
-                                                            <outlet property="imgColl" destination="I8d-oA-UCK" id="bGQ-4o-HMv"/>
-                                                            <outlet property="nameLabel" destination="0Qc-af-TB8" id="9A2-MW-PlS"/>
-                                                        </connections>
-                                                    </collectionViewCell>
-                                                </cells>
-                                                <connections>
-                                                    <outlet property="dataSource" destination="LWh-tA-b1d" id="qBO-j1-1OX"/>
-                                                    <outlet property="delegate" destination="LWh-tA-b1d" id="hUN-dh-z45"/>
-                                                </connections>
-                                            </collectionView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Messages" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6QE-SU-iAo">
                                                 <rect key="frame" x="20" y="190.5" width="79" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
@@ -3141,6 +3060,7 @@ location in order to use Amigo</string>
                                                             <outlet property="imageTable" destination="Ut2-0X-8IE" id="qz6-0m-eX6"/>
                                                             <outlet property="messageCount" destination="WTw-UN-a2Q" id="YdK-pD-IdX"/>
                                                             <outlet property="messageLabel" destination="gMM-Ie-uBG" id="71R-hj-QiQ"/>
+                                                            <outlet property="msgDot" destination="mmv-XY-Fac" id="UTx-5F-AyO"/>
                                                             <outlet property="nameLabel" destination="db2-yI-ShF" id="hF2-0t-0XD"/>
                                                         </connections>
                                                     </tableViewCell>
@@ -3150,20 +3070,130 @@ location in order to use Amigo</string>
                                                     <outlet property="delegate" destination="LWh-tA-b1d" id="p7c-eq-5Zq"/>
                                                 </connections>
                                             </tableView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bVE-Mw-Y3w">
+                                                <rect key="frame" x="0.0" y="70.5" width="414" height="100"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No match found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Pk-Q6-PjE">
+                                                        <rect key="frame" x="143.5" y="39.5" width="127" height="21"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Mz2-M8-K4z">
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="yOc-1X-s8G">
+                                                            <size key="itemSize" width="239" height="134"/>
+                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        </collectionViewFlowLayout>
+                                                        <cells>
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="9EZ-i7-YGg" customClass="NewCollection" customModule="Amigo" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="-17" width="239" height="134"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="kog-Gs-Kiu">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="239" height="134"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <subviews>
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cJ2-WW-oRW">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="239" height="134"/>
+                                                                            <subviews>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Qc-af-TB8">
+                                                                                    <rect key="frame" x="97" y="92" width="45" height="20.5"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fnD-xa-Yjo">
+                                                                                    <rect key="frame" x="89.5" y="27" width="60" height="60"/>
+                                                                                    <subviews>
+                                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="proimage" translatesAutoresizingMaskIntoConstraints="NO" id="I8d-oA-UCK">
+                                                                                            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                                                            <constraints>
+                                                                                                <constraint firstAttribute="height" constant="60" id="Jtg-I1-i4e"/>
+                                                                                                <constraint firstAttribute="width" constant="60" id="eiM-Fs-T0p"/>
+                                                                                            </constraints>
+                                                                                            <userDefinedRuntimeAttributes>
+                                                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                                                    <integer key="value" value="30"/>
+                                                                                                </userDefinedRuntimeAttribute>
+                                                                                            </userDefinedRuntimeAttributes>
+                                                                                        </imageView>
+                                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dot" translatesAutoresizingMaskIntoConstraints="NO" id="gXu-cH-JXZ">
+                                                                                            <rect key="frame" x="53" y="23.5" width="13" height="13"/>
+                                                                                        </imageView>
+                                                                                    </subviews>
+                                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstItem="gXu-cH-JXZ" firstAttribute="centerY" secondItem="fnD-xa-Yjo" secondAttribute="centerY" id="2nM-w6-IZI"/>
+                                                                                        <constraint firstAttribute="trailing" secondItem="gXu-cH-JXZ" secondAttribute="trailing" constant="-6" id="3iL-2k-xpB"/>
+                                                                                        <constraint firstItem="I8d-oA-UCK" firstAttribute="top" secondItem="fnD-xa-Yjo" secondAttribute="top" id="6yg-u5-lgh"/>
+                                                                                        <constraint firstAttribute="bottom" secondItem="I8d-oA-UCK" secondAttribute="bottom" id="CxF-fA-Pug"/>
+                                                                                        <constraint firstItem="I8d-oA-UCK" firstAttribute="leading" secondItem="fnD-xa-Yjo" secondAttribute="leading" id="GXC-hw-7b5"/>
+                                                                                        <constraint firstAttribute="trailing" secondItem="I8d-oA-UCK" secondAttribute="trailing" id="O3m-1o-Nbm"/>
+                                                                                        <constraint firstAttribute="width" constant="60" id="oqf-n5-WBH"/>
+                                                                                        <constraint firstAttribute="height" constant="60" id="qTT-bJ-4bK"/>
+                                                                                    </constraints>
+                                                                                </view>
+                                                                            </subviews>
+                                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <constraints>
+                                                                                <constraint firstItem="fnD-xa-Yjo" firstAttribute="centerX" secondItem="cJ2-WW-oRW" secondAttribute="centerX" id="6FC-lt-jpT"/>
+                                                                                <constraint firstItem="0Qc-af-TB8" firstAttribute="top" secondItem="fnD-xa-Yjo" secondAttribute="bottom" constant="5" id="8WA-mn-6s0"/>
+                                                                                <constraint firstItem="0Qc-af-TB8" firstAttribute="centerX" secondItem="cJ2-WW-oRW" secondAttribute="centerX" id="9i7-Q1-wl6"/>
+                                                                                <constraint firstItem="fnD-xa-Yjo" firstAttribute="centerY" secondItem="cJ2-WW-oRW" secondAttribute="centerY" constant="-10" id="WOG-lH-uE2"/>
+                                                                            </constraints>
+                                                                        </view>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="bottom" secondItem="cJ2-WW-oRW" secondAttribute="bottom" id="1UX-tL-BEM"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="cJ2-WW-oRW" secondAttribute="trailing" id="ABV-aC-G96"/>
+                                                                        <constraint firstItem="cJ2-WW-oRW" firstAttribute="leading" secondItem="kog-Gs-Kiu" secondAttribute="leading" id="gE0-EH-gQe"/>
+                                                                        <constraint firstItem="cJ2-WW-oRW" firstAttribute="top" secondItem="kog-Gs-Kiu" secondAttribute="top" id="o5L-ty-hPV"/>
+                                                                    </constraints>
+                                                                </collectionViewCellContentView>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <size key="customSize" width="239" height="134"/>
+                                                                <connections>
+                                                                    <outlet property="dotImage" destination="gXu-cH-JXZ" id="Adg-aj-LSW"/>
+                                                                    <outlet property="imgColl" destination="I8d-oA-UCK" id="bGQ-4o-HMv"/>
+                                                                    <outlet property="nameLabel" destination="0Qc-af-TB8" id="9A2-MW-PlS"/>
+                                                                </connections>
+                                                            </collectionViewCell>
+                                                        </cells>
+                                                        <connections>
+                                                            <outlet property="dataSource" destination="LWh-tA-b1d" id="qBO-j1-1OX"/>
+                                                            <outlet property="delegate" destination="LWh-tA-b1d" id="hUN-dh-z45"/>
+                                                        </connections>
+                                                    </collectionView>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="Mz2-M8-K4z" secondAttribute="bottom" id="9MG-w7-lUe"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Mz2-M8-K4z" secondAttribute="trailing" id="BPL-Uu-UMW"/>
+                                                    <constraint firstItem="7Pk-Q6-PjE" firstAttribute="centerX" secondItem="bVE-Mw-Y3w" secondAttribute="centerX" id="Dyx-WB-hyC"/>
+                                                    <constraint firstItem="Mz2-M8-K4z" firstAttribute="top" secondItem="bVE-Mw-Y3w" secondAttribute="top" id="SXs-mT-vYI"/>
+                                                    <constraint firstAttribute="height" constant="100" id="TRD-cN-iVY"/>
+                                                    <constraint firstItem="Mz2-M8-K4z" firstAttribute="leading" secondItem="bVE-Mw-Y3w" secondAttribute="leading" id="sPH-dB-k48"/>
+                                                    <constraint firstItem="7Pk-Q6-PjE" firstAttribute="centerY" secondItem="bVE-Mw-Y3w" secondAttribute="centerY" id="tlY-mU-CmM"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="6QE-SU-iAo" firstAttribute="top" secondItem="Mz2-M8-K4z" secondAttribute="bottom" constant="20" id="1Uw-jf-yZ4"/>
-                                            <constraint firstAttribute="trailing" secondItem="Mz2-M8-K4z" secondAttribute="trailing" id="4VB-IG-RGv"/>
-                                            <constraint firstItem="Mz2-M8-K4z" firstAttribute="leading" secondItem="xel-o7-jfA" secondAttribute="leading" constant="10" id="DKm-V6-vjV"/>
+                                            <constraint firstItem="bVE-Mw-Y3w" firstAttribute="leading" secondItem="xel-o7-jfA" secondAttribute="leading" id="1fG-BH-SsB"/>
+                                            <constraint firstItem="bVE-Mw-Y3w" firstAttribute="top" secondItem="iWi-ys-5s7" secondAttribute="bottom" constant="10" id="Dc6-F5-XX4"/>
                                             <constraint firstItem="6QE-SU-iAo" firstAttribute="leading" secondItem="xel-o7-jfA" secondAttribute="leading" constant="20" id="NNY-vA-Rsk"/>
                                             <constraint firstItem="5LI-rU-wS9" firstAttribute="leading" secondItem="xel-o7-jfA" secondAttribute="leading" id="QQb-j1-oGm"/>
+                                            <constraint firstAttribute="trailing" secondItem="bVE-Mw-Y3w" secondAttribute="trailing" id="V7w-4f-dKS"/>
                                             <constraint firstItem="5LI-rU-wS9" firstAttribute="top" secondItem="6QE-SU-iAo" secondAttribute="bottom" id="co1-Hu-viT"/>
                                             <constraint firstItem="iWi-ys-5s7" firstAttribute="leading" secondItem="xel-o7-jfA" secondAttribute="leading" constant="20" id="d1V-Dq-3wC"/>
                                             <constraint firstAttribute="trailing" secondItem="5LI-rU-wS9" secondAttribute="trailing" id="dRd-Ee-pGC"/>
                                             <constraint firstAttribute="bottom" secondItem="5LI-rU-wS9" secondAttribute="bottom" id="eWC-D5-PxV"/>
+                                            <constraint firstItem="6QE-SU-iAo" firstAttribute="top" secondItem="bVE-Mw-Y3w" secondAttribute="bottom" constant="20" id="hmF-8x-Z1Y"/>
                                             <constraint firstItem="iWi-ys-5s7" firstAttribute="top" secondItem="xel-o7-jfA" secondAttribute="top" constant="40" id="vFC-Mf-t8b"/>
-                                            <constraint firstItem="Mz2-M8-K4z" firstAttribute="top" secondItem="iWi-ys-5s7" secondAttribute="bottom" constant="10" id="ven-1v-9u0"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -3187,13 +3217,15 @@ location in order to use Amigo</string>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="hotInactive" selectedImage="hotActive" id="dNr-I6-Z4N"/>
                     <connections>
+                        <outlet property="backView" destination="bVE-Mw-Y3w" id="Rzy-AG-yMC"/>
                         <outlet property="messagetable" destination="5LI-rU-wS9" id="Szr-86-rAz"/>
                         <outlet property="newMatchColloction" destination="Mz2-M8-K4z" id="mC8-4D-a7h"/>
+                        <outlet property="noMatch" destination="7Pk-Q6-PjE" id="iMg-u1-JSO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bAs-bR-Nsr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5386" y="716"/>
+            <point key="canvasLocation" x="5385.507246376812" y="715.84821428571422"/>
         </scene>
         <!--Pro UserVC-->
         <scene sceneID="UKO-sD-635">
@@ -3932,11 +3964,6 @@ location in order to use Amigo</string>
             <point key="canvasLocation" x="18.840579710144929" y="69.642857142857139"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="msR-gZ-eEg">
-            <size key="intrinsicContentSize" width="374" height="45"/>
-        </designable>
-    </designables>
     <resources>
         <image name="Background" width="414" height="388"/>
         <image name="Close" width="72" height="72"/>

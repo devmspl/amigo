@@ -8,31 +8,39 @@
 import UIKit
 import Alamofire
 import AlamofireImage
+import MBProgressHUD
 
 class FirstTabVC: UIViewController {
    
+    @IBOutlet weak var backView: UIView!
     @IBOutlet weak var messagetable: UITableView!
     @IBOutlet weak var newMatchColloction: UICollectionView!
+    @IBOutlet weak var noMatch: UILabel!
     
-    let imgCollection = [UIImage(named: "newMatch"),UIImage(named: "newMatch2"),UIImage(named: "newMatch3"),UIImage(named: "newMatch4"),UIImage(named: "newMatch5"),UIImage(named: "background")]
+    let imgCollection = [AnyObject]()
     let collName = ["Anita","Reshma","Roma","Yami","Priti","Test"]
     let imgTable = [UIImage(named: "1"),UIImage(named: "2"),UIImage(named: "3"),UIImage(named: "4"),UIImage(named: "5"),UIImage(named: "6"),UIImage(named: "7"),UIImage(named: "8")]
     let tableName = ["Anika","Sherya","Lilly","Mona","Sonia","Monika","Katrina","Kiran"]
     let message = ["Hello","hii","How are you","Where you  live?","lets meet on coffee","Yes offcource","No we can't","Let's do this"]
     var conversationId = ""
+    var dataArray = [AnyObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if UserDefaults.standard.value(forKey: "Gender") as! String == "Male"{
+        
+        if UserDefaults.standard.value(forKey: "Gender") as! String == "male"{
             self.view.backgroundColor = UIColor(named: "MenColor")
         }else{
             self.view.backgroundColor = UIColor(named: "girlColor")
-//          self.continueView.backgroundColor = UIColor(named: "girlButton")
         }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getConversionApi()
+        GetNewMatchApi()
+        backView.backgroundColor = UIColor.clear
+        socket.disconnect()
+       
     }
 }
 
@@ -40,17 +48,30 @@ class FirstTabVC: UIViewController {
 class MessageTable: UITableViewCell{
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var imageTable: UIImageView!
+    @IBOutlet weak var msgDot: UIImageView!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var messageCount: UILabel!
+    override func awakeFromNib() {
+        print("hello")
+    }
 }
 
 class NewCollection: UICollectionViewCell{
+    @IBOutlet weak var dotImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var imgColl: UIImageView!
+    override  func awakeFromNib() {
+        if UserDefaults.standard.value(forKey: "Gender") as! String == "Male"{
+            dotImage.image = UIImage(named: "dot")
+            
+        }else{
+            dotImage.image = UIImage(named: "pinkNewMatch")
+        }
+    }
 }
 
 
-// MARK:- EXTENSION
+// MARK:- EXTENSION table collection
 
 extension FirstTabVC: UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -62,7 +83,12 @@ extension FirstTabVC: UITableViewDelegate,UITableViewDataSource,UICollectionView
         cell.imageTable.image = imgTable[indexPath.row]
         cell.nameLabel.text = tableName[indexPath.row]
         cell.messageLabel.text = message[indexPath.row]
-        
+        if UserDefaults.standard.value(forKey: "Gender") as! String == "Male"{
+            cell.msgDot.image = UIImage(named: "msgDot")
+        }else{
+            cell.msgDot.image = UIImage(named: "pinkDot")
+        }
+
         return cell
     }
     
@@ -72,13 +98,20 @@ extension FirstTabVC: UITableViewDelegate,UITableViewDataSource,UICollectionView
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imgCollection.count
+        return dataArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = newMatchColloction.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! NewCollection
-        cell.imgColl.image = imgCollection[indexPath.item]
-        cell.nameLabel.text = collName[indexPath.item]
+        if let image = dataArray[indexPath.item]["profileImageName"] as? String{
+            let url = URL(string: image)
+            if url != nil{
+                print(url!)
+                cell.imgColl.af.setImage(withURL: url!)
+            }
+        }
+       
+        cell.nameLabel.text = dataArray[indexPath.item]["name"] as? String ?? ""
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -88,31 +121,94 @@ extension FirstTabVC: UITableViewDelegate,UITableViewDataSource,UICollectionView
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: newMatchColloction.frame.width/4.5, height: newMatchColloction.frame.height/0.5)
     }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        <#code#>
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        <#code#>
+    }
 }
 
+//MARK:- GET CONVERSATION API
 extension FirstTabVC{
     func getConversionApi(){
         if ReachabilityNetwork.isConnectedToNetwork(){
+            MBProgressHUD.showAdded(to: self.view, animated: true)
             AF.request(API.conversation+conversationId, method: .get,encoding: JSONEncoding.default).responseJSON{
                 response in
                 switch (response.result){
                 case .success(let json):do{
                     let status = response.response?.statusCode
                     let respond = json as! NSDictionary
+                    MBProgressHUD.hide(for: self.view, animated: true)
                     if status == 200{
+                        MBProgressHUD.hide(for: self.view, animated: true)
                         print(respond)
                         self.messagetable.reloadData()
                     }else{
+                        MBProgressHUD.hide(for: self.view, animated: true)
                         print("hello")
                     }
                 }case .failure(let error):do{
+                    MBProgressHUD.hide(for: self.view, animated: true)
                     print(error,"errorfsdfsd")
                     self.alert(message: "Status not 200")
                 }
                 }
             }
         }else{
+            MBProgressHUD.hide(for: self.view, animated: true)
             self.alert(message: "Please check iternet connection")
         }
     }
+}
+
+//MARK: - NEW MATCH API
+
+extension FirstTabVC{
+    func GetNewMatchApi(){
+        if ReachabilityNetwork.isConnectedToNetwork(){
+            MBProgressHUD.showAdded(to: self.view, animated: true)
+            let token = UserDefaults.standard.value(forKey: "token") as! String
+            let id = UserDefaults.standard.value(forKey: "id") as! String
+            let head : HTTPHeaders = ["x-access-token":token]
+            AF.request(API.newMatchList+id,method: .get,headers: head).responseJSON{ [self]
+                response in
+                switch (response.result){
+                case .success(let json):do{
+                    let statusCode = response.response?.statusCode
+                    let respond = json as! NSDictionary
+                    let message = respond.object(forKey: "message") as! String
+                    MBProgressHUD.hide(for: self.view, animated: true)
+                    if statusCode == 200{
+                        MBProgressHUD.hide(for: self.view, animated: true)
+                        dataArray.removeAll()
+//                        print("Success======",respond)
+                        dataArray = respond.object(forKey: "data") as! [AnyObject]
+                        print("dataArray",dataArray,dataArray.count)
+                        if dataArray.count == 0{
+                            noMatch.isHidden = false
+                         
+                        }else{
+                            noMatch.isHidden = true
+                        }
+                        newMatchColloction.reloadData()
+                        print("Success",message)
+                    }else{
+                        MBProgressHUD.hide(for: self.view, animated: true)
+                        print("fail",respond)
+                    }
+                }
+    
+                case .failure(let error): do{
+                    print("error",error)
+                    MBProgressHUD.hide(for: self.view, animated: true)
+                }
+                }
+        }
+        }else{
+            MBProgressHUD.hide(for: self.view, animated: true)
+            self.alert(message: "Please check internet connection")
+        }
+}
 }

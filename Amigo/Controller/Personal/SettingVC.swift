@@ -29,7 +29,7 @@ class SettingVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if UserDefaults.standard.value(forKey: "Gender") as! String == "Male"{
+        if UserDefaults.standard.value(forKey: "Gender") as! String == "male"{
             self.view.backgroundColor = UIColor(named: "MenColor")
 //            seprator.isHidden = false
         }else{

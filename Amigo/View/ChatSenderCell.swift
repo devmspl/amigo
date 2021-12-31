@@ -11,8 +11,13 @@ class ChatSenderCell: UITableViewCell {
 
     @IBOutlet weak var sendMsg: UILabel!
     @IBOutlet weak var msgTime: UILabel!
+    @IBOutlet weak var viewMsg: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
+        viewMsg.backgroundColor = UIColor.gray
+        viewMsg.layer.borderWidth = 1
+        viewMsg.layer.borderColor = UIColor.gray.cgColor
+        viewMsg.layer.cornerRadius = 10
         // Initialization code
     }
 

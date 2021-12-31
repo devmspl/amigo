@@ -15,6 +15,9 @@ target 'Amigo' do
   pod 'DropDown'
   pod "BSImagePicker", "~> 3.1"
   pod 'OpalImagePicker'
+  pod 'Socket.IO-Client-Swift', '~> 15.2.0'
+  pod 'Toast'
+
   
 
   target 'AmigoTests' do

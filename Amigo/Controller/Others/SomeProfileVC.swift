@@ -34,7 +34,7 @@ class SomeProfileVC: UIViewController,UICollectionViewDelegate,UICollectionViewD
     override func viewDidLoad() {
         super.viewDidLoad()
      print(id)
-        if UserDefaults.standard.value(forKey: "Gender") as! String == "Male"{
+        if UserDefaults.standard.value(forKey: "Gender") as! String == "male"{
             self.view.backgroundColor = UIColor(named: "MenColor")
         }else{
             self.view.backgroundColor = UIColor(named: "girlColor")

@@ -28,7 +28,7 @@ class SecondTabVC: UIViewController {
         swipeView.layer.cornerRadius = 20
         
         
-        if UserDefaults.standard.value(forKey: "Gender") as! String == "Male"{
+        if UserDefaults.standard.value(forKey: "Gender") as! String == "male"{
             self.view.backgroundColor = UIColor(named: "MenColor")
             self.backgroundImage.image = UIImage(named: "Background")
         }else{

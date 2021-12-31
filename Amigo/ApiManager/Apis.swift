@@ -23,7 +23,8 @@ public struct API{
     public static let changePass          = baseUrl+"users/resetPassword/"
     public static let profileImage        = baseUrl+"users/profileImageUpload/"
     public static let multiImage          = baseUrl+"users/uploadImagesByUserId/"
-
+    public static let newMatchList        = baseUrl+"users/myFriend/"
+    
 //MARK: - FAVOURITE API
     public static let favourite           = baseUrl+"favourites/add"
     public static let favRemove           = baseUrl+"favourites/remove"
