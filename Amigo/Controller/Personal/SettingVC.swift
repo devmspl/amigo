@@ -84,10 +84,10 @@ extension SettingVC: UITableViewDelegate,UITableViewDataSource{
            
             let ok = UIAlertAction.init(title: "Yes", style: .destructive) { (ok) in
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
-                UserDefaults.standard.removeObject(forKey: "id")
-                print("sign")
-                UserDefaults.standard.removeObject(forKey: "token")
-                UserDefaults.standard.removeObject(forKey: "Gender")
+                
+                if let appDomain = Bundle.main.bundleIdentifier {
+                                        UserDefaults.standard.removePersistentDomain(forName: appDomain)
+                                    }
 //                let nav = UINavigationController(rootViewController: vc)
                 self.navigationController?.pushViewController(vc, animated: true)
             }

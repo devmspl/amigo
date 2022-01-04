@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		040351872718101B007E5833 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040351862718101B007E5833 /* AppDelegate.swift */; };
-		040351892718101B007E5833 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040351882718101B007E5833 /* SceneDelegate.swift */; };
 		0403518E2718101B007E5833 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0403518C2718101B007E5833 /* Main.storyboard */; };
 		040351932718101C007E5833 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 040351912718101C007E5833 /* LaunchScreen.storyboard */; };
 		0403519E2718101D007E5833 /* AmigoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0403519D2718101D007E5833 /* AmigoTests.swift */; };
@@ -49,6 +48,7 @@
 		04E97C522743959900AC268C /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E97C512743959900AC268C /* ChatVC.swift */; };
 		04EAEB3D27311380004D4FFE /* ProUserVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EAEB3C27311380004D4FFE /* ProUserVC.swift */; };
 		375A222F2684AFC0F7C8EB76 /* Pods_Amigo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C2F6CAB23A9404DF502EA /* Pods_Amigo.framework */; };
+		6F00BD8A2784655A00C30D3D /* NewVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F00BD892784655A00C30D3D /* NewVc.swift */; };
 		9830F1B127ED65D2931B91B5 /* Pods_Amigo_AmigoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49D41AE60E57C7BF3768BAE6 /* Pods_Amigo_AmigoUITests.framework */; };
 		98F699642B287948E570B0CF /* Pods_AmigoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A2453BA14D3F73993AAA2E0 /* Pods_AmigoTests.framework */; };
 		FA395C07273A4D84007DDB6C /* ReachabilityNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA395C06273A4D84007DDB6C /* ReachabilityNetwork.swift */; };
@@ -77,7 +77,6 @@
 /* Begin PBXFileReference section */
 		040351832718101B007E5833 /* Amigo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amigo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		040351862718101B007E5833 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		040351882718101B007E5833 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0403518D2718101B007E5833 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		040351922718101C007E5833 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		040351942718101C007E5833 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -128,6 +127,7 @@
 		421A24A98760105BE2353FE1 /* Pods-Amigo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amigo.release.xcconfig"; path = "Target Support Files/Pods-Amigo/Pods-Amigo.release.xcconfig"; sourceTree = "<group>"; };
 		49D41AE60E57C7BF3768BAE6 /* Pods_Amigo_AmigoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Amigo_AmigoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65D9E34DCBC7B7E3F202EAE6 /* Pods-Amigo-AmigoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amigo-AmigoUITests.release.xcconfig"; path = "Target Support Files/Pods-Amigo-AmigoUITests/Pods-Amigo-AmigoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		6F00BD892784655A00C30D3D /* NewVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewVc.swift; sourceTree = "<group>"; };
 		9A2453BA14D3F73993AAA2E0 /* Pods_AmigoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AmigoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF1C2F6CAB23A9404DF502EA /* Pods_Amigo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Amigo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9889FDA500D547199F4A39C /* Pods-Amigo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Amigo.debug.xcconfig"; path = "Target Support Files/Pods-Amigo/Pods-Amigo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -236,7 +236,6 @@
 			isa = PBXGroup;
 			children = (
 				040351862718101B007E5833 /* AppDelegate.swift */,
-				040351882718101B007E5833 /* SceneDelegate.swift */,
 			);
 			path = Delegate;
 			sourceTree = "<group>";
@@ -245,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				0403518C2718101B007E5833 /* Main.storyboard */,
+				6F00BD892784655A00C30D3D /* NewVc.swift */,
 				040351912718101C007E5833 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
@@ -592,6 +592,7 @@
 				040351872718101B007E5833 /* AppDelegate.swift in Sources */,
 				047E46C8275E2D4C00A08F48 /* BaseClass.swift in Sources */,
 				04E0B96027705A20003E989F /* ChatSenderCell.swift in Sources */,
+				6F00BD8A2784655A00C30D3D /* NewVc.swift in Sources */,
 				FA6D6EB627184DA3009D6141 /* ForgotPassVC.swift in Sources */,
 				046B5F122729285900A00728 /* ProfileVC.swift in Sources */,
 				04EAEB3D27311380004D4FFE /* ProUserVC.swift in Sources */,
@@ -603,7 +604,6 @@
 				046B5F0D2729284900A00728 /* SecondTabVC.swift in Sources */,
 				040E12AF2721915B007E1A69 /* OrientationVC.swift in Sources */,
 				04E0B9B52779A16E003E989F /* Socket.swift in Sources */,
-				040351892718101B007E5833 /* SceneDelegate.swift in Sources */,
 				046B5F082729283A00A00728 /* FirstTabVC.swift in Sources */,
 				048AD009274793A600A68277 /* CongratulationVC.swift in Sources */,
 				04E0B9B02779A132003E989F /* MessageData.swift in Sources */,

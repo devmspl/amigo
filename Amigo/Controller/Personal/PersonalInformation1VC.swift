@@ -73,11 +73,13 @@ extension PersonalInformation1VC{
         let datepicker = UIDatePicker()
         datepicker.datePickerMode = .date
         datepicker.preferredDatePickerStyle = .wheels
-        textField.inputView = datepicker
         let dateMinimum = "11/30/2003"
         let dateformatter  = DateFormatter()
+        dateformatter.dateFormat = "dd/MM/YYYY"
         dateformatter.dateStyle = .short
         datepicker.maximumDate = dateformatter.date(from: dateMinimum)
+        textField.inputView = datepicker
+        
 //        datepicker.maximumDate = 11/12/2003
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 44))
         
@@ -100,6 +102,7 @@ extension PersonalInformation1VC{
     if let datePicker = dobOut.inputView as? UIDatePicker{
         let dateformatter  = DateFormatter()
         dateformatter.dateStyle = .short
+        dateformatter.dateFormat = "dd/MM/YYYY"
         dobOut.text = dateformatter.string(from: datePicker.date)
         dobOut.resignFirstResponder()
 //        dobOut.text = datePicker.date

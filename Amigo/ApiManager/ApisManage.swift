@@ -64,10 +64,14 @@ class ApiManager: UIViewController{
                             let data = respond.object(forKey: "data") as! NSDictionary
                             let userId = data.object(forKey: "_id") as! String
                             let token = data.object(forKey: "token") as! String
-                            let gender = data.object(forKey: <#T##Any#>)
+                            let gender = data.object(forKey: "sex") as? String ?? ""
+                            let name = data.object(forKey: "name") as? String ?? ""
                             UserDefaults.standard.setValue(userId, forKey: "id")
                             UserDefaults.standard.setValue(token, forKey: "token")
-                            UserDefaults.standard.setValue(<#T##value: Any?##Any?#>, forKey: <#T##String#>)
+                            UserDefaults.standard.setValue(gender, forKey: "Gender")
+                            UserDefaults.standard.setValue(name, forKey: "name")
+                            print(UserDefaults.standard.value(forKey: "Gender"),"hdfhvfhgvershgv")
+                            print(UserDefaults.standard.value(forKey: "name"),"hdfhvfhgvershgv")
                             print(userId)
                             print(token)
                             completionHandler(true)

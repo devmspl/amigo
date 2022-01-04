@@ -27,7 +27,7 @@ class SecondTabVC: UIViewController {
         swipeView.dataSource = self
         swipeView.layer.cornerRadius = 20
         
-        
+        getUserList()
         if UserDefaults.standard.value(forKey: "Gender") as! String == "male"{
             self.view.backgroundColor = UIColor(named: "MenColor")
             self.backgroundImage.image = UIImage(named: "Background")
@@ -37,12 +37,8 @@ class SecondTabVC: UIViewController {
         }
       
     }
-    override func viewWillAppear(_ animated: Bool) {
-        getUserList()
-        
-        
-    }
-//MARK:- APIs
+    
+//MARK: - APIs
     
     func getUserList(){
         if ReachabilityNetwork.isConnectedToNetwork(){

@@ -8,10 +8,12 @@
 import UIKit
 import Alamofire
 import MBProgressHUD
+import AlamofireImage
 
 class SomeProfileVC: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
-    @IBOutlet weak var picCollection: UICollectionView!
+    @IBOutlet weak var proImage: UIImageView!
+
     @IBOutlet weak var dislike: UIButton!
     @IBOutlet weak var like: UIButton!
     @IBOutlet weak var star: UIButton!
@@ -19,12 +21,11 @@ class SomeProfileVC: UIViewController,UICollectionViewDelegate,UICollectionViewD
     @IBOutlet weak var distance: UILabel!
     @IBOutlet weak var about: UILabel!
     @IBOutlet weak var work: UILabel!
-    @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var upperCollection: UICollectionView!
-    @IBOutlet weak var lowerCollection: UICollectionView!
     
     var key = ""
     var id = ""
+    var gallery = [AnyObject]()
     
     
     let label = ["Interest1","Interest2","Interest3","Interest4","Interest5","Interest6","Interest7","Interest8"]
@@ -34,11 +35,12 @@ class SomeProfileVC: UIViewController,UICollectionViewDelegate,UICollectionViewD
     override func viewDidLoad() {
         super.viewDidLoad()
      print(id)
+        getSomeProfile()
         if UserDefaults.standard.value(forKey: "Gender") as! String == "male"{
             self.view.backgroundColor = UIColor(named: "MenColor")
         }else{
             self.view.backgroundColor = UIColor(named: "girlColor")
-//          self.continueView.backgroundColor = UIColor(named: "girlButton")
+
         }
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -57,39 +59,30 @@ class SomeProfileVC: UIViewController,UICollectionViewDelegate,UICollectionViewD
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == upperCollection{
-            return image.count
-        }else if collectionView == picCollection{
-            return image.count
-        }else{
-            return label.count
-        }
+        print(gallery.count)
+            return gallery.count
+      
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == upperCollection{
+        
             let cell = upperCollection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! UpperCollectionCell
-            cell.imageupper.image = image[indexPath.item]
-            return cell
-        }else if collectionView == picCollection{
-            let cell = picCollection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PicCollectionCell
-            cell.imageOut.image = image[indexPath.item]
-            return cell
-            
-        }else{
-            let cell = lowerCollection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! LowerCollectionCell
-            cell.labelout.text = label[indexPath.row]
-            return cell
+        
+        if let image = gallery[indexPath.row]["image"] as? String{
+            let url = URL(string: image)
+            if url != nil{
+                cell.imageupper.af.setImage(withURL: url!)
+            }
+            else{
+                print("Empty url please check")
+            }
         }
+            return cell
+       
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView == lowerCollection{
-            return CGSize(width: lowerCollection.frame.width/4.5, height: lowerCollection.frame.height/3)
-        }else if collectionView == upperCollection{
-            return CGSize(width: upperCollection.frame.width, height: upperCollection.frame.height)
-        }else{
-            return CGSize(width: picCollection.frame.width/3.5, height: picCollection.frame.height/1.2)
-        }
+        return CGSize(width: upperCollection.frame.width/3.5, height: upperCollection.frame.height)
+        
         
     } 
     
@@ -148,9 +141,10 @@ extension SomeProfileVC{
                         name.text = data.object(forKey: "name") as? String ?? "---"
                         about.text = data.object(forKey: "aboutMe") as? String ?? "---"
                         work.text = data.object(forKey: "myWork") as? String ?? "---"
-
+                        gallery = data.object(forKey: "gallery") as! [AnyObject]
+                        print(gallery.count,"sdcasdcjsahdbcjhsbadchjbsd")
                         print("success=====",respond)
-                        
+                        upperCollection.reloadData()
                     }else{
                         MBProgressHUD.hide(for: self.view, animated: true)
                         self.alert(message: "error")

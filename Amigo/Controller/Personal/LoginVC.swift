@@ -29,10 +29,6 @@ class LoginVC: UIViewController {
             textViews[i].layer.borderColor = UIColor.white.cgColor
         }
         loginBtn.layer.cornerRadius = 10
-        if UserDefaults.standard.value(forKey: "id") != nil{
-            let vc = storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as! TabBarVC
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
     }
     
     func background(){
@@ -78,8 +74,18 @@ class LoginVC: UIViewController {
             ApiManager.shared.login(model: loginModel) { (isSuccess) in
                 if isSuccess{
                     MBProgressHUD.hide(for: self.view, animated: true)
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "GenderVC") as! GenderVC
-                    self.navigationController?.pushViewController(vc, animated: true)
+                    print(UserDefaults.standard.value(forKey: "Gender"),"ftyfytfytfytfytf")
+//                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "GenderVC") as! GenderVC
+//                    self.navigationController?.pushViewController(vc, animated: true)
+                    if UserDefaults.standard.value(forKey: "Gender") as! String  == ""{
+                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "GenderVC") as! GenderVC
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }else{
+                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as! TabBarVC
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }
+                    
+                    
                 }else{
                     MBProgressHUD.hide(for: self.view, animated: true)
                     print("check credetials")
