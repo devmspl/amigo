@@ -35,7 +35,6 @@ struct ChangePassModel: Encodable {
 
 struct UpdateUser: Encodable {
     let name: String?
-    let email: String?
     let phoneNo: String?
     let dob: String?
     let school: String?

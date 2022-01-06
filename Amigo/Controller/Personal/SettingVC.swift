@@ -74,7 +74,12 @@ extension SettingVC: UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 4{
+        if indexPath.row == 3{
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "PersonalInformation1VC") as! PersonalInformation1VC
+            vc.key = "U"
+                self.navigationController?.pushViewController(vc, animated: true)
+        }
+        else if indexPath.row == 4{
             let vc = self.storyboard?.instantiateViewController(withIdentifier: "ChangePassword") as! ChangePassword
         
             self.navigationController?.pushViewController(vc, animated: true)

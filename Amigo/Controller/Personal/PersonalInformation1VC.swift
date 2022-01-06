@@ -6,22 +6,28 @@
 //
 
 import UIKit
+import Alamofire
+import MBProgressHUD
 
 class PersonalInformation1VC: UIViewController,UITextFieldDelegate {
 
     @IBOutlet weak var btnView: UIView!
     @IBOutlet weak var nameOut: UITextField!
-    @IBOutlet weak var emailOut: UITextField!
+    @IBOutlet weak var lookingFor: UITextField!
     @IBOutlet weak var phoneOut: UITextField!
     @IBOutlet weak var dobOut: UITextField!
 
-
+    var key  = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if key == "U"{
+            getProfileDetails()
+        }else{
+            print("Gender screen")
+        }
         dobOut.delegate = self
         
-        if UserDefaults.standard.value(forKey: "Gender") as! String == "Male"{
+        if UserDefaults.standard.value(forKey: "Gender") as! String == "male"{
             self.view.backgroundColor = UIColor(named: "MenColor")
         }else{
             self.view.backgroundColor = UIColor(named: "girlColor")
@@ -30,7 +36,7 @@ class PersonalInformation1VC: UIViewController,UITextFieldDelegate {
         
         btnView.layer.cornerRadius = 20
         nameOut.layer.backgroundColor = UIColor.white.cgColor
-        emailOut.layer.backgroundColor = UIColor.white.cgColor
+        lookingFor.layer.backgroundColor = UIColor.white.cgColor
         phoneOut.layer.backgroundColor = UIColor.white.cgColor
         dobOut.layer.backgroundColor = UIColor.white.cgColor
         
@@ -43,8 +49,8 @@ class PersonalInformation1VC: UIViewController,UITextFieldDelegate {
     @IBAction func continueTapped(_ sender: Any) {
         if nameOut.text == ""{
             alert(message: "Please enter name")
-        }else if emailOut.text == ""{
-            alert(message: "Please enter email")
+        }else if lookingFor.text == ""{
+            alert(message: "Please enter your interest")
         }
         else if phoneOut.text == ""{
             alert(message: "Please enter phone")
@@ -53,9 +59,10 @@ class PersonalInformation1VC: UIViewController,UITextFieldDelegate {
         }else{
             let vc = storyboard?.instantiateViewController(withIdentifier: "PersonalInformation2VC") as! PersonalInformation2VC
             vc.name = nameOut.text!
-            vc.email = emailOut.text!
+            vc.lookingFor = lookingFor.text!
             vc.phone = phoneOut.text!
             vc.dob = dobOut.text!
+            vc.key = key
             self.navigationController?.pushViewController(vc, animated: true)
         }
        
@@ -73,13 +80,12 @@ extension PersonalInformation1VC{
         let datepicker = UIDatePicker()
         datepicker.datePickerMode = .date
         datepicker.preferredDatePickerStyle = .wheels
-        let dateMinimum = "11/30/2003"
-        let dateformatter  = DateFormatter()
-        dateformatter.dateFormat = "dd/MM/YYYY"
-        dateformatter.dateStyle = .short
-        datepicker.maximumDate = dateformatter.date(from: dateMinimum)
         textField.inputView = datepicker
-        
+        let dateminimum = "11/30/2003"
+        let dateformetter = DateFormatter()
+        dateformetter.dateStyle = .medium
+        datepicker.maximumDate = dateformetter.date(from: dateminimum)
+    
 //        datepicker.maximumDate = 11/12/2003
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 44))
         
@@ -102,11 +108,53 @@ extension PersonalInformation1VC{
     if let datePicker = dobOut.inputView as? UIDatePicker{
         let dateformatter  = DateFormatter()
         dateformatter.dateStyle = .short
-        dateformatter.dateFormat = "dd/MM/YYYY"
+        dateformatter.dateFormat = "dd-MM-YYYY"
         dobOut.text = dateformatter.string(from: datePicker.date)
         dobOut.resignFirstResponder()
 //        dobOut.text = datePicker.date
     }
         
 }
+}
+
+
+extension PersonalInformation1VC{
+    func getProfileDetails(){
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        if ReachabilityNetwork.isConnectedToNetwork(){
+            let id = UserDefaults.standard.value(forKey: "id") as! String
+            let token = UserDefaults.standard.value(forKey: "token") as! String
+            let headerss : HTTPHeaders = ["x-access-token":token]
+            AF.request(API.getUser+id,method: .get,headers: headerss).responseJSON{ [self]
+                response in
+                switch(response.result){
+                case .success(let json): do{
+                    print("Json",json)
+                    MBProgressHUD.hide(for: self.view, animated: true)
+                    let status = response.response?.statusCode
+                    let respond = json as! NSDictionary
+                    if status == 200{
+                        MBProgressHUD.hide(for: self.view, animated: true)
+                     let data = respond.object(forKey: "data") as! NSDictionary
+                        nameOut.text = data.object(forKey: "name") as? String ?? ""
+                        lookingFor.text = data.object(forKey: "lookingFor") as? String ?? ""
+                        dobOut.text = data.object(forKey: "dob") as? String ?? ""
+                        phoneOut.text = data.object(forKey: "phoneNo") as? String ?? ""
+                    }else{
+                        MBProgressHUD.hide(for: self.view, animated: true)
+                        self.alert(message: "error")
+                    }
+                }
+                case .failure(let error):do{
+                    MBProgressHUD.hide(for: self.view, animated: true)
+                    print("error",error)
+                    self.view.isUserInteractionEnabled = true
+                }
+                }
+            }
+        }else{
+            MBProgressHUD.hide(for: self.view, animated: true)
+            self.alert(message: "Please check internet connection")
+        }
+    }
 }

@@ -39,7 +39,6 @@ class SecondTabVC: UIViewController {
     }
     
 //MARK: - APIs
-    
     func getUserList(){
         if ReachabilityNetwork.isConnectedToNetwork(){
             MBProgressHUD.showAdded(to: self.view, animated: true)
@@ -98,6 +97,7 @@ class SecondTabVC: UIViewController {
     }
     @IBAction func refreshBtn(_ sender: Any) {
         print("refresh")
+    getUserList()
     }
     
     @IBAction func likeBtn(_ sender: Any) {

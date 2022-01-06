@@ -38,13 +38,17 @@ class GenderVC: UIViewController {
 //MARK:- BUTTON ACTIONS
     @IBAction func maleTapped(_ sender: Any) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "PersonalInformation1VC") as! PersonalInformation1VC
+        vc.key = "G"
         UserDefaults.standard.setValue("male", forKey: "Gender")
+        print("bfvhbvbbvhr",UserDefaults.standard.value(forKey: "Gender") as! String)
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func womenTapped(_ sender: Any) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "PersonalInformation1VC") as! PersonalInformation1VC
+        vc.key = "G"
         UserDefaults.standard.setValue("female", forKey: "Gender")
+        print("bfvhbvbbvhr",UserDefaults.standard.value(forKey: "Gender") as! String)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
