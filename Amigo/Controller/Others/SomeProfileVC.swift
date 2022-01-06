@@ -81,7 +81,7 @@ class SomeProfileVC: UIViewController,UICollectionViewDelegate,UICollectionViewD
        
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: upperCollection.frame.width/3.5, height: upperCollection.frame.height)
+        return CGSize(width: upperCollection.frame.width/1.5, height: upperCollection.frame.height)
         
         
     } 
@@ -142,6 +142,29 @@ extension SomeProfileVC{
                         about.text = data.object(forKey: "aboutMe") as? String ?? "---"
                         work.text = data.object(forKey: "myWork") as? String ?? "---"
                         gallery = data.object(forKey: "gallery") as! [AnyObject]
+                        
+                        if let image = data.object(forKey: "profileImageName") as? String{
+                            let url = URL(string: image)
+                            if url! != nil{
+                                DispatchQueue.main.async {
+                                    proImage.af.setImage(withURL: url!)
+                                    print("bcsbvadbvdbvdsfvbdkjbvkdjsfbvkjdsfbvkjdsbfvjkdsfbvkjsb",url!)
+                                    print("bjhdshv")
+                                }
+                                
+                            }else{
+                                if let imagew = gallery[0]["image"] as? String{
+                                    let urrl = URL(string: imagew)
+                                    if url != nil{
+                                        proImage.af.setImage(withURL: urrl!)
+                                        print("bcsbvadbvdbvdsfvbdkjbvkdjsfbvkjdsfbvkjdsbfvjkdsfbvkjsb",urrl!)
+                                        print("bjhdshv")
+                                    }else{
+                                        proImage.image = UIImage(named: "proimage")
+                                    }
+                                }
+                            }
+                        }
                         print(gallery.count,"sdcasdcjsahdbcjhsbadchjbsd")
                         print("success=====",respond)
                         upperCollection.reloadData()

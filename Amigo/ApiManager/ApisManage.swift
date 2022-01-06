@@ -60,10 +60,12 @@ class ApiManager: UIViewController{
                         print(json)
                         if response.response?.statusCode == 200 {
                             //                            ARSLineProgress.hide()
+                       
                             let respond = json as! NSDictionary
                             let data = respond.object(forKey: "data") as! NSDictionary
-                            let userId = data.object(forKey: "_id") as! String
-                            let token = data.object(forKey: "token") as! String
+                            let userId = data.object(forKey: "id") as! String
+                            let token = response.response?.allHeaderFields["x-access-token"] as! String
+                            print(userId)
                             let gender = data.object(forKey: "sex") as? String ?? ""
                             let name = data.object(forKey: "name") as? String ?? ""
                             UserDefaults.standard.setValue(userId, forKey: "id")

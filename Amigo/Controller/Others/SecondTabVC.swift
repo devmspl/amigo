@@ -199,6 +199,7 @@ extension SecondTabVC: KolodaViewDataSource{
             if url != nil{
                 overlay1.picOutlet.af.setImage(withURL: url!)
                 print("image",url!)
+                print("hellllllloloololooloo")
             }else{
                 overlay1.picOutlet.image = UIImage(named: "proimage")
                 print("hello")

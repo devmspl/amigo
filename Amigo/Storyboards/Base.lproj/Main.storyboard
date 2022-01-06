@@ -431,7 +431,7 @@ orientation is</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FNu-Fk-hU1">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NfP-P3-tWa">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfP-P3-tWa">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="htu-xs-2Wa">
@@ -557,7 +557,7 @@ orientation is</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n1S-Nw-UZc">
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QTJ-qk-XtA">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTJ-qk-XtA">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m5t-Jf-ob7">
@@ -786,7 +786,7 @@ orientation is</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gYb-g3-3Aw">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PCB-tT-V53">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCB-tT-V53">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JAt-mk-a3Q">
@@ -1308,7 +1308,7 @@ location in order to use Amigo</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pTs-da-hBe">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pTs-da-hBe">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="npj-e2-oOd">
@@ -1473,11 +1473,11 @@ location in order to use Amigo</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5GR-SU-dqJ">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gWH-5y-abB">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWH-5y-abB">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gCu-C5-wYu">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="910.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="960.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lbz-bc-WJt">
                                                         <rect key="frame" x="30" y="30" width="50" height="50"/>
@@ -1493,8 +1493,13 @@ location in order to use Amigo</string>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cod-Zh-PKc">
                                                         <rect key="frame" x="90" y="30" width="324" height="350"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="picLike" translatesAutoresizingMaskIntoConstraints="NO" id="PyM-94-upH">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="proimage" translatesAutoresizingMaskIntoConstraints="NO" id="PyM-94-upH">
                                                                 <rect key="frame" x="0.0" y="0.0" width="314" height="350"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="20"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
                                                             </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1538,10 +1543,10 @@ location in order to use Amigo</string>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CCZ-id-jov">
-                                                        <rect key="frame" x="0.0" y="630.5" width="414" height="140"/>
+                                                        <rect key="frame" x="0.0" y="630.5" width="414" height="300"/>
                                                         <subviews>
-                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="N3e-da-XUd">
-                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="N3e-da-XUd">
+                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="5" minimumInteritemSpacing="5" id="WPh-E8-Fda">
                                                                     <size key="itemSize" width="288" height="311"/>
@@ -1551,22 +1556,22 @@ location in order to use Amigo</string>
                                                                 </collectionViewFlowLayout>
                                                                 <cells>
                                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="KCP-ac-aU1" customClass="UpperCollectionCell" customModule="Amigo" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="-85.5" width="288" height="311"/>
+                                                                        <rect key="frame" x="0.0" y="-5.5" width="288" height="311"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Ud8-ST-Dtn">
                                                                             <rect key="frame" x="0.0" y="0.0" width="288" height="311"/>
                                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                             <subviews>
-                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic4" translatesAutoresizingMaskIntoConstraints="NO" id="Z0b-Bp-qRP">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="288" height="311"/>
+                                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="proimage" translatesAutoresizingMaskIntoConstraints="NO" id="Z0b-Bp-qRP">
+                                                                                    <rect key="frame" x="5" y="0.0" width="278" height="311"/>
                                                                                 </imageView>
                                                                             </subviews>
                                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="trailing" secondItem="Z0b-Bp-qRP" secondAttribute="trailing" id="4YV-37-QaT"/>
+                                                                                <constraint firstAttribute="trailing" secondItem="Z0b-Bp-qRP" secondAttribute="trailing" constant="5" id="4YV-37-QaT"/>
                                                                                 <constraint firstAttribute="bottom" secondItem="Z0b-Bp-qRP" secondAttribute="bottom" id="Knp-dW-9jB"/>
                                                                                 <constraint firstItem="Z0b-Bp-qRP" firstAttribute="top" secondItem="Ud8-ST-Dtn" secondAttribute="top" id="L2O-C1-Ycy"/>
-                                                                                <constraint firstItem="Z0b-Bp-qRP" firstAttribute="leading" secondItem="Ud8-ST-Dtn" secondAttribute="leading" id="fGO-oM-cXK"/>
+                                                                                <constraint firstItem="Z0b-Bp-qRP" firstAttribute="leading" secondItem="Ud8-ST-Dtn" secondAttribute="leading" constant="5" id="fGO-oM-cXK"/>
                                                                             </constraints>
                                                                         </collectionViewCellContentView>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1584,7 +1589,7 @@ location in order to use Amigo</string>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="140" id="39B-Ga-bZT"/>
+                                                            <constraint firstAttribute="height" constant="300" id="39B-Ga-bZT"/>
                                                             <constraint firstItem="N3e-da-XUd" firstAttribute="top" secondItem="CCZ-id-jov" secondAttribute="top" id="5EM-h3-YZK"/>
                                                             <constraint firstItem="N3e-da-XUd" firstAttribute="leading" secondItem="CCZ-id-jov" secondAttribute="leading" id="8M4-gQ-EtD"/>
                                                             <constraint firstAttribute="trailing" secondItem="N3e-da-XUd" secondAttribute="trailing" id="GLU-pB-B2w"/>
@@ -1605,7 +1610,7 @@ location in order to use Amigo</string>
                                                     <constraint firstItem="TP8-cA-XC5" firstAttribute="leading" secondItem="aNC-O0-PfR" secondAttribute="leading" id="VLH-lB-l00"/>
                                                     <constraint firstAttribute="trailing" secondItem="Cod-Zh-PKc" secondAttribute="trailing" id="XJB-f1-4rl"/>
                                                     <constraint firstAttribute="trailing" secondItem="CCZ-id-jov" secondAttribute="trailing" id="XwX-N6-5Cj"/>
-                                                    <constraint firstAttribute="bottom" secondItem="CCZ-id-jov" secondAttribute="bottom" constant="140" id="Yb5-En-YWX"/>
+                                                    <constraint firstAttribute="bottom" secondItem="CCZ-id-jov" secondAttribute="bottom" constant="30" id="Yb5-En-YWX"/>
                                                     <constraint firstItem="CCZ-id-jov" firstAttribute="leading" secondItem="gCu-C5-wYu" secondAttribute="leading" id="Zp4-MJ-bTF"/>
                                                     <constraint firstItem="Lbz-bc-WJt" firstAttribute="top" secondItem="gCu-C5-wYu" secondAttribute="top" constant="30" id="buS-ZI-NI2"/>
                                                     <constraint firstAttribute="trailing" secondItem="pBQ-9s-sbB" secondAttribute="trailing" constant="30" id="c5q-eP-xyB"/>
@@ -1631,65 +1636,13 @@ location in order to use Amigo</string>
                                         <viewLayoutGuide key="contentLayoutGuide" id="ZkM-CI-Qzf"/>
                                         <viewLayoutGuide key="frameLayoutGuide" id="aUc-dp-MDn"/>
                                     </scrollView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZxA-li-vt3">
-                                        <rect key="frame" x="0.0" y="678" width="414" height="100"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Wg-Om-CsU">
-                                                <rect key="frame" x="72" y="15" width="70" height="70"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="70" id="SZP-NP-qnB"/>
-                                                    <constraint firstAttribute="width" constant="70" id="aEY-0T-h0D"/>
-                                                </constraints>
-                                                <state key="normal" image="Close"/>
-                                                <connections>
-                                                    <action selector="dislikeTapped:" destination="uHP-j6-CaY" eventType="touchUpInside" id="xWp-A9-2Mt"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4b7-Zk-Iwe">
-                                                <rect key="frame" x="172" y="15" width="70" height="70"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="70" id="ez2-I0-YCU"/>
-                                                    <constraint firstAttribute="width" constant="70" id="j7b-FZ-FlN"/>
-                                                </constraints>
-                                                <state key="normal" image="Star"/>
-                                                <connections>
-                                                    <action selector="starTspped:" destination="uHP-j6-CaY" eventType="touchUpInside" id="dQN-jA-ZeQ"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNj-Iy-JfR">
-                                                <rect key="frame" x="272" y="15" width="70" height="70"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="70" id="olv-rn-VPC"/>
-                                                    <constraint firstAttribute="height" constant="70" id="wfh-Ut-dO5"/>
-                                                </constraints>
-                                                <state key="normal" image="Like"/>
-                                                <connections>
-                                                    <action selector="likeTapped:" destination="uHP-j6-CaY" eventType="touchUpInside" id="a0b-u1-vxs"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="0.59540881849315064" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstItem="dNj-Iy-JfR" firstAttribute="leading" secondItem="4b7-Zk-Iwe" secondAttribute="trailing" constant="30" id="3UT-Aw-Kyt"/>
-                                            <constraint firstItem="4b7-Zk-Iwe" firstAttribute="centerX" secondItem="ZxA-li-vt3" secondAttribute="centerX" id="AR2-1w-5IO"/>
-                                            <constraint firstAttribute="height" constant="100" id="CmN-wG-Wam"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="SsY-nu-fPX"/>
-                                            <constraint firstItem="9Wg-Om-CsU" firstAttribute="centerY" secondItem="ZxA-li-vt3" secondAttribute="centerY" id="Y3p-BF-k1I"/>
-                                            <constraint firstItem="4b7-Zk-Iwe" firstAttribute="leading" secondItem="9Wg-Om-CsU" secondAttribute="trailing" constant="30" id="eUE-oX-U5h"/>
-                                            <constraint firstItem="dNj-Iy-JfR" firstAttribute="centerY" secondItem="4b7-Zk-Iwe" secondAttribute="centerY" id="kBN-vM-FdG"/>
-                                            <constraint firstItem="4b7-Zk-Iwe" firstAttribute="centerY" secondItem="ZxA-li-vt3" secondAttribute="centerY" id="zto-2y-rTE"/>
-                                        </constraints>
-                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="gWH-5y-abB" secondAttribute="bottom" id="4mn-Eh-efw"/>
-                                    <constraint firstItem="ZxA-li-vt3" firstAttribute="leading" secondItem="5GR-SU-dqJ" secondAttribute="leading" id="Mmg-ui-eVs"/>
                                     <constraint firstItem="gWH-5y-abB" firstAttribute="top" secondItem="5GR-SU-dqJ" secondAttribute="top" id="Oje-MD-X4X"/>
                                     <constraint firstItem="gWH-5y-abB" firstAttribute="leading" secondItem="5GR-SU-dqJ" secondAttribute="leading" id="ReS-kr-qVJ"/>
-                                    <constraint firstAttribute="bottom" secondItem="ZxA-li-vt3" secondAttribute="bottom" constant="40" id="Zjx-kd-MQq"/>
                                     <constraint firstAttribute="trailing" secondItem="gWH-5y-abB" secondAttribute="trailing" id="psa-j2-UFz"/>
-                                    <constraint firstAttribute="trailing" secondItem="ZxA-li-vt3" secondAttribute="trailing" id="uXc-G9-bKj"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1704,12 +1657,9 @@ location in order to use Amigo</string>
                     </view>
                     <connections>
                         <outlet property="about" destination="1Je-OF-nrg" id="iIS-Te-7Ry"/>
-                        <outlet property="dislike" destination="9Wg-Om-CsU" id="clv-Tf-rWH"/>
                         <outlet property="distance" destination="TP8-cA-XC5" id="c0N-pS-Py9"/>
-                        <outlet property="like" destination="dNj-Iy-JfR" id="2cZ-Dd-ZbJ"/>
                         <outlet property="name" destination="pBQ-9s-sbB" id="qKc-HC-0hB"/>
                         <outlet property="proImage" destination="PyM-94-upH" id="idd-1p-nv8"/>
-                        <outlet property="star" destination="4b7-Zk-Iwe" id="6mm-Fa-0rw"/>
                         <outlet property="upperCollection" destination="N3e-da-XUd" id="ZwO-2o-qbT"/>
                         <outlet property="work" destination="aNC-O0-PfR" id="xPt-iM-JK5"/>
                     </connections>
@@ -2134,7 +2084,7 @@ location in order to use Amigo</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B11-ii-Rwt">
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nym-7i-6J9">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nym-7i-6J9">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="769"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1XS-kT-Qtr">
@@ -3286,7 +3236,7 @@ location in order to use Amigo</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PUk-cd-lve">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PUk-cd-lve">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vnb-Nn-xyb">
@@ -3617,7 +3567,7 @@ location in order to use Amigo</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Ec-Ec-zm6">
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ge-jx-Tqk">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ge-jx-Tqk">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gnD-t6-6dD">
@@ -3764,7 +3714,7 @@ location in order to use Amigo</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oWo-JH-Xlu">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWo-JH-Xlu">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GDU-rR-tG4">
@@ -3979,8 +3929,6 @@ location in order to use Amigo</string>
         <image name="next" width="7.5" height="12"/>
         <image name="pic1" width="350" height="525"/>
         <image name="pic2" width="350" height="525"/>
-        <image name="pic4" width="353.5" height="601"/>
-        <image name="picLike" width="350" height="525"/>
         <image name="profileActive" width="26.5" height="26"/>
         <image name="profileInactive" width="26.5" height="26"/>
         <image name="proimage" width="28" height="24"/>

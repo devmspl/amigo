@@ -7,7 +7,7 @@
 
 import Foundation
 
-public var baseUrl = "http://93.188.167.68:8001/api/"
+public var baseUrl = "http://3.136.56.91:8001/api/"
 
 public struct API{
     

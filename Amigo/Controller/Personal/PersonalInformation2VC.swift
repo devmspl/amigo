@@ -194,21 +194,37 @@ class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollec
 //MARK: - extension
 extension PersonalInformation2VC{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if img.count != 0{
-            return img.count
+        
+        if key == "U"{
+            return gallery.count
         }else{
-            return imagee.count
+            if img.count != 0{
+                return img.count
+            }else{
+                return imagee.count
+            }
         }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = imageCollection.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! InformationCell
-        if img.count == 0{
-            cell.picSelected.image = imagee[indexPath.item]
+        if key == "U"{
+            if let image = gallery[indexPath.item]["image"] as? String{
+                let url = URL(string: image)
+                cell.picSelected.af.setImage(withURL: url!)
+            }else{
+                self.alert(message: "")
+            }
+        }else{
+            if img.count == 0{
+                cell.picSelected.image = imagee[indexPath.item]
+            }
+            else{
+                cell.picSelected.image = img[indexPath.item]
+            }
         }
-        else{
-            cell.picSelected.image = img[indexPath.item]
-        }
+       
         
         return cell
     }
