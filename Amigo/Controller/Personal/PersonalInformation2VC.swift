@@ -214,7 +214,7 @@ extension PersonalInformation2VC{
                 let url = URL(string: image)
                 cell.picSelected.af.setImage(withURL: url!)
             }else{
-                self.alert(message: "")
+                self.alert(message: "imageNot select please select again")
             }
         }else{
             if img.count == 0{
@@ -359,6 +359,7 @@ extension PersonalInformation2VC{
                         if let newgallery = data.object(forKey: "gallery") as? [AnyObject]{
                             gallery = newgallery
                         }
+                        imageCollection.reloadData()
                         print(gallery.count,"sdcasdcjsahdbcjhsbadchjbsd")
                         print("success=====",respond)
                     }else{
