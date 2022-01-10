@@ -8,5 +8,5 @@
 import Foundation
 import SocketIO
 
-let manager = SocketManager(socketURL: URL(string: "http://93.188.167.68:8001")!, config: [.log(true), .compress])
+let manager = SocketManager(socketURL: URL(string: "http://3.136.56.91:8001")!, config: [.log(true), .compress])
 var socket = manager.defaultSocket

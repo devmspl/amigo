@@ -39,5 +39,6 @@ public struct API{
     
 //MARK: - CONVERSATION API
     public static let conversation        = baseUrl+"conversations/getOldCoversations/"
+    public static let conversationList    = baseUrl+"conversations/conversationList/"
 
 }

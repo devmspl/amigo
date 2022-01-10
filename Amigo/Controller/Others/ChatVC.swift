@@ -17,6 +17,7 @@ class ChatVC: UIViewController {
     var roomID = String()
    // var username = ""
     var status = ""
+    var sendTo = ""
     var sendLink = ""
     var img = ""
     var friendId = ""
@@ -67,7 +68,7 @@ class ChatVC: UIViewController {
         socket.connect()
         print(roomID)
      
-        socket.on("connect"){ data, ack in
+        socket.on("connect"){ [self] data, ack in
         print("socket connected")
          
         socket = manager.defaultSocket;
@@ -75,7 +76,7 @@ class ChatVC: UIViewController {
             
             socket.emit("set-user-data",userid)
             print(userid)
-            socket.emit("set-room" , ["covsersatioFrom" : userid,"covsersatioTo": "61bd812bb51cba4379d99625"])
+            socket.emit("set-room" , ["covsersatioFrom" : userid,"covsersatioTo": sendTo])
             
         }
         self.chatTable.delegate = self
@@ -110,7 +111,7 @@ class ChatVC: UIViewController {
         self.oldCHATSSSS()
         
         socket.on("typing"){ data, ack in
-              print("typing Data==== ", data)
+              print("typing Data====", data)
               //self.lbl_Usertyping.text = "\(data)"
         }
             socket.on("chat-msg"){ data, ack in

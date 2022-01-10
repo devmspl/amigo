@@ -3050,8 +3050,12 @@ location in order to use Amigo</string>
                                                                                                 </userDefinedRuntimeAttribute>
                                                                                             </userDefinedRuntimeAttributes>
                                                                                         </imageView>
-                                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dot" translatesAutoresizingMaskIntoConstraints="NO" id="gXu-cH-JXZ">
-                                                                                            <rect key="frame" x="53" y="23.5" width="13" height="13"/>
+                                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pinkNewMatch" translatesAutoresizingMaskIntoConstraints="NO" id="gXu-cH-JXZ">
+                                                                                            <rect key="frame" x="51" y="22.5" width="15" height="15"/>
+                                                                                            <constraints>
+                                                                                                <constraint firstAttribute="height" constant="15" id="OBD-3Z-IvS"/>
+                                                                                                <constraint firstAttribute="width" constant="15" id="XLs-T7-V5D"/>
+                                                                                            </constraints>
                                                                                         </imageView>
                                                                                     </subviews>
                                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3896,6 +3900,11 @@ location in order to use Amigo</string>
             <point key="canvasLocation" x="18.840579710144929" y="69.642857142857139"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="msR-gZ-eEg">
+            <size key="intrinsicContentSize" width="374" height="45"/>
+        </designable>
+    </designables>
     <resources>
         <image name="Background" width="414" height="388"/>
         <image name="Close" width="72" height="72"/>
@@ -3912,7 +3921,6 @@ location in order to use Amigo</string>
         <image name="camera" width="36" height="36"/>
         <image name="checkBox" width="20" height="20"/>
         <image name="deleteRequest" width="23" height="23"/>
-        <image name="dot" width="13" height="13"/>
         <image name="drop" width="8" height="14"/>
         <image name="education" width="16" height="16"/>
         <image name="height" width="16" height="16"/>
@@ -3929,6 +3937,7 @@ location in order to use Amigo</string>
         <image name="next" width="7.5" height="12"/>
         <image name="pic1" width="350" height="525"/>
         <image name="pic2" width="350" height="525"/>
+        <image name="pinkNewMatch" width="13" height="13"/>
         <image name="profileActive" width="26.5" height="26"/>
         <image name="profileInactive" width="26.5" height="26"/>
         <image name="proimage" width="28" height="24"/>

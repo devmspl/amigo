@@ -4,6 +4,7 @@ PODS:
     - Alamofire (~> 5.4)
   - BSImagePicker (3.3.1)
   - DropDown (2.3.13)
+  - IQKeyboardManagerSwift (6.5.9)
   - Koloda (5.0.1):
     - pop (~> 1.0)
   - MBProgressHUD (1.2.0)
@@ -20,6 +21,7 @@ DEPENDENCIES:
   - AlamofireImage
   - BSImagePicker (~> 3.1)
   - DropDown
+  - IQKeyboardManagerSwift
   - Koloda
   - MBProgressHUD
   - OpalImagePicker
@@ -33,6 +35,7 @@ SPEC REPOS:
     - AlamofireImage
     - BSImagePicker
     - DropDown
+    - IQKeyboardManagerSwift
     - Koloda
     - MBProgressHUD
     - OpalImagePicker
@@ -47,6 +50,7 @@ SPEC CHECKSUMS:
   AlamofireImage: 34a2d90b0e5fe6a5605f85ae4b7b01e784c60192
   BSImagePicker: 0fe04b574d4d6b81093785d2af6c26227efc8428
   DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
+  IQKeyboardManagerSwift: 6e839c575c4aa1078d58a596e41244e77abe918f
   Koloda: d07b9199a383abc5898b62aa945a599f5e7c0c4b
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   OpalImagePicker: 38e772dd93a54431fc516b33e1f337c50f745834
@@ -56,6 +60,6 @@ SPEC CHECKSUMS:
   StepSlider: 890db727e779fa99cb32afffc5887c1109e151f4
   Toast: 91b396c56ee72a5790816f40d3a94dd357abc196
 
-PODFILE CHECKSUM: a207a436ec56d099a20504ee97bac2f334c950ed
+PODFILE CHECKSUM: efb02ac13bb979f33a71a3657c9b818359080abf
 
 COCOAPODS: 1.11.2

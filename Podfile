@@ -7,7 +7,7 @@ target 'Amigo' do
 
   # Pods for Amigo
 
-	pod 'StepSlider'
+  pod 'StepSlider'
   pod 'Alamofire'
   pod 'AlamofireImage'
   pod 'MBProgressHUD'
@@ -17,6 +17,7 @@ target 'Amigo' do
   pod 'OpalImagePicker'
   pod 'Socket.IO-Client-Swift', '~> 15.2.0'
   pod 'Toast'
+  pod 'IQKeyboardManagerSwift'
 
   
 

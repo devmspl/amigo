@@ -106,11 +106,10 @@ class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollec
                     DispatchQueue.main.async {
                       self.imageCollection.reloadData()
                     }
-        
             }
     
 
-//MARK: - GESTURE METHOD
+    //MARK: - GESTURE METHOD
     @objc func gestureRecognizer( _ gesture: UILongPressGestureRecognizer){
         guard let collectionView = imageCollection else{
             return

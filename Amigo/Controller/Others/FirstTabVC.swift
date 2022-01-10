@@ -24,6 +24,7 @@ class FirstTabVC: UIViewController {
     let message = ["Hello","hii","How are you","Where you  live?","lets meet on coffee","Yes offcource","No we can't","Let's do this"]
     var conversationId = ""
     var dataArray = [AnyObject]()
+    var tableData = [AnyObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,7 @@ class FirstTabVC: UIViewController {
         super.viewWillAppear(animated)
         getConversionApi()
         GetNewMatchApi()
+        coversationListApi()
         backView.backgroundColor = UIColor.clear
         socket.disconnect()
        
@@ -71,31 +73,38 @@ class NewCollection: UICollectionViewCell{
 }
 
 
-// MARK:- EXTENSION table collection
+// MARK: - EXTENSION table collection
 
 extension FirstTabVC: UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return imgTable.count
+       return tableData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = messagetable.dequeueReusableCell(withIdentifier: "cell") as! MessageTable
-        cell.imageTable.image = imgTable[indexPath.row]
-        cell.nameLabel.text = tableName[indexPath.row]
-        cell.messageLabel.text = message[indexPath.row]
-        if UserDefaults.standard.value(forKey: "Gender") as! String == "Male"{
+        cell.nameLabel.text = tableData[indexPath.row]["name"] as? String ?? ""
+        cell.messageLabel.text = tableData[indexPath.row]["lastMsg"] as? String ?? ""
+        if UserDefaults.standard.value(forKey: "Gender") as! String == "male"{
             cell.msgDot.image = UIImage(named: "msgDot")
         }else{
             cell.msgDot.image = UIImage(named: "pinkDot")
         }
-
+        if let image = tableData[indexPath.row]["profileImageName"] as? String{
+            let url = URL(string: image)
+            if url != nil{
+                cell.imageTable.af.setImage(withURL: url!)
+            }
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = storyboard?.instantiateViewController(identifier: "ChatVC") as! ChatVC
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataArray.count
@@ -103,6 +112,12 @@ extension FirstTabVC: UITableViewDelegate,UITableViewDataSource,UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = newMatchColloction.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! NewCollection
+        let status = dataArray[indexPath.row]["status"] as? String ?? ""
+        
+        if status == "active"{
+            cell.dotImage.image = UIImage(named: "greenDot")
+        }
+     
         if let image = dataArray[indexPath.item]["profileImageName"] as? String{
             let url = URL(string: image)
             if url != nil{
@@ -110,21 +125,24 @@ extension FirstTabVC: UITableViewDelegate,UITableViewDataSource,UICollectionView
                 cell.imgColl.af.setImage(withURL: url!)
             }
         }
-       
         cell.nameLabel.text = dataArray[indexPath.item]["name"] as? String ?? ""
         return cell
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(identifier: "ChatVC") as! ChatVC
+        let idUser = dataArray[indexPath.item]["id"] as! String
+        vc.sendTo = idUser
         self.navigationController?.pushViewController(vc, animated: true)
     }
+   
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: newMatchColloction.frame.width/4.5, height: newMatchColloction.frame.height/0.5)
     }
     
 }
 
-//MARK:- GET CONVERSATION API
+//MARK: - GET CONVERSATION API
 extension FirstTabVC{
     func getConversionApi(){
         if ReachabilityNetwork.isConnectedToNetwork(){
@@ -206,4 +224,42 @@ extension FirstTabVC{
             self.alert(message: "Please check internet connection")
         }
 }
+}
+
+//MARK: - CONVERSATION LIST
+
+extension FirstTabVC{
+    func coversationListApi(){
+        if ReachabilityNetwork.isConnectedToNetwork(){
+            MBProgressHUD.showAdded(to: self.view, animated: true)
+            let id = UserDefaults.standard.value(forKey: "id") as! String
+            AF.request(API.conversationList+id,method: .get,encoding: JSONEncoding.default).responseJSON{ [self]
+                response in
+                print(API.conversationList+id)
+                switch(response.result){
+                case .success(let json): do{
+                    let status = response.response?.statusCode
+                    let respond = json as! NSDictionary
+                    if status == 200{
+                        print("hsgdjhsauasf",respond)
+                        let data = respond.object(forKey: "data") as! [AnyObject]
+                        tableData = data
+                        messagetable.reloadData()
+                        print("sdhjhsadjshadv",tableData.count)
+                        print("abdvjdjhvhve")
+                      
+                    }else{
+                        print("error")
+                    }
+                }
+                case .failure(let error):do{
+                    print("error",error)
+                }
+                }
+            }
+            
+        }else{
+            alert(message: "Please check internet connection")
+        }
+    }
 }
