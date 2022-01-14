@@ -12,7 +12,8 @@ import UIKit
 
 class ApiManager: UIViewController{
     static let shared = ApiManager()
-    
+    var message = ""
+    var error = ""
     //MARK: - signUp api
     func signUp(model: CreateUserModel, completionHandler: @escaping (Bool) -> ()){
         if ReachabilityNetwork.isConnectedToNetwork(){
@@ -58,10 +59,9 @@ class ApiManager: UIViewController{
                     do{
                         let json = try JSONSerialization.jsonObject(with: data!, options: [])
                         print(json)
+                        let respond = json as! NSDictionary
                         if response.response?.statusCode == 200 {
                             //                            ARSLineProgress.hide()
-                       
-                            let respond = json as! NSDictionary
                             let data = respond.object(forKey: "data") as! NSDictionary
                             let userId = data.object(forKey: "id") as! String
                             let token = response.response?.allHeaderFields["x-access-token"] as! String
@@ -78,10 +78,12 @@ class ApiManager: UIViewController{
                             print(token)
                             completionHandler(true)
                         }else{
-                            self.alert(message: "An error occured please try again")
+                            if let message = respond.object(forKey: "error") as? String{
+                                self.message = message
+                                print(self.message)
+                          }
                             completionHandler(false)
-                            //                            ARSLineProgress.hide()
-                        }
+                          }
                     }catch{
                         print(error.localizedDescription)
                         completionHandler(false)
@@ -121,8 +123,11 @@ class ApiManager: UIViewController{
                             let token = data.object(forKey: "token") as! String
                             UserDefaults.standard.setValue(token, forKey: "token")
                         }else{
+                            if let err = respond.object(forKey: "error") as? String{
+                                self.error = err
+                            }
                             completionHandler(false)
-                            self.alert(message: "An error occured please try again")
+                        
                         }
                         
                     }catch{
@@ -228,6 +233,7 @@ class ApiManager: UIViewController{
             let token = UserDefaults.standard.value(forKey: "token") as! String
             let head: HTTPHeaders = ["x-access-token": token]
             print(API.changePass+userId)
+            
             print(token)
             AF.request(API.changePass+userId, method: .put, parameters: model, headers: head).response{
                 response in
@@ -235,14 +241,17 @@ class ApiManager: UIViewController{
                 case .success(let data):do{
                     let json = try JSONSerialization.jsonObject(with: data!, options: [])
                     let respond = json as! NSDictionary
-                    let message = respond.object(forKey: "message") as? String ?? ""
+                    print(respond)
                     if response.response?.statusCode == 200{
                         print("success",respond)
-                        self.alert(message: message, title: "Success")
+                        if let message = respond.object(forKey: "message") as? String{
+                            self.message = message
+                        }
                         completionHandler(true)
                     }else{
-                        let error = respond.object(forKey: "error") as? String ?? ""
-                        self.alert(message: error)
+                       if let msg = respond.object(forKey: "error") as? String{
+                        self.message = msg
+                       }
                         completionHandler(false)
                     }
                 }catch{
@@ -491,5 +500,36 @@ class ApiManager: UIViewController{
             completionHandler(false)
             self.alert(message: "An error occured please try again")
         }
+    }
+}
+
+
+
+
+
+
+extension UIViewController {
+    
+  func alert(message: String, title: String = "") {
+    let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+    alertController.addAction(OKAction)
+    self.present(alertController, animated: true, completion: nil)
+  }
+    
+ // showAlertWithOneAction
+ func showAlertWithOneAction(alertTitle:String, message: String, action1Title:String, completion1: ((UIAlertAction) -> Void)? = nil){
+            let alert = UIAlertController(title: alertTitle, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: action1Title, style: .default, handler: completion1))
+            self.present(alert, animated: true, completion: nil)
+        }
+    
+//showAlertWithTwoActions
+    func showAlertWithTwoActions(alertTitle:String, message: String, action1Title:String, action1Style: UIAlertAction.Style ,action2Title: String ,completion1: ((UIAlertAction) -> Void)? = nil,completion2 :((UIAlertAction) -> Void)? = nil){
+        
+        let alert = UIAlertController(title: alertTitle, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: action1Title, style: action1Style, handler: completion1))
+        alert.addAction(UIAlertAction(title: action2Title, style: .default, handler: completion2))
+        self.present(alert, animated: true, completion: nil)
     }
 }

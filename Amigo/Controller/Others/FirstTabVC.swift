@@ -13,7 +13,11 @@ import MBProgressHUD
 class FirstTabVC: UIViewController {
    
     @IBOutlet weak var backView: UIView!
-    @IBOutlet weak var messagetable: UITableView!
+    @IBOutlet weak var messagetable: UITableView!{
+        didSet{
+            messagetable.tableFooterView = UIView(frame: .zero)
+        }
+    }
     @IBOutlet weak var newMatchColloction: UICollectionView!
     @IBOutlet weak var noMatch: UILabel!
     
@@ -37,7 +41,7 @@ class FirstTabVC: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        getConversionApi()
+//        getConversionApi()
         GetNewMatchApi()
         coversationListApi()
         backView.backgroundColor = UIColor.clear

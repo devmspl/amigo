@@ -141,11 +141,14 @@ extension SomeProfileVC{
                         name.text = data.object(forKey: "name") as? String ?? "---"
                         about.text = data.object(forKey: "aboutMe") as? String ?? "---"
                         work.text = data.object(forKey: "myWork") as? String ?? "---"
-                        gallery = data.object(forKey: "gallery") as! [AnyObject]
+                        if let gal  = data.object(forKey: "gallery") as? [AnyObject]{
+                            gallery = gal
+                        }
+                     
                         
                         if let image = data.object(forKey: "profileImageName") as? String{
                             let url = URL(string: image)
-                            if url! != nil{
+                            if url != nil{
                                 DispatchQueue.main.async {
                                     proImage.af.setImage(withURL: url!)
                                     print("bcsbvadbvdbvdsfvbdkjbvkdjsfbvkjdsfbvkjdsbfvjkdsfbvkjsb",url!)
@@ -153,16 +156,21 @@ extension SomeProfileVC{
                                 }
                                 
                             }else{
-                                if let imagew = gallery[0]["image"] as? String{
-                                    let urrl = URL(string: imagew)
-                                    if url != nil{
-                                        proImage.af.setImage(withURL: urrl!)
-                                        print("bcsbvadbvdbvdsfvbdkjbvkdjsfbvkjdsfbvkjdsbfvjkdsfbvkjsb",urrl!)
-                                        print("bjhdshv")
-                                    }else{
-                                        proImage.image = UIImage(named: "proimage")
+                                if gallery.count != 0{
+                                    if let imagew = gallery[0]["image"] as? String{
+                                        let urrl = URL(string: imagew)
+                                        if urrl != nil{
+                                            proImage.af.setImage(withURL: urrl!)
+                                            print("bcsbvadbvdbvdsfvbdkjbvkdjsfbvkjdsfbvkjdsbfvjkdsfbvkjsb",urrl!)
+                                            print("bjhdshv")
+                                        }else{
+                                            proImage.image = UIImage(named: "proimage")
+                                        }
                                     }
+                                }else{
+                                    print("empty")
                                 }
+                               
                             }
                         }
                         print(gallery.count,"sdcasdcjsahdbcjhsbadchjbsd")

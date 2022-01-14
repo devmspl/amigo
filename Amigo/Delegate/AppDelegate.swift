@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,21 +16,25 @@ var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let appdelegate = UIApplication.shared.delegate as! AppDelegate
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        IQKeyboardManager.shared.enable = true
         
         if UserDefaults.standard.value(forKey: "id") != nil{
-            if UserDefaults.standard.value(forKey: "Gender") as! String  == "" || UserDefaults.standard.value(forKey: "name") as! String == "" {
-                
+            if UserDefaults.standard.value(forKey: "Gender") == nil || UserDefaults.standard.value(forKey: "name") == nil {
+                print("bjhbjbfjajdfb",UserDefaults.standard.value(forKey: "id") as! String)
+                print("bjhbjbfjajdfb",UserDefaults.standard.value(forKey: "token") as! String)
                 let vc = storyboard.instantiateViewController(withIdentifier: "GenderVC") as! GenderVC
-                let navigation = UINavigationController(rootViewController: vc)
-                navigation.isNavigationBarHidden = true
-                appdelegate.window?.rootViewController = navigation
+                 let navigation = UINavigationController(rootViewController: vc)
+                 navigation.isNavigationBarHidden = true
+                 appdelegate.window?.rootViewController = navigation
+               
             }else{
+             
+                
                 let vc = storyboard.instantiateViewController(withIdentifier: "TabBarVC") as! TabBarVC
                 let navigation = UINavigationController.init(rootViewController: vc)
                 navigation.isNavigationBarHidden = true
                 appdelegate.window?.rootViewController = navigation
                 appdelegate.window?.makeKeyAndVisible()
-
             }
         }
         // Override point for customization after application launch.

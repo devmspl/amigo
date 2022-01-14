@@ -195,15 +195,31 @@ extension SecondTabVC: KolodaViewDataSource{
         let overlay1 = (Bundle.main.loadNibNamed("slider", owner: self, options: nil)?[0] as! OverlayChild)
         overlay1.nameOutlet.text = userData[index]["name"] as? String ?? ""
         if let image = userData[index]["profileImageName"] as? String{
-            let url = URL(string: image)
-            if url != nil{
-                overlay1.picOutlet.af.setImage(withURL: url!)
-                print("image",url!)
-                print("hellllllloloololooloo")
+            if image != ""{
+                let url = URL(string: image)
+                if url != nil{
+                    overlay1.picOutlet.af.setImage(withURL: url!)
+                    print("image",url!)
+                    print("hellllllloloololooloo")
+                }else{
+                    overlay1.picOutlet.image = UIImage(named: "proimage")
+                    print("hello")
+                }
             }else{
-                overlay1.picOutlet.image = UIImage(named: "proimage")
-                print("hello")
+                if let gallery = userData[index]["gallery"] as? [AnyObject]{
+                    if let img = gallery[0]["image"] as? String{
+                        let urrl = URL(string: img)
+                        if urrl != nil{
+                            overlay1.picOutlet.af.setImage(withURL: urrl!)
+                        }else{
+                            overlay1.picOutlet.image = UIImage(named: "proimage")
+                            print("no image in gallery")
+                        }
+                       
+                    }
+                }
             }
+            
         }
 //        overlay1.picOutlet.image = UIImage(named: "Background")
         return overlay1

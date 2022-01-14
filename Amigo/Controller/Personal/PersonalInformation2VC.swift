@@ -45,7 +45,7 @@ class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollec
     let imageVC = OpalImagePickerController()
     let configuration = OpalImagePickerConfiguration()
     var key = ""
-
+    var status = ""
 //MARK:- VIEWDID LOAD
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -163,10 +163,18 @@ class PersonalInformation2VC: UIViewController,UICollectionViewDelegate,UICollec
                                    guard let _ = self else {
                                      return
                                    }
+                                    
                                    print("Status: \(percent)")
+                                    print(img.count)
+                                    print("fhkgfhfhfhf")
                                   if percent == 1.0{
-                                 self!.alert(message: "Profile updated Successfully", title: "Image")
-            
+                                    if status == "200"{
+                                        self!.alert(message: "Profile updated Successfully", title: "Image")
+                                    }
+                                    else{
+                                        print(status,"fsdfdsf")
+                                        print("snksj")
+                                    }
                                    }
                                  },
                                  completion: { [weak self] result in
@@ -241,8 +249,11 @@ extension PersonalInformation2VC{
 //            picker.view.makeToast("Please select 6 images", duration: 3.0, position: CSToastPositionTop)
             
             picker.alert(message: "Please Select 6 images")
+            
            
         }else {
+           
+            key = "D"
             selectedAsset.append(contentsOf: assets)
             convertAssestToImage(assets: assets)
             imageCollection.reloadData()
@@ -322,6 +333,8 @@ extension PersonalInformation2VC{
               }
               .response { response in
                   debugPrint(response)
+                
+                
               }
           }
 }

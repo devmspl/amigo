@@ -25,7 +25,7 @@ class ChangePassword: UIViewController {
             ViewsColl[i].layer.borderWidth = 1
             ViewsColl[i].layer.borderColor = UIColor.gray.cgColor
         }
-        if UserDefaults.standard.value(forKey: "Gender") as! String == "Male"{
+        if UserDefaults.standard.value(forKey: "Gender") as! String == "male"{
             self.view.backgroundColor = UIColor(named: "MenColor")
         }else{
             self.view.backgroundColor = UIColor(named: "girlColor")
@@ -64,11 +64,12 @@ class ChangePassword: UIViewController {
         }else if newPassword.text != changePassword.text{
             self.alert(message: "Password mismatch")
         }else{
-            let model = ChangePassModel(oldPassword: oldPassword.text!, newPassword: oldPassword.text!)
+            let model = ChangePassModel(oldPassword: oldPassword.text!, newPassword: newPassword.text!)
             ApiManager.shared.changePass(model: model) { (issuccess) in
                 if issuccess{
-                    self.alert(message: "Password successfully changed")
+                    self.alert(message: ApiManager.shared.message)
                 }else{
+                    self.alert(message: ApiManager.shared.message)
 //                    self.alert(message: "Something went wrong", title: "Opps..")
                 }
             }

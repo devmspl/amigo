@@ -53,14 +53,31 @@ class FavouriteVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
         cell.nameText.text = dataArray[indexPath.row]["name"] as? String ?? ""
         
         if let image = dataArray[indexPath.row]["profileImageName"] as? String {
-            print(image,"dsfasdfasdfasdf")
-            let url = URL(string: image)
-            if url != nil{
-            print(url)
-                cell.img.af.setImage(withURL: url!)
+            if image != ""{
+                print(image,"dsfasdfasdfasdf")
+                let url = URL(string: image)
+                if url != nil{
+                print(url)
+                    cell.img.af.setImage(withURL: url!)
+                }else{
+                    cell.img.image = UIImage(named: "proimage")
+                }
             }else{
-                cell.img.image = UIImage(named: "proimage")
+                if let gal = dataArray[indexPath.row]["gallery"] as? [AnyObject]{
+                    if let imga = gal[0]["image"] as? String{
+                        let url = URL(string: imga)
+                        if url != nil{
+                            cell.img.af.setImage(withURL: url!)
+                        }
+                        else{
+                            cell.img.image = UIImage(named: "proimage")
+                        }
+                    }
+                }
             }
+            
+        }else{
+            cell.img.image = UIImage(named: "proimage")
         }
         cell.deleteBtn.tag = indexPath.row
         return cell

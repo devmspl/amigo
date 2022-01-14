@@ -67,8 +67,14 @@ class LoginVC: UIViewController {
     
 
     @IBAction func loginTapped(_ sender: Any) {
-        
-        if isValidEmail(phoneNo.text!){
+        if phoneNo.text == ""{
+            self.alert(message: "Please enter Email")
+        }else if password.text == ""{
+            self.alert(message: "Please enter password")
+        }else if !(isValidEmail(phoneNo.text!)){
+            self.alert(message: "Please enter valid email")
+        }else{
+            
             MBProgressHUD.showAdded(to: self.view, animated: true)
             let loginModel = LoginModel(email: phoneNo.text!, password: password.text!)
             ApiManager.shared.login(model: loginModel) { (isSuccess) in
@@ -88,12 +94,9 @@ class LoginVC: UIViewController {
                     
                 }else{
                     MBProgressHUD.hide(for: self.view, animated: true)
-                    print("check credetials")
-//                    self.alert(message: "check credentials")
+                    self.alert(message: ApiManager.shared.message)
                 }
             }
-        }else{
-            self.alert(message: "Please enter valid email")
         }
         
         
@@ -127,29 +130,3 @@ class LoginVC: UIViewController {
     }
 }
 
-
-extension UIViewController {
-    
-  func alert(message: String, title: String = "") {
-    let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-    alertController.addAction(OKAction)
-    self.present(alertController, animated: true, completion: nil)
-  }
-    
- // showAlertWithOneAction
- func showAlertWithOneAction(alertTitle:String, message: String, action1Title:String, completion1: ((UIAlertAction) -> Void)? = nil){
-            let alert = UIAlertController(title: alertTitle, message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: action1Title, style: .default, handler: completion1))
-            self.present(alert, animated: true, completion: nil)
-        }
-    
-//showAlertWithTwoActions
-    func showAlertWithTwoActions(alertTitle:String, message: String, action1Title:String, action1Style: UIAlertAction.Style ,action2Title: String ,completion1: ((UIAlertAction) -> Void)? = nil,completion2 :((UIAlertAction) -> Void)? = nil){
-        
-        let alert = UIAlertController(title: alertTitle, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: action1Title, style: action1Style, handler: completion1))
-        alert.addAction(UIAlertAction(title: action2Title, style: .default, handler: completion2))
-        self.present(alert, animated: true, completion: nil)
-    }
-}

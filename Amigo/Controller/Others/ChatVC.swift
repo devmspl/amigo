@@ -76,6 +76,8 @@ class ChatVC: UIViewController {
             
             socket.emit("set-user-data",userid)
             print(userid)
+            print(sendTo)
+            print("bjhdf")
             socket.emit("set-room" , ["covsersatioFrom" : userid,"covsersatioTo": sendTo])
             
         }
