@@ -29,7 +29,8 @@ class FirstTabVC: UIViewController {
     var conversationId = ""
     var dataArray = [AnyObject]()
     var tableData = [AnyObject]()
-    
+ 
+//MARK: -
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -135,8 +136,10 @@ extension FirstTabVC: UITableViewDelegate,UITableViewDataSource,UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = storyboard?.instantiateViewController(identifier: "ChatVC") as! ChatVC
-        let idUser = dataArray[indexPath.item]["id"] as! String
+        let idUser = dataArray[indexPath.item]["id"] as? String ?? ""
         vc.sendTo = idUser
+        vc.name = dataArray[indexPath.item]["name"] as? String ?? ""
+        vc.img = dataArray[indexPath.item]["profileImageName"] as? String ?? ""
         self.navigationController?.pushViewController(vc, animated: true)
     }
    
@@ -237,6 +240,8 @@ extension FirstTabVC{
         if ReachabilityNetwork.isConnectedToNetwork(){
             MBProgressHUD.showAdded(to: self.view, animated: true)
             let id = UserDefaults.standard.value(forKey: "id") as! String
+            print(API.conversationList+id)
+            
             AF.request(API.conversationList+id,method: .get,encoding: JSONEncoding.default).responseJSON{ [self]
                 response in
                 print(API.conversationList+id)
