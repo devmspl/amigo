@@ -7,19 +7,27 @@
 
 import UIKit
 import SocketIO
+import AlamofireImage
 
 class ChatVC: UIViewController {
     
     var arraySendMessage = [AnyObject]()
      
     @IBOutlet weak var nameUser: UILabel!
+    @IBOutlet weak var chatTable: UITableView!{
+        didSet{
+            chatTable.tableFooterView = UIView(frame: .zero)
+        }
+    }
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var textMessage: UITextField!
     var sendmasg = "0"
     var roomID = String()
    // var username = ""
     var status = ""
     var sendTo = ""
     var sendLink = ""
-    var img = ""
+   
     var friendId = ""
     var OldData = 0
      
@@ -28,8 +36,9 @@ class ChatVC: UIViewController {
     var msg = ""
     var date = ""
     var totalMsg = 0
-
-
+//data from first controller
+    var img = ""
+    var name = ""
 
     var arraymsgFrom = [AnyObject]()
     var arraymsgTo = [AnyObject]()
@@ -39,14 +48,8 @@ class ChatVC: UIViewController {
     var Int = 1;
     var id = 1 ;
 
-    @IBOutlet weak var chatTable: UITableView!{
-        didSet{
-            chatTable.tableFooterView = UIView(frame: .zero)
-        }
-    }
+  
     
-    @IBOutlet weak var profileImage: UIImageView!
-    @IBOutlet weak var textMessage: UITextField!
     var sendMsgarr = ["a","b","a","b","a","b","a","b"]
     var receiveMsgarr = ["a","b","a","b","a","b","a","b"]
     
@@ -64,6 +67,14 @@ class ChatVC: UIViewController {
         }
         
         let userid = UserDefaults.standard.value(forKey: "id") as! String
+        profileImage.layer.cornerRadius = 20
+        let url = URL(string: img)
+        if url != nil{
+            profileImage.af.setImage(withURL: url!)
+        }else{
+            print("No image in url")
+        }
+        nameUser.text = name
         
         socket.connect()
         print(roomID)
